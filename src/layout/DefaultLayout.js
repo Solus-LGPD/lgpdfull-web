@@ -9,7 +9,7 @@ const DefaultLayout = () => {
 
   const [ loading, setLoading ] = useState(true);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const checkLogin = async () => {
       if(api.gettoken()){
         setLoading(false);
@@ -18,11 +18,11 @@ const DefaultLayout = () => {
       }
     }
     checkLogin();
-  }, [])
+  }, [])*/
   
   return (
     <div>
-      {!loading &&
+      {/* {!loading && */}
         <>
           <AppSidebar />
           <div className="wrapper d-flex flex-column min-vh-100 bg-light">
@@ -33,7 +33,7 @@ const DefaultLayout = () => {
             <AppFooter />
           </div>
         </>
-      }
+       
     </div>
   )
 }
