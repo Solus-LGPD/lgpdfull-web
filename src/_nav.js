@@ -16,7 +16,7 @@ import {
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
-  {
+  /*{
     component: CNavItem,
     name: 'Dashboard',
     to: '/dashboard',
@@ -25,26 +25,10 @@ const _nav = [
       color: 'info',
       text: 'NEW',
     },
-  },
+  },*/
   {
     component: CNavTitle,
-    name: 'Theme',
-  },
-  {
-    component: CNavItem,
-    name: 'Colors',
-    to: '/theme/colors',
-    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: 'Typography',
-    to: '/theme/typography',
-    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavTitle,
-    name: 'Components',
+    name: 'Processos',
   },
   {
     component: CNavGroup,
