@@ -30,8 +30,12 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
-        <CIcon className="sidebar-brand-full" icon={logoNegative} height={35} />
-        <CIcon className="sidebar-brand-narrow" icon={sygnet} height={35} />
+        <img
+          alt=""
+          src="https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279"
+          width="80%"
+          className="mt-3 mb-4 ml-auto mr-auto"
+        />
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
