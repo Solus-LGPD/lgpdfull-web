@@ -27,7 +27,7 @@ const Login = () => {
                 <CCardBody>
                   <CForm>
                     <h1>Login</h1>
-                    <p className="text-medium-emphasis">Sign In to your account</p>
+                    <p className="text-medium-emphasis">Coloque sua conta</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
@@ -45,16 +45,19 @@ const Login = () => {
                       />
                     </CInputGroup>
                     <CRow>
+                      <CCol xs={10} className="text-right">
+                        <Link>
+                          <CButton src='https://sites.usp.br/solus' color="link" className="px-0">
+                            Esqueceu sua senha?
+                          </CButton>
+                        </Link>
+                      </CCol>
                       <CCol xs={6}>
                         <CButton color="primary" className="px-4">
                           Login
                         </CButton>
                       </CCol>
-                      <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
-                          Forgot password?
-                        </CButton>
-                      </CCol>
+                      
                     </CRow>
                   </CForm>
                 </CCardBody>
@@ -62,16 +65,11 @@ const Login = () => {
               <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
-                    <h2>Sign up</h2>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                  <img className='mb-2' width='280px' src='https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279'/>
+
+                    <p className='mt-5 mb-3'>
+                      O Sistema LGPDFULL foi criado para ajudar as empresas na implementação da Lei Geral de Proteção de Dados.
                     </p>
-                    <Link to="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
-                        Register Now!
-                      </CButton>
-                    </Link>
                   </div>
                 </CCardBody>
               </CCard>
