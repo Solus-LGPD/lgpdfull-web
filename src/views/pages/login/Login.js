@@ -68,7 +68,7 @@ const Login = () => {
                   <img className='mb-2' width='280px' src='https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279'/>
 
                     <p className='mt-5 mb-3'>
-                      O Sistema LGPDFULL foi criado para ajudar as empresas na implementação da Lei Geral de Proteção de Dados.
+                      O Sistema LGPDFull foi criado para ajudar as empresas na implementação da Lei Geral de Proteção de Dados Pessoais.
                     </p>
                   </div>
                 </CCardBody>
