@@ -41,7 +41,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Quiz LGPD',
-    to: '/inventario',
+    to: '/lgpdfull',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
   {
