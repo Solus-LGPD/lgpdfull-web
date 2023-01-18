@@ -46,8 +46,8 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={10} className="text-right">
-                        <Link  to='/password'>
-                          <CButton href='/Password' color="link" className="px-0">
+                        <Link to='/password'>
+                          <CButton color="link" className="px-0">
                             Esqueceu sua senha?
                           </CButton>
                         </Link>

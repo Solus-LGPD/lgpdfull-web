@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
+import Password from './views/Password'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -12,7 +13,7 @@ const loading = (
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 
 // Pages
-const Login = React.lazy(() => import('./views/pages/login/Login'))
+const Login = React.lazy(() => import('./views/Login'))
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Suspense fallback={loading}>
         <Routes>
           <Route exact path="/login" name="Login Page" element={<Login />} />
+          <Route exact path="/password" name="Password Page" element={<Password />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />
         </Routes>
       </Suspense>
