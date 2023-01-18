@@ -1,25 +1,21 @@
-import { CCol, CContainer, CRow } from "@coreui/react"
+import { Button } from "@coreui/coreui"
 
 const Lgpdfull = () => {
-
-return (
-    <CContainer>
-        <CRow>
-            <CCol lg="5" className=" py-3">
-                col-lg-5
-            </CCol>
-            <CCol md="4" className=" py-3">
-                marcus
-            </CCol>
-             <CCol md="4" className=" py-3">
-                col-md-4
-            </CCol>
-            <CCol sm="3" className=" py-3">
-                col-sm-3
-            </CCol>
-      </CRow>
-    </CContainer>
-)
-}
-
+    return (
+        <div className="d-flex justify-content-around mt-1" >
+            <div >
+                <a  color="blue" target="_black "href="https://www.youtube.com/watch?v=1Hz9Xakh12M"><h3>Fase A</h3></a>
+                <h5>inventario</h5>
+            </div>
+            <div >
+                <h3>Fase B</h3>
+                <h5>inventario</h5>
+            </div>
+            <div >
+                <h3>Fase C</h3>
+                <h5>inventario</h5>
+            </div>
+        </div>
+    )
+}        
 export default Lgpdfull
