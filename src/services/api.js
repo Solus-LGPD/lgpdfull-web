@@ -19,8 +19,8 @@ export default () => {
         gettoken: () => {
             return sessionStorage.getItem('token');
         },
-        login: async (email, password) => {
-            let json = await request('post', '/login', { email, password });
+        login: async (email, pass) => {
+            let json = await request('post', '/login', { email, pass });
             return json;
         }
     }

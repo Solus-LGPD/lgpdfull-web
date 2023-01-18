@@ -1,6 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import {
+  CAlert,
   CButton,
   CCard,
   CCardBody,
@@ -15,8 +16,34 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import useAPI from '../../../services/api';
 
 const Login = () => {
+  const api = useAPI();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false)
+
+  const handleLoginButton = async () => {
+    if(email && password){
+      setLoading(true);
+      const result = await api.login(email, password);
+      setLoading(false);
+      if(result.error === undefined){
+        sessionStorage.setItem('token', result.acessToken);
+        sessionStorage.setItem('user', JSON.stringify(result));
+        navigate('/')
+      }else{
+        setError(result.message);
+      }
+    }
+    else{
+      alert("Digite as credenciais de acesso!")
+    }
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -27,12 +54,20 @@ const Login = () => {
                 <CCardBody>
                   <CForm>
                     <h1>Login</h1>
-                    <p className="text-medium-emphasis">Coloque sua conta</p>
+                    {error != '' &&
+                      <CAlert color="danger">{error}</CAlert>
+                    }
+                    <p className="text-medium-emphasis">Digite suas credenciais de acesso</p>
                     <CInputGroup className="mb-3">
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput 
+                        placeholder="E-mail" 
+                        value={email} 
+                        disabled={loading}
+                        onChange={(e) => setEmail(e.target.value)} 
+                      />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -40,8 +75,10 @@ const Login = () => {
                       </CInputGroupText>
                       <CFormInput
                         type="password"
-                        placeholder="Password"
-                        autoComplete="current-password"
+                        placeholder="Senha"
+                        disabled={loading}
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
                       />
                     </CInputGroup>
                     <CRow>
@@ -53,8 +90,13 @@ const Login = () => {
                         </Link>
                       </CCol>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
-                          Login
+                        <CButton 
+                          color="primary" 
+                          className="px-4"
+                          onClick={handleLoginButton}
+                          disabled={loading}
+                        >
+                          {loading ? 'Carregando' : 'Acessar'}
                         </CButton>
                       </CCol>
                       
