@@ -31,7 +31,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'LGPDFull',
-    to: '/dashboard',
+    to: '/lgpdfull',
     icon: <CIcon icon={cilChart} customClassName="nav-icon" />,
   },
   {
@@ -41,7 +41,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Quiz LGPD',
-    to: '/lgpdfull',
+    href:'https://coreui.io/docs/content/tables/',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
   {
