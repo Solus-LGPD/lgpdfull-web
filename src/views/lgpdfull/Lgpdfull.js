@@ -1,41 +1,36 @@
 import { Button } from "@coreui/coreui"
-import { CButton, CButtonGroup } from "@coreui/react"
+import { CButton, CButtonGroup, CLink } from "@coreui/react"
 
 const Lgpdfull = () => {
     return (
-        <div  class="table-responsive-md d-flex justify-content-evenly " >
-            <CButtonGroup vertical role="group" aria-label="Vertical button group">
-                <h4 class='p-4 pb-1'>Fase A</h4>
-                <CButton color="primary  mb-1 rounded-pill">Button FA0</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#">Button FA1</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#">Button FA2</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#">Button FA3</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#">Button FA4</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#">Button FA5</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#">Button FA6</CButton>
+        <div  class="table-responsive-md d-flex justify-content-evenly" >
+            <CButtonGroup vertical role="group" class='mb-1 m-0 p-0 d-flex text-center flex-column ' aria-label="Vertical button group">
+                <CLink class='p-4pb-1 h3 text-decoration-none ' href="#" >Fase A</CLink>
+                <CButton color="primary mb-1 rounded-pill" href="http://www.quiz.solus-it.com.br/" target="__blank">Quiz LGPD</CButton>
+                <CButton color="primary mb-1 rounded-pill">Processos</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#">Inventário</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#">DPO</CButton>
             </CButtonGroup>
-            <CButtonGroup vertical role="group" aria-label="Vertical button group">
-                <h4 class='p-4 pb-1'>Fase B</h4>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled >Button</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Button</CButton>
+            <CButtonGroup vertical role="group" aria-label="Vertical button group" class="text-center d-flex flex-column">
+                <CLink class='p-4pb-1 h3 text-decoration-none ' href="#" >Fase C</CLink>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled >Política de Priv.</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Ajustes de Contratos</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Termos de Uso</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Checklist de TI</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled>Cookies</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled>RIPD</CButton>
+                <CButton color="primary mb-1 rounded-pill" href="#" disabled>LIA</CButton>
             </CButtonGroup>
-            <CButtonGroup vertical role="group" aria-label="Vertical button group">
-                <h4 class='p-4 pb-1'>Fase C</h4>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
-                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Button</CButton>
+            <CButtonGroup vertical role="group" aria-label="Vertical button group" class="text-center d-flex flex-column">
+                <CLink class='p-4pb-1 h3 text-decoration-none ' href="#" >Fase C</CLink>
+                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Comunicação c/ o Titular</CButton>
+                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Política de Segurança</CButton>
+                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Privacy by Design</CButton>
+                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Treinamentos</CButton>
+                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Incidentes</CButton>
+                <CButton color="primary mb-1 rounded-pill"  href="#" disabled>Quiz LGPD Final</CButton>
             </CButtonGroup>
         </div>
-        
     )
-}        
-export default Lgpdfull
+}     
+export default Lgpdfull 

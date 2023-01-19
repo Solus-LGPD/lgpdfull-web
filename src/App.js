@@ -21,8 +21,8 @@ const App = () => {
       <Suspense fallback={loading}>
         <Routes>
           <Route exact path="/login" name="Login Page" element={<Login />} />
-          <Route exact path="/password" name="Password Page" element={<Password />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />
+          <Route exact path="/password" name="Password Page" element={<Password />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

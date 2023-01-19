@@ -41,7 +41,8 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Quiz LGPD',
-    href:'https://coreui.io/docs/content/tables/',
+    href:'http://www.quiz.solus-it.com.br/',
+    target: '__blank',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
   },
   {
