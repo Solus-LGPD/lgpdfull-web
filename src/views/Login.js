@@ -94,7 +94,7 @@ const Login = () => {
                         <CModalHeader onClose={() => setVisible(false)}>
                           <CModalTitle>Redefinir Senha</CModalTitle>
                         </CModalHeader>
-                        <CModalBody>Lhe enviaremos um e-mail com mais informações sobre como redefinir sua senha.</CModalBody>
+                        <CModalBody>Enviaremos um e-mail com mais informações sobre como redefinir sua senha.</CModalBody>
                         <CModalBody>
                           <CInputGroup className="mb-3">
                             <CInputGroupText>
@@ -110,9 +110,9 @@ const Login = () => {
                         </CModalBody> 
                         <CModalFooter>
                           <CButton color="secondary" onClick={() => setVisible(false)}>
-                            Fechar
+                            Cancelar
                           </CButton>
-                          <CButton color="primary">Enviar E-mail</CButton>
+                          <CButton color="primary">Redefinir</CButton>
                         </CModalFooter>
                       </CModal>
                       </CCol>
