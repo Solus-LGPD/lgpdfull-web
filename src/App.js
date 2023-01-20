@@ -15,6 +15,7 @@ const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 // Pages
 const Login = React.lazy(() => import('./views/Login'))
 
+
 const App = () => {
   return (
     <BrowserRouter>

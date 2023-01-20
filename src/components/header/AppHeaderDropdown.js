@@ -14,6 +14,7 @@ import {
   cilLockLocked
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
+import { Link } from 'react-router-dom'
 
 
 const AppHeaderDropdown = () => {
@@ -28,10 +29,12 @@ const AppHeaderDropdown = () => {
           <CIcon icon={cilUser} className="me-2" />
           Perfil
         </CDropdownItem>
-        <CDropdownItem href="#">
-          <CIcon icon={cilLockLocked} className="me-2" />
-          Trocar Senha
-        </CDropdownItem>
+        <Link class="text-decoration-none" to='/lgpdfull/trocarsenha'>
+          <CDropdownItem >
+            <CIcon icon={cilLockLocked} className="me-2" />
+            Trocar Senha
+          </CDropdownItem>
+        </Link> 
         <CDropdownDivider />
         <CDropdownItem href="/login">
           <CIcon icon={cilExitToApp} className="me-2" />
