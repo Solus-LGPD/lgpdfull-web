@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {
   CAlert,
   CButton,
@@ -12,10 +12,15 @@ import {
   CFormInput,
   CInputGroup,
   CInputGroupText,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { cilLockLocked, cilUser,cilEnvelopeClosed } from '@coreui/icons'
 import useAPI from '../services/api';
 
 const Login = () => {
@@ -44,6 +49,7 @@ const Login = () => {
     }
   }
 
+  const [visible, setVisible] = useState(false)
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -82,12 +88,33 @@ const Login = () => {
                       />
                     </CInputGroup>
                     <CRow>
-                      <CCol xs={10} className="text-right">
-                        <Link to='/password'>
-                          <CButton color="link" className="px-0">
-                            Esqueceu sua senha?
+                      <CCol xs={10} className="text-right pb-2">
+                      <CButton color="link" onClick={() => setVisible(!visible)}>Esqueceu sua Senha?</CButton>
+                      <CModal visible={visible} onClose={() => setVisible(false)}>
+                        <CModalHeader onClose={() => setVisible(false)}>
+                          <CModalTitle>Redefinir Senha</CModalTitle>
+                        </CModalHeader>
+                        <CModalBody>Lhe enviaremos um e-mail com mais informações sobre como redefinir sua senha.</CModalBody>
+                        <CModalBody>
+                          <CInputGroup className="mb-3">
+                            <CInputGroupText>
+                              <CIcon icon={cilEnvelopeClosed} />
+                            </CInputGroupText>
+                            <CFormInput 
+                              placeholder="E-mail" 
+                              value={email} 
+                              disabled={loading}
+                              onChange={(e) => setEmail(e.target.value)} 
+                            />
+                          </CInputGroup>
+                        </CModalBody> 
+                        <CModalFooter>
+                          <CButton color="secondary" onClick={() => setVisible(false)}>
+                            Fechar
                           </CButton>
-                        </Link>
+                          <CButton color="primary">Enviar E-mail</CButton>
+                        </CModalFooter>
+                      </CModal>
                       </CCol>
                       <CCol xs={6}>
                         <CButton 
