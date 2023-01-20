@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './scss/style.scss'
-import Password from './views/Password'
 
 const loading = (
   <div className="pt-3 text-center">
@@ -23,7 +22,6 @@ const App = () => {
         <Routes>
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />
-          <Route exact path="/password" name="Password Page" element={<Password />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
