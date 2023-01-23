@@ -21,10 +21,10 @@ import { Link } from 'react-router-dom'
 
 const Trocarsenha = () => {
   return (
-      <div className="bg-light  ">
-        <Link to='/lgpdfull'>
+      <div className=" bg-transparent  ">
+        <Link  to='/lgpdfull'>
           
-          <CButton color="link text-decoration-none"><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Voltar para Lgpdfull</CButton>
+          <CButton class='d-flex border border-0 bg-transparent text-white border-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
         </Link>
         <CForm>
           <CRow className="mb-3 mt-2">
@@ -46,7 +46,7 @@ const Trocarsenha = () => {
             </CCol>
           </CRow>
           
-          <CButton type="submit">Trocar de Senha</CButton>
+          <CButton color='info text-white' type="submit">Trocar de Senha</CButton>
         </CForm>
       </div>
   )
