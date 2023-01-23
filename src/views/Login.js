@@ -109,16 +109,16 @@ const Login = () => {
                           </CInputGroup>
                         </CModalBody> 
                         <CModalFooter>
-                          <CButton color="secondary" onClick={() => setVisible(false)}>
+                          <CButton color="info" onClick={() => setVisible(false)}>
                             Cancelar
                           </CButton>
-                          <CButton color="primary">Redefinir</CButton>
+                          <CButton color="info">Redefinir</CButton>
                         </CModalFooter>
                       </CModal>
                       </CCol>
                       <CCol xs={6}>
                         <CButton 
-                          color="primary" 
+                          color="info" 
                           className="px-4"
                           onClick={handleLoginButton}
                           disabled={loading}
@@ -131,7 +131,7 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
+              <CCard className="text-white bg-info py-5" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
                   <img className='mb-2' width='280px' src='https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279'/>
