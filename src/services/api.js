@@ -22,6 +22,9 @@ export default () => {
         login: async (email, pass) => {
             let json = await request('post', '/login', { email, pass });
             return json;
+        },
+        logout: () => {
+            sessionStorage.clear();
         }
     }
 }
