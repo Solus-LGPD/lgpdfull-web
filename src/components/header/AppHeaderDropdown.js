@@ -25,7 +25,7 @@ const AppHeaderDropdown = () => {
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-light fw-semibold py-2">Configurações</CDropdownHeader>
-        <CDropdownItem href="#">
+        <CDropdownItem href="/lgpdfull/Perfil">
           <CIcon icon={cilUser} className="me-2" />
           Perfil
         </CDropdownItem>
