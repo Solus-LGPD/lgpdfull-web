@@ -9,7 +9,8 @@ import {
   cilPlus,
   cilSpeedometer,
   cilUser,
-  cilZoom
+  cilZoom,
+  cilChartPie
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -67,26 +68,6 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Processos',
-    to: '/processos',
-    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Todos',
-        to: '/processos',
-        icon: <CIcon icon={cilLayers} customClassName="nav-icon" />
-      },
-      {
-        component: CNavItem,
-        name: 'Criar',
-        to: '/processos/criar',
-        icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
-      }
-    ],
-  },
-  {
-    component: CNavGroup,
     name: 'Inventário',
     to: '/Inventario',
     icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
@@ -101,6 +82,26 @@ const _nav = [
         component: CNavItem,
         name: 'Criar',
         to: '/inventario/criar',
+        icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
+      }
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Setor',
+    to: '/setor',
+    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Todos',
+        to: '/setor',
+        icon: <CIcon icon={cilLayers} customClassName="nav-icon" />
+      },
+      {
+        component: CNavItem,
+        name: 'Criar',
+        to: '/setor/criar',
         icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
       }
     ],

@@ -28,7 +28,7 @@ const Perfil = () => {
           
           <CButton class='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
         </Link>
-        <CForm d-flex align-items-center>
+        <CForm >
             <CForm className='mb-3 mt-3'>
                 <CFormLabel htmlFor="exampleFormControlInput1">Primeiro Nome</CFormLabel>
                 <CFormInput type="text" id="exampleFormControlInput1" placeholder="Digite seu Nome" aria-describedby="exampleFormControlInputHelpInline" />
