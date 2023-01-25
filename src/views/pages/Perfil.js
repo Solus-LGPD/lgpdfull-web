@@ -45,7 +45,7 @@ const Perfil = () => {
                 <CFormLabel htmlFor="exampleFormControlInput1">Nome da Empresa</CFormLabel>
                 <CFormInput type="text" id="exampleFormControlInput1" placeholder="Solus-it" aria-describedby="exampleFormControlInputHelpInline" />
             </CForm>
-          <CButton color='info text-white' type="submit">Confirmar</CButton>
+          <CButton style={{backgroundColor: "#2085c7"}} color=' text-white' type="submit">Confirmar</CButton>
         </CForm>
     </div>
   )

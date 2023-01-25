@@ -22,18 +22,21 @@ import { Button } from '@coreui/coreui'
 
 const Trocarsenha = () => {
   
-  const [senhaNova, setSenhaNova] = useState('');
-  const [confSenha, setConfSenha] = useState('');
-  const [okSenha, setOkSenha] = useState(false);
-
-  const validador = () => {
-    if (senhaNova === confSenha) {
-      setOkSenha(true)
-    } else {
-        setOkSenha(false)
-      }
-  }
-
+  // const [senhaNova, setSenhaNova] = useState('');
+  // const [confSenha, setConfSenha] = useState('');
+  // const [okSenha, setOkSenha] = useState(false);
+  const novaSenha = document.getElementById('inputsenha');
+  const repSenha = document.getElementById('inputsenharep');
+  
+  function validar(){
+   
+    
+    if(repSenha.value === novaSenha ){
+      
+    }  else alert('Senhas diferentes');
+      
+    
+  } 
 
 
   return (
@@ -43,7 +46,7 @@ const Trocarsenha = () => {
         
         <CButton class='d-flex border border-0 bg-transparent text-white border-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
       </Link>
-      <CForm >
+      <CForm name='formularioTrocarSenha' action="#" method="POST" >
         <CRow className="mb-3 mt-2">
           <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Senha Atual</CFormLabel>
           <CCol sm={10} >
@@ -53,22 +56,21 @@ const Trocarsenha = () => {
         <CRow className="mb-3 name1">
           <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Nova Senha</CFormLabel>
           <CCol sm={10} >
-            <CFormInput type="password" id="inputPassword3" onChange={validador()}/>
+            <CFormInput name='novaSenha' type="password" id="inputsenha" />
           </CCol>
         </CRow>
         <CRow className="mb-3 name2">
           <CFormLabel htmlFor="inputPassword3" className="col-sm-6 col-form-label">Repetir Nova Senha</CFormLabel>
           <CCol sm={10} >
-            <CFormInput type="password" id="inputPassword3" onChange={validador()} />
+            <CFormInput name='repSenha' type="password" id="inputsenharep"  />
           </CCol>
         </CRow>
         
-        <CButton color='info text-white' type="submit" onChange={validador()}>Trocar de Senha</CButton>
+        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' type="submit" onClick={ validar() }>Trocar de Senha</CButton>
       </CForm>
     </div>
   )
 }
-if (name1 != name2){
-  
-}
+
+
 export default Trocarsenha
