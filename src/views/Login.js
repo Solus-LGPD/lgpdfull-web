@@ -109,17 +109,17 @@ const Login = () => {
                           </CInputGroup>
                         </CModalBody> 
                         <CModalFooter>
-                          <CButton color="info" onClick={() => setVisible(false)}>
+                          <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={() => setVisible(false)}>
                             Cancelar
                           </CButton>
-                          <CButton color="info">Redefinir</CButton>
+                          <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}}>Redefinir</CButton>
                         </CModalFooter>
                       </CModal>
                       </CCol>
                       <CCol xs={6}>
-                        <CButton 
-                          color="info" 
-                          className="px-4"
+                        <CButton
+                          style={{backgroundColor: "#2085c7"}} 
+                          class="btn btn-primary rounded-pill border border-0 "
                           onClick={handleLoginButton}
                           disabled={loading}
                         >
@@ -131,14 +131,14 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-info py-5" style={{ width: '44%' }}>
-                <CCardBody className="text-center">
+              <CCard className="border border-0  text-white py-5 min-vh-60 d-flex flex-row align-items-center" style={{backgroundColor: "#2085c7"}}>
+                <CCardBody className="text-center" >
                   <div>
-                  <img className='mb-2' width='280px' src='https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279'/>
+                    <img className='mb-2 w-100' src='https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279'/>
 
-                    <p className='mt-5 mb-3'>
-                      O Sistema LGPDFull foi criado para ajudar as empresas na implementação da Lei Geral de Proteção de Dados Pessoais.
-                    </p>
+                      <p className='mt-5 mb-3'>
+                        O Sistema LGPDFull foi criado para ajudar as empresas na implementação da Lei Geral de Proteção de Dados Pessoais.
+                      </p>
                   </div>
                 </CCardBody>
               </CCard>

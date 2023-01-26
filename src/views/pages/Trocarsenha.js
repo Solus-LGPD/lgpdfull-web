@@ -66,7 +66,7 @@ const Trocarsenha = () => {
           </CCol>
         </CRow>
         
-        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' type="submit" onClick={ validar() }>Trocar de Senha</CButton>
+        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' type="submit" onClick={ validar }>Trocar de Senha</CButton>
       </CForm>
     </div>
   )
