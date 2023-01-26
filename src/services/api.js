@@ -25,6 +25,18 @@ export default () => {
         },
         logout: () => {
             sessionStorage.clear();
-        }
+        },
+        getInventario: async () => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/mapping/all', {userId: user.id }, token);
+            return json;
+        },/*
+        postInventario: async () => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/inventory/register', );
+            return null;
+        }*/
     }
 }
