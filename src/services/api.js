@@ -2,15 +2,21 @@ const BASE_URL = "http://localhost:3000"
 
 const request = async (method, endpoint, params, token=null) => {
     method = method.toLowerCase();
+
+    let headers = {'Content-Type': 'application/json'};
     let fullUrl = `${BASE_URL}${endpoint}`;
     let body = null;
+
     body = JSON.stringify(params);
-    let headers = {'Content-Type': 'application/json'};
+
     if(token){
         headers.Authorization = `Bearer ${token}`
     }
+
     let req = await fetch(fullUrl, {method, headers, body});
+
     let json = await req.json();
+
     return json;
 }
 
@@ -26,17 +32,29 @@ export default () => {
         logout: () => {
             sessionStorage.clear();
         },
-        getInventario: async () => {
+        getActualDpo: async () => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', 'dpo/actual', {userId: user.id }, token);
+            return json;
+        },
+        getInventories: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request('post', '/mapping/all', {userId: user.id }, token);
             return json;
         },/*
-        postInventario: async () => {
+        postInventory: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request('post', '/inventory/register', );
             return null;
         }*/
+        getSectors: async () => {
+            const token =  sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request ('post', '/sector/all', { user_id: user.id }, token)
+            return json;
+        },
     }
 }

@@ -34,7 +34,7 @@ import useAPI from '../../services/api';
 export default () => {
 
     const api = useAPI();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
@@ -46,7 +46,7 @@ export default () => {
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getInventario();
+        const result = await api.getInventories();
         setLoading(false);
         console.log(result)
         if(result.error === undefined){
