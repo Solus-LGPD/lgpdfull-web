@@ -32,15 +32,15 @@ export default () => {
     return (
         <>
             <CRow>
-                <h2>Criação do inventário de dados pessoais</h2>
+                <h2 class='text-black'>Criação do inventário de dados pessoais</h2>
             </CRow>
            
-                <CForm>
-                        <CFormLabel>Identificação</CFormLabel>
+                <CForm class='text-black'>
+                        <CFormLabel >Identificação</CFormLabel>
                         <CFormInput type='text'></CFormInput>
                         <CFormLabel>Dados pessoais coletados</CFormLabel>
                         <CFormTextarea rows={3}></CFormTextarea>
-                        <CFormLabel>Razão da coleta</CFormLabel>
+                        <CFormLabel >Razão da coleta</CFormLabel>
                         <CFormTextarea rows={2}></CFormTextarea>
                         <CFormLabel>Como é armazenado?</CFormLabel>
                         <CFormTextarea rows={2}></CFormTextarea>
