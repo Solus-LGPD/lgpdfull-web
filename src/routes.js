@@ -15,7 +15,7 @@ const routes = [
   { path: '/logout', name: 'Logout', element: Logout },
   { path: '/lgpdfull/perfil', name: 'Perfil', element: Perfil },
   { path: '/inventario', name: 'Inventario', element: Inventario },
-  { path: '/inventario/criar', name: 'Inventario', element: InventarioCriar }
+  { path: '/inventario/criar', name: 'Criar', element: InventarioCriar }
 ]
 
 export default routes

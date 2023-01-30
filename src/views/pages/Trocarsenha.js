@@ -3,66 +3,53 @@ import {
   CButton,
   CCol,
   CForm,
-  CFormCheck,
   CFormInput,
-  CFormLabel,
-  
-  CInputGroup,
-  
-  CInputGroupText,
-  
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilArrowCircleLeft, cilLockLocked } from '@coreui/icons'
+import { cilArrowCircleLeft} from '@coreui/icons'
 import { Link } from 'react-router-dom'
-import { Button } from '@coreui/coreui'
 
 
 
 const Trocarsenha = () => {
   
-  // const [senhaNova, setSenhaNova] = useState('');
-  // const [confSenha, setConfSenha] = useState('');
-  // const [okSenha, setOkSenha] = useState(false);
-  const novaSenha = document.getElementById('inputsenha');
-  const repSenha = document.getElementById('inputsenharep');
+  const [PasswordNow,setPasswordNow] = useState('');
+  const [NewPassword,setNewPassword] = useState('');
+  const [RepeatPassword,setRepeatPassword] = useState('');
   
-  function validar(){
-   
-    
-    if(repSenha.value === novaSenha ){
-      
-    }  else alert('Senhas diferentes');
-      
-    
+  const validar =() =>{
+    if (PasswordNow != NewPassword) {
+      if (NewPassword === RepeatPassword ) {
+        alert('sucess')
+      } else{  
+        alert('senha mão é igual')
+      }
+    } else {
+      alert('senha igual a atual')
+    }
   } 
 
-
   return (
-  
-    <div className=" bg-transparent  ">
+    <div class=" bg-transparent text-black  ">
       <Link  to='/lgpdfull'>
         
-        <CButton class='d-flex border border-0 bg-transparent text-white border-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
+        <CButton class='d-flex text-decoration-underline text-decoration-none border border-0 bg-transparent' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
       </Link>
-      <CForm name='formularioTrocarSenha' action="#" method="POST" >
+      <CForm >
         <CRow className="mb-3 mt-2">
-          <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Senha Atual</CFormLabel>
           <CCol sm={10} >
-            <CFormInput type="password" id="inputPassword3"/>
+            <CFormInput required label='Senha Atual' type="password" value={PasswordNow} onChange={(e) => setPasswordNow(e.target.value)}/>
           </CCol>
         </CRow>
         <CRow className="mb-3 name1">
-          <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Nova Senha</CFormLabel>
           <CCol sm={10} >
-            <CFormInput name='novaSenha' type="password" id="inputsenha" />
+            <CFormInput required label='Nova Senha' type="password" value={NewPassword} onChange={(e) => setNewPassword(e.target.value)} />
           </CCol>
         </CRow>
         <CRow className="mb-3 name2">
-          <CFormLabel htmlFor="inputPassword3" className="col-sm-6 col-form-label">Repetir Nova Senha</CFormLabel>
           <CCol sm={10} >
-            <CFormInput name='repSenha' type="password" id="inputsenharep"  />
+            <CFormInput required label='Repetir Senha' feedback='Parece bom' type="password" value={RepeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}  />
           </CCol>
         </CRow>
         

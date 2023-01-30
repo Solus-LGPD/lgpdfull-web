@@ -105,7 +105,7 @@ export default () => {
     return (
         <>
             <CRow>
-                <h2>Criação do inventário de dados pessoais</h2>
+                <h2 class='text-black'>Criação do inventário de dados pessoais</h2>
             </CRow>
            
                 <CForm>
@@ -152,8 +152,8 @@ export default () => {
                         <CFormInput type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
                 </CForm>
                 <br></br>
-                <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
-                <br></br>
+            <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
+            <br></br>
             <br></br>
             <br></br>
         </>
