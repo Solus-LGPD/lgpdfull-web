@@ -38,7 +38,7 @@ export default () => {
 
     const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
 
     useEffect(() => {
         getList();
@@ -65,8 +65,8 @@ export default () => {
                     "tagName": result[i].tag_name,
                     createdAt,
                     updatedAt,
-                    "CButtonEdit": <CButton onClick={() => handleEditButton(i)}><CIcon icon={cilPen}></CIcon></CButton>,
-                    "CButtonRemove": <CButton color="danger"><CIcon icon={cilX}></CIcon></CButton>
+                    "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
+                    "CButtonRemove": <CButton onClick={() => handleDeleteButton(result[i].id)} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }
             }
             console.log(result)
@@ -77,11 +77,21 @@ export default () => {
     }
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        setShowEditModal(false);
     }
 
     const handleEditButton = () => {
-        setShowModal(true);
+        setShowEditModal(true);
+    }
+
+    const handleDeleteButton = (id) => {
+        const result  = api.deleteInventory(id);
+        if(result.error === undefined){
+            window.location.reload();
+        }
+        else{
+            alert(result.message);
+        }
     }
 
     const fields = [
@@ -119,7 +129,7 @@ export default () => {
             </CRow>
 
 
-            <CModal fullscreen visible={showModal} onClose={handleCloseModal}>
+            <CModal fullscreen visible={showEditModal} onClose={handleCloseModal}>
                 <CModalHeader closeButton>Editar Inventário</CModalHeader>
                 <CModalBody>
                     <CForm>

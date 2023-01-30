@@ -35,7 +35,7 @@ export default () => {
         getActualDpo: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', 'dpo/actual', {userId: user.id }, token);
+            let json = await request('post', '/dpo/actual', {userId: user.id }, token);
             return json;
         },
         getInventories: async () => {
@@ -43,13 +43,17 @@ export default () => {
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request('post', '/mapping/all', {userId: user.id }, token);
             return json;
-        },/*
-        postInventory: async () => {
+        },
+        deleteInventory: async (id) => {
             const token = sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/inventory/register', );
-            return null;
-        }*/
+            let json = await request('delete', '/mapping/remove', { id }, token);
+            return json
+        },
+        postInventory: async ( raw ) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('post', '/mapping/register', raw,token);
+            return json;
+        },
         getSectors: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
