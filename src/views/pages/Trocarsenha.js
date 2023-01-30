@@ -3,44 +3,34 @@ import {
   CButton,
   CCol,
   CForm,
-  CFormCheck,
   CFormInput,
-  CFormLabel,
-  
-  CInputGroup,
-  
-  CInputGroupText,
-  
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilArrowCircleLeft, cilLockLocked } from '@coreui/icons'
+import { cilArrowCircleLeft} from '@coreui/icons'
 import { Link } from 'react-router-dom'
-import { Button } from '@coreui/coreui'
 
 
 
 const Trocarsenha = () => {
   
-  const novaSenha = document.getElementById('inputsenha');
-  const repSenha = document.getElementById('inputsenharep');
-  const atualSenha = document.getElementById('atualsenha');
-
+  const [PasswordNow,setPasswordNow] = useState('');
+  const [NewPassword,setNewPassword] = useState('');
+  const [RepeatPassword,setRepeatPassword] = useState('');
+  
   const validar =() =>{
-    if (atualSenha.value != novaSenha.value && atualSenha.value != repSenha.value) {
-      if (novaSenha.value === repSenha.value ) {
+    if (PasswordNow != NewPassword) {
+      if (NewPassword === RepeatPassword ) {
         alert('sucess')
       } else{  
-        alert('não rolou')
+        alert('senha mão é igual')
       }
     } else {
       alert('senha igual a atual')
     }
   } 
 
-
   return (
-  
     <div class=" bg-transparent text-black  ">
       <Link  to='/lgpdfull'>
         
@@ -49,17 +39,17 @@ const Trocarsenha = () => {
       <CForm >
         <CRow className="mb-3 mt-2">
           <CCol sm={10} >
-            <CFormInput required label='Senha Atual' type="password" id="atualsenha"/>
+            <CFormInput required label='Senha Atual' type="password" value={PasswordNow} onChange={(e) => setPasswordNow(e.target.value)}/>
           </CCol>
         </CRow>
         <CRow className="mb-3 name1">
           <CCol sm={10} >
-            <CFormInput required label='Nova Senha' type="password" id="inputsenha" />
+            <CFormInput required label='Nova Senha' type="password" value={NewPassword} onChange={(e) => setNewPassword(e.target.value)} />
           </CCol>
         </CRow>
         <CRow className="mb-3 name2">
           <CCol sm={10} >
-            <CFormInput required label='Repetir Senha' feedback='Parece bom' type="password" id="inputsenharep"  />
+            <CFormInput required label='Repetir Senha' feedback='Parece bom' type="password" value={RepeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}  />
           </CCol>
         </CRow>
         
