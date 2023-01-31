@@ -39,6 +39,7 @@ export default () => {
     const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
     const [showEditModal, setShowEditModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     useEffect(() => {
         getList();
@@ -65,8 +66,8 @@ export default () => {
                     "tagName": result[i].tag_name,
                     createdAt,
                     updatedAt,
-                    "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
-                    "CButtonRemove": <CButton onClick={() => handleDeleteButton(result[i].id)} color="danger"><CIcon icon={cilX}></CIcon></CButton>
+                    "CButtonEdit": <CButton onClick={() => {handleEditButton(result[i].id)}}><CIcon icon={cilPen}></CIcon></CButton>,
+                    "CButtonRemove": <CButton onClick={() => {handleDeleteModal(result[i].id)}} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }
             }
             console.log(result)
@@ -78,15 +79,23 @@ export default () => {
 
     const handleCloseModal = () => {
         setShowEditModal(false);
+        setShowDeleteModal(false);
     }
 
     const handleEditButton = () => {
         setShowEditModal(true);
     }
 
-    const handleDeleteButton = (id) => {
+    const handleDeleteModal = (id) => {
+        setShowDeleteModal(true);
+        sessionStorage.setItem('inventoryId', id);
+    }
+
+    const handleDeleteButton = () => {
+        const id = sessionStorage.getItem('inventoryId');
         const result  = api.deleteInventory(id);
         if(result.error === undefined){
+            sessionStorage.removeItem('inventoryId');
             window.location.reload();
         }
         else{
@@ -164,6 +173,17 @@ export default () => {
                 <CModalFooter>
                     <CButton >Atualizar</CButton>
                     <CButton color='danger' onClick={handleCloseModal}>Cancelar</CButton>
+                </CModalFooter>
+            </CModal>
+
+            <CModal fullscreen='sm' visible={showDeleteModal} onClose={handleCloseModal}>
+                <CModalHeader closeButton>Excluir Inventário Inventário</CModalHeader>
+                <CModalBody >
+                        Deseja mesmo excluir este inventário?
+                </CModalBody>
+                <CModalFooter>
+                        <CButton class='m-2 btn btn-primary' style={{backgroundColor: "red"}} color='danger' onClick={handleDeleteButton}>Deletar</CButton>
+                        <CButton class='m-2 btn btn-primary' color='warning' onClick={handleCloseModal}>Cancelar</CButton>
                 </CModalFooter>
             </CModal>
         </>
