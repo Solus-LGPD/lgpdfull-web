@@ -7,15 +7,19 @@ const Logout = React.lazy(() => import('./views/Logout'))
 const Perfil = React.lazy(() => import('./views/pages/Perfil'))
 const Inventario = React.lazy(() => import('./views/pages/Inventario'));
 const InventarioCriar = React.lazy(() => import('./views/pages/InventarioCriar'));
+const Dpo = React.lazy(() => import('./views/pages/Dpo'));
+const DpoCriar = React.lazy(() => import('./views/pages/DpoCriar'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
-  { path: '/lgpdfull', name: 'Lgpdfull', element: Lgpdfull },
+  { path: '/lgpdfull', name: 'LGPDFull', element: Lgpdfull },
   { path: '/lgpdfull/trocarsenha', name: 'Trocar de Senha', element: Trocarsenha },
   { path: '/logout', name: 'Logout', element: Logout },
   { path: '/lgpdfull/perfil', name: 'Perfil', element: Perfil },
   { path: '/inventario', name: 'Inventario', element: Inventario },
-  { path: '/inventario/criar', name: 'Inventario', element: InventarioCriar }
+  { path: '/inventario/criar', name: 'Criar', element: InventarioCriar },
+  { path: '/dpo', name: 'Dpo', element: Dpo },
+  { path: '/dpo/criar', name: 'Criar', element: DpoCriar }
 ]
 
 export default routes

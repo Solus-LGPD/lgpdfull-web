@@ -89,8 +89,6 @@ export default () => {
             controller
         }
 
-        console.log(dataRaw)
-
         setLoading(true);
         const result = await api.postInventory(dataRaw);
         setLoading(false);

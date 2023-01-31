@@ -8,11 +8,6 @@ import {
   CCol,
   CRow,
   CTable,
-  CTableHead,
-  CTableRow,
-  CTableHeaderCell,
-  CTableBody,
-  CTableDataCell,
   CModal,
   CModalHeader,
   CModalBody,
@@ -21,7 +16,7 @@ import {
   CFormLabel,
   CFormInput,
   CFormTextarea,
-  CFormCheck
+  CFormCheck,
 } from '@coreui/react';
 import {
     cilCheck,
@@ -40,10 +35,45 @@ export default () => {
     const [list, setList] = useState([]);
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [sectorsList, setSectorsList] = useState('');
+
+    const [tagName, setTagName] = useState('');
+    const [colletedData, setColletedData] = useState('');
+    const [sourceData, setSourceData] = useState('');
+    const [reasonData, setReasonData] = useState('');
+    const [howStorage, setHowStorage] = useState('');
+    const [securityData, setSecurityData] = useState('');
+    const [deadlineData, setDeadlineData] = useState('');
+    const [justification, setJustification] = useState('');
+    const [underAgeData, setUnderAgeData] = useState(false);
+    const [sensitiveData, setSensitiveData] = useState(false);
+    const [controller, setController] = useState('');
 
     useEffect(() => {
         getList();
+        getSectorsList();
     }, []);
+
+    const getSectorsList = async () => {
+        const listResult = new Array()
+        const result = await api.getSectors();
+        console.log(result)//
+        listResult.push('Escolha o setor do inventário');
+        if(result.error === undefined){
+            for(let i = 0; i<result.length ; i++){
+                let options = {
+                    label: result[i].tag_name,
+                    value: result[i].id
+                }
+
+                listResult.push(options);
+            }
+            console.log(listResult)//
+            setSectorsList(listResult)
+        }else{
+            alert(result.message);
+        }
+    }
 
     const getList = async () => {
         setLoading(true);
@@ -80,10 +110,69 @@ export default () => {
     const handleCloseModal = () => {
         setShowEditModal(false);
         setShowDeleteModal(false);
+        sessionStorage.removeItem('inventoryId');
     }
 
-    const handleEditButton = () => {
+    const handleEditButton = async (id) => {
+        sessionStorage.setItem('inventoryId', id);
         setShowEditModal(true);
+        const result = await api.getOneInventory(id);
+        if(result.error === undefined){
+            setTagName(result.tag_name);
+            setColletedData(result.colleted_data);
+            setSourceData(result.source_data);
+            setReasonData(result.reason_data);
+            setHowStorage(result.how_storage);
+            setSecurityData(result.security_data);
+            setDeadlineData(result.deadline_data);
+            setJustification(result.justification);
+            setUnderAgeData(result.under_age_data);
+            setSensitiveData(result.sensitive_data);
+            setController(result.controller);
+        }
+        else{
+            alert(result.message);
+        }
+    }
+
+    const handleUpdateButton = async () => {
+        const id = sessionStorage.getItem('inventoryId');
+
+        let underAge = false;
+        let sensitive = false;
+
+        if(underAgeData === 'true'){
+            underAge = true;
+        }
+
+        if(sensitiveData === 'true'){
+            sensitive = true
+        }
+
+        const dataRaw = {
+            id,
+            sourceData,
+            colletedData,
+            reasonData,
+            howStorage,
+            securityData,
+            deadlineData,
+            justification,
+            underAgeData: underAge,
+            sensitiveData: sensitive,
+            controller
+        }
+
+        setLoading(true);
+        const result  = await api.updateInventory(dataRaw);        
+        setLoading(false);
+
+        if(result.error === undefined){
+            sessionStorage.removeItem('inventoryId');
+            window.location.reload();
+        }else{
+            alert(result.message);
+        }
     }
 
     const handleDeleteModal = (id) => {
@@ -137,41 +226,52 @@ export default () => {
                 </CCol>
             </CRow>
 
-
             <CModal fullscreen visible={showEditModal} onClose={handleCloseModal}>
                 <CModalHeader closeButton>Editar Inventário</CModalHeader>
                 <CModalBody>
                     <CForm>
-                        <CFormLabel>Fonte dos dados pessoais</CFormLabel>
-                        <CFormInput type='text'></CFormInput>
+                    <CFormLabel>Identificação</CFormLabel>
+                        <CFormInput disabled type='text' value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
+                        <br></br>
                         <CFormLabel>Dados pessoais coletados</CFormLabel>
-                        <CFormTextarea rows={3}></CFormTextarea>
+                        <CFormTextarea rows={3} value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
+                        <br></br>
                         <CFormLabel>Razão da coleta</CFormLabel>
-                        <CFormTextarea rows={2}></CFormTextarea>
+                        <CFormTextarea rows={2} value={reasonData} onChange={(e) => setReasonData(e.target.value)}></CFormTextarea>
+                        <br></br>
                         <CFormLabel>Como é armazenado?</CFormLabel>
-                        <CFormTextarea rows={2}></CFormTextarea>
+                        <CFormTextarea rows={2} value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
+                        <br></br>
+                        <CFormLabel>Fonte dos dados</CFormLabel>
+                        <CFormTextarea rows={2} value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
+                        <br></br>
                         <CFormLabel>Segurança dos dados pessoais</CFormLabel>
-                        <CFormTextarea rows={2}></CFormTextarea>
+                        <CFormTextarea rows={2} value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
+                        <br></br>
                         <CFormLabel>Prazo de retenção dos dados pessoais</CFormLabel>
-                        <CFormTextarea rows={2}></CFormTextarea>
+                        <CFormTextarea rows={2} value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
+                        <br></br>
                         <CFormLabel>Justificativa do uso</CFormLabel>
-                        <CFormTextarea rows={3}></CFormTextarea>
+                        <CFormTextarea rows={3} value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
+                        <br></br>
                         <CFormLabel>Uso de dados pessoais de menores de idade</CFormLabel>
                         <br></br>
-                            <CFormCheck inline type="radio" name="inlineRadioOptions" id="inlineCheckbox1" value="true" label="Sim"/>
-                            <CFormCheck inline type="radio" name="inlineRadioOptions" id="inlineCheckbox2" value="false" label="Não"/>
+                            <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox1" value={true} label="Sim" defaultChecked={!underAgeData} onChange={(e) => setUnderAgeData(e.target.value)}/>
+                            <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox2" value={false} label="Não" defaultChecked={underAgeData} onChange={(e) => setUnderAgeData(e.target.value)}/>
+                        <br></br>
                         <br></br>
                         <CFormLabel>Trata dados sensíveis?</CFormLabel>
                         <br></br>
-                            <CFormCheck inline type="radio" name="inlineRadioOptions" id="inlineCheckbox1" value="true" label="Sim"/>
-                            <CFormCheck inline type="radio" name="inlineRadioOptions" id="inlineCheckbox2" value="false" label="Não"/>
+                            <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox1" value={true} label="Sim" defaultChecked={!sensitiveData} onChange={(e) => setSensitiveData(e.target.value)}/>
+                            <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox2" value={false} label="Não" defaultChecked={sensitiveData}  onChange={(e) => setSensitiveData(e.target.value)}/>
+                        <br></br>
                         <br></br>
                         <CFormLabel>Nome do Controlador</CFormLabel>
-                        <CFormTextarea type='text'></CFormTextarea>
+                        <CFormInput type='text' value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
                     </CForm>
                 </CModalBody>
                 <CModalFooter>
-                    <CButton >Atualizar</CButton>
+                    <CButton onClick={handleUpdateButton}>Atualizar</CButton>
                     <CButton color='danger' onClick={handleCloseModal}>Cancelar</CButton>
                 </CModalFooter>
             </CModal>

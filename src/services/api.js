@@ -32,6 +32,12 @@ export default () => {
         logout: () => {
             sessionStorage.clear();
         },
+        getDpos: async () => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/dpo/all', {userId: user.id }, token);
+            return json;
+        },
         getActualDpo: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -44,15 +50,25 @@ export default () => {
             let json = await request('post', '/mapping/all', {userId: user.id }, token);
             return json;
         },
-        deleteInventory: async (id) => {
+        getOneInventory: async (id) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('delete', '/mapping/remove', { id }, token);
-            return json
+            let json = await request ('post', '/mapping/one', { id }, token);
+            return json;
         },
         postInventory: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             let json = await request('post', '/mapping/register', raw,token);
             return json;
+        },
+        updateInventory: async ( raw ) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('put', '/mapping/update', raw,token);
+            return json;
+        },
+        deleteInventory: async (id) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('delete', '/mapping/remove', { id }, token);
+            return json
         },
         getSectors: async () => {
             const token =  sessionStorage.getItem('token');
