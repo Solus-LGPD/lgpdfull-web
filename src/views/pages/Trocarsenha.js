@@ -22,21 +22,6 @@ import { Button } from '@coreui/coreui'
 
 const Trocarsenha = () => {
   
-  // const [senhaNova, setSenhaNova] = useState('');
-  // const [confSenha, setConfSenha] = useState('');
-  // const [okSenha, setOkSenha] = useState(false);
-  const novaSenha = document.getElementById('inputsenha');
-  const repSenha = document.getElementById('inputsenharep');
-  
-  function validar(){
-   
-    
-    if(repSenha.value === novaSenha ){
-      
-    }  else alert('Senhas diferentes');
-      
-    
-  } 
 
 
   return (
