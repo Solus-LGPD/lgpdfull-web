@@ -22,6 +22,21 @@ import { Button } from '@coreui/coreui'
 
 const Trocarsenha = () => {
   
+  const [PasswordNow,setPasswordNow] = useState('');
+  const [NewPassword,setNewPassword] = useState('');
+  const [RepeatPassword,setRepeatPassword] = useState('');
+  
+  const validar =() =>{
+    if (PasswordNow != NewPassword) {
+      if (NewPassword === RepeatPassword ) {
+        alert('sucess')
+      } else{  
+        alert('senha mão é igual')
+      }
+    } else {
+      alert('senha igual a atual')
+    }
+  } 
 
 
   return (
