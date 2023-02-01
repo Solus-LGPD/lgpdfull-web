@@ -22,20 +22,20 @@ import { Button } from '@coreui/coreui'
 
 const Trocarsenha = () => {
   
-  // const [senhaNova, setSenhaNova] = useState('');
-  // const [confSenha, setConfSenha] = useState('');
-  // const [okSenha, setOkSenha] = useState(false);
-  const novaSenha = document.getElementById('inputsenha');
-  const repSenha = document.getElementById('inputsenharep');
+  const [PasswordNow,setPasswordNow] = useState('');
+  const [NewPassword,setNewPassword] = useState('');
+  const [RepeatPassword,setRepeatPassword] = useState('');
   
-  function validar(){
-   
-    
-    if(repSenha.value === novaSenha ){
-      
-    }  else alert('Senhas diferentes');
-      
-    
+  const validar =() =>{
+    if (PasswordNow != NewPassword) {
+      if (NewPassword === RepeatPassword ) {
+        alert('sucess')
+      } else{  
+        alert('senha mão é igual')
+      }
+    } else {
+      alert('senha igual a atual')
+    }
   } 
 
 
@@ -71,6 +71,7 @@ const Trocarsenha = () => {
     </div>
   )
 }
+
 
 
 export default Trocarsenha
