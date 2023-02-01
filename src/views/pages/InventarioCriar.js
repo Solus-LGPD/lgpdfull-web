@@ -103,12 +103,12 @@ export default () => {
     }
 
     return (
-        <>
+        <div >
             <CRow>
                 <h2>Criação do inventário de dados pessoais</h2>
             </CRow>
            
-                <CForm>
+                <CForm class='text-black'>
                         <CFormLabel>Identificação</CFormLabel>
                         <CFormInput type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
                         <br></br>
@@ -156,6 +156,6 @@ export default () => {
                 <br></br>
             <br></br>
             <br></br>
-        </>
+        </div>
     );
 }
