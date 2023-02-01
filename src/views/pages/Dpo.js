@@ -32,12 +32,55 @@ export default () => {
     const api = useAPI();
     const navigate = useNavigate();
 
-    const [list, setList] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [ list, setList ] = useState([]);
+    const [ loading, setLoading ] = useState(true);
+    const [ firstName, setFirstName ] = useState('');
+    const [ socialName, setSocialName ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ showEditModal, setShowEditModal ] = useState(false);
 
     useEffect(() => {
         getList();
     }, []);
+
+    const handleCloseModal = () => {
+        setShowEditModal(false);
+    }
+
+    const handleEditButton =  async (id) => {
+        sessionStorage.setItem('dpoId', id);
+        setShowEditModal(true);
+        const result = await api.getActualDpo();
+        if(result.error === undefined){
+            setSocialName(result.social_name);
+            setEmail(result.email);
+            setFirstName(result.name);
+        }
+        else{
+            alert(result.message);
+        }
+    }
+
+    const handleUpdateButton =  async () => {
+        const id = sessionStorage.getItem('dpoId');
+
+        const dataRaw = {
+            name: firstName,
+            socialName,
+            email
+        }
+
+        setLoading(true);
+        const result = await api.updateDpo(id ,dataRaw);
+        setLoading(false);
+
+        if(result.error === undefined){
+            sessionStorage.removeItem('dpoId');
+            window.location.reload();
+        }else{
+            alert(result.message);
+        }
+    }
 
     const getList = async () => {
         setLoading(true);
@@ -62,12 +105,22 @@ export default () => {
                     statusComponent = <CBadge color='danger'>{statusDpo}</CBadge>
                 }
 
-                result[i] = {
-                    "id": result[i].id,
-                    naturalPerson,
-                    socialName: result[i].social_name,
-                    "CBadge": statusComponent,
-                    "CButtonEdit": <CButton><CIcon icon={cilPen}></CIcon></CButton>,
+                if(result[i].actual === true){
+                    result[i] = {
+                        "id": result[i].id,
+                        naturalPerson,
+                        socialName: result[i].social_name,
+                        "CBadge": statusComponent,
+                        "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
+                    }
+                }else{
+                    result[i] = {
+                        "id": result[i].id,
+                        naturalPerson,
+                        socialName: result[i].social_name,
+                        "CBadge": statusComponent,
+                        "CButtonEdit": <CButton disabled><CIcon icon={cilPen}></CIcon></CButton>,
+                    }
                 }
             }
             setList(result);
@@ -108,6 +161,28 @@ export default () => {
                     </CCard>
                 </CCol>
             </CRow>
+
+            <CModal fullscreen visible={showEditModal} onClose={handleCloseModal}>
+                <CModalHeader closeButton>Editar DPO</CModalHeader>
+                <CModalBody>
+                    <CForm>
+                        <CFormLabel>Nome</CFormLabel>
+                        <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
+                        <br></br>
+                        <CFormLabel>Nome Social</CFormLabel>
+                        <CFormInput type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
+                        <br></br>
+                        <CFormLabel>E-mail</CFormLabel>
+                        <CFormInput type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
+                        <br></br>
+                    </CForm>
+                </CModalBody>
+                <CModalFooter>
+                    <CButton onClick={handleUpdateButton}>Atualizar</CButton>
+                    <CButton color='danger' onClick={handleCloseModal}>Cancelar</CButton>
+                </CModalFooter>
+            </CModal>
+
         </>
     );
 }

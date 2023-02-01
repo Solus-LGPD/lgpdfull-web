@@ -60,17 +60,6 @@ export default () => {
     const handlePostInventory = async () => {
         const user = JSON.parse(sessionStorage.getItem('user'));
         const dpo =  await api.getActualDpo()
-        
-        let underAge = false;
-        let sensitive = false;
-
-        if(underAgeData === 'true'){
-            underAge = true;
-        }
-
-        if(sensitiveData === 'true'){
-            sensitive = true
-        }
 
         const dataRaw = {
             userId: user.id,
@@ -84,8 +73,8 @@ export default () => {
             securityData,
             deadlineData,
             justification,
-            underAgeData: underAge,
-            sensitiveData: sensitive,
+            underAgeData,
+            sensitiveData,
             controller
         }
 

@@ -32,6 +32,12 @@ export default () => {
         logout: () => {
             sessionStorage.clear();
         },
+        updateUser: async (raw) => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/user/update', {userId: user.id, ...raw  }, token);
+            return json;
+        },
         getDpos: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -42,6 +48,17 @@ export default () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request('post', '/dpo/actual', {userId: user.id }, token);
+            return json;
+        },
+        postDpo: async (raw) => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/dpo/register', {userId: user.id, ...raw }, token);
+            return json;
+        },
+        updateDpo: async (id ,raw) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('put', '/dpo/update', {id, ...raw }, token);
             return json;
         },
         getInventories: async () => {
