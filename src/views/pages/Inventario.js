@@ -180,9 +180,9 @@ export default () => {
         sessionStorage.setItem('inventoryId', id);
     }
 
-    const handleDeleteButton = () => {
+    const handleDeleteButton = async () => {
         const id = sessionStorage.getItem('inventoryId');
-        const result  = api.deleteInventory(id);
+        const result  = await api.deleteInventory(id);
         if(result.error === undefined){
             sessionStorage.removeItem('inventoryId');
             window.location.reload();
@@ -204,7 +204,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2>Inventário de Dados Pessoais</h2>
+                    <h2 class='text-black'>Inventário de Dados Pessoais</h2>
 
                     <CCard>
                         <CCardHeader>

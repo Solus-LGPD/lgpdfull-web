@@ -35,7 +35,7 @@ export default () => {
         updateUser: async (raw) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/user/update', {userId: user.id, ...raw  }, token);
+            let json = await request('put', '/user/update', {id: user.id, ...raw  }, token);
             return json;
         },
         getDpos: async () => {
@@ -93,5 +93,26 @@ export default () => {
             let json = await request ('post', '/sector/all', { user_id: user.id }, token)
             return json;
         },
+        getOneSector: async (id) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('post', '/sector/one', { id }, token)
+            return json;
+        },
+        postSector: async (tagName) => {
+            const token =  sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request ('post', '/sector/register', { user_id: user.id, tag_name: tagName }, token)
+            return json;
+        },
+        updateSector: async (raw) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('put', '/sector/update', raw, token)
+            return json;
+        },
+        deleteSector:  async (id) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('delete', '/sector/remove', { id }, token)
+            return json;
+        }
     }
 }

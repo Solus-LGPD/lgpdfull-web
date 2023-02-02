@@ -92,7 +92,7 @@ export default () => {
     return (
         <div >
             <CRow>
-                <h2>Criação do inventário de dados pessoais</h2>
+                <h2 class='text-black'>Criação do Inventário de Dados Pessoais</h2>
             </CRow>
            
                 <CForm class='text-black'>
