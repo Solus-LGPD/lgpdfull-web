@@ -140,7 +140,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2>Encarregado dos Dados Pessoais</h2>
+                    <h2 class='text-black'>Encarregado dos Dados Pessoais</h2>
 
                     <CCard>
                         <CCardHeader>

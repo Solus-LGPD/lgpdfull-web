@@ -22,12 +22,14 @@ export default () => {
       email
     }
 
+    console.log(dataRaw)
+
     setLoading(true);
     const result = await api.updateUser(dataRaw);
     setLoading(false);
 
     if(result.error === undefined){
-      navigate('/')
+      navigate('/lgpdfull')
     }else{
       alert(result.message);
     }
