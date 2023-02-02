@@ -1,6 +1,8 @@
 import React from 'react'
 import {
   CAvatar,
+  CBadge,
+  CButton,
   CDropdown,
   CDropdownDivider,
   CDropdownHeader,
@@ -21,7 +23,9 @@ const AppHeaderDropdown = () => {
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
-        <CAvatar src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" size="md" />
+        <CButton type="button" color=' fw-semibold border border-0 btn btn-ghost-primary text-white 'style={{backgroundColor: "#2085c7" ,fontFamily:'inherit' }} className="position-relative ">Solus
+          <CBadge className="border border-light p-2 " color="success" class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-success p-2" position="top-end " shape="rounded-circle" > <span className="visually-hidden">New alerts</span></CBadge>
+        </CButton>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownHeader className="bg-light fw-semibold py-2">Configurações</CDropdownHeader>
