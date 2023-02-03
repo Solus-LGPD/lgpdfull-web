@@ -4,57 +4,113 @@ import {
   CCol,
   CForm,
   CFormInput,
+  CFormLabel,
   CRow,
+  CAlert
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilArrowCircleLeft} from '@coreui/icons'
+import { cilArrowCircleLeft, cilLockLocked } from '@coreui/icons'
 import { Link } from 'react-router-dom'
-
-
 
 const Trocarsenha = () => {
   
-  const [PasswordNow,setPasswordNow] = useState('');
-  const [NewPassword,setNewPassword] = useState('');
-  const [RepeatPassword,setRepeatPassword] = useState('');
+  const validatePassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=.*[$*&@#.]).{6,}$");
+
+  const [ actualPassword, setActualPassword ] = useState('');
+  const [ newPassword, setNewPassword ] = useState('');
+  const [ repeatPassword, setRepeatPassword ] = useState('');
+  const [ visible, setVisible ] = useState(false);
+  const [ message, setMessage ] = useState('');
+  const [ color, setColor ] = useState('primary');
   
-  const validar =() =>{
-    if (PasswordNow != NewPassword) {
-      if (NewPassword === RepeatPassword ) {
-        alert('sucess')
-      } else{  
-        alert('senha mão é igual')
+  const validar = async () =>{
+    if(actualPassword.length === 0 || newPassword.length === 0 || repeatPassword.length === 0){
+      setVisible(true);
+      setMessage('Todos os campos são necessários.');
+      setColor('danger');
+    }else{
+      if (actualPassword != newPassword) {
+        if (newPassword === repeatPassword ) {
+          if(!validatePassword.test(newPassword)){
+            setVisible(true);
+            setMessage('A senha é fraca. Deve conter, uma letra maiúscula, uma letra minúscula, um número, um caracter especial ("$*&@#.") e deve ter mais de 6 dígitos.');
+            setColor('danger');
+            throw Error("ERROR");
+          }else{
+              
+            const dataRaw = {
+              pass: actualPassword,
+              newPass: newPassword
+            }
+
+            //setLoading(true);
+            const result = await api.updatePass(dataRaw);
+            //setLoading(false);
+
+            if(result.error === undefined){
+              setVisible(true);
+              setMessage('Senha atualizada.');
+              setColor('success');
+            }else{
+              setVisible(true);
+              setMessage(result.message);
+              setColor('danger');
+            }
+          }
+        } else{
+          
+          setVisible(true);
+          setMessage('A nova senha e o repetir senha não são iguais.');
+          setColor('danger'); 
+        }
+      } else {
+        setVisible(true);
+        setMessage('A nova senha não pode ser igual a atual.');
+        setColor('danger'); 
       }
-    } else {
-      alert('senha igual a atual')
     }
   } 
 
+
   return (
-    <div class=" bg-transparent text-black  ">
+  
+    <div className=" bg-transparent">
+
       <Link  to='/lgpdfull'>
-        
-        <CButton class='d-flex text-decoration-underline text-decoration-none border border-0 bg-transparent' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
+        <CButton class='d-flex border border-0 bg-transparent text-white border-none' color=" text-black"><CIcon icon={cilArrowCircleLeft} className="me-2" size="xxl"/></CButton>
       </Link>
-      <CForm >
+
+      <br></br>
+
+      <CAlert color={color} dismissible visible={visible} onClose={() => setVisible(false)}>
+          {message}
+      </CAlert>
+
+      <CForm name='formularioTrocarSenha' action="#" method="POST" class="text-black">
         <CRow className="mb-3 mt-2">
+          <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Senha Atual</CFormLabel>
           <CCol sm={10} >
-            <CFormInput required label='Senha Atual' type="password" value={PasswordNow} onChange={(e) => setPasswordNow(e.target.value)}/>
+            <CFormInput required type="password" id="inputPassword3" value={actualPassword} onChange={(e) => setActualPassword(e.target.value)}/>
           </CCol>
         </CRow>
+
         <CRow className="mb-3 name1">
+          <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Nova Senha</CFormLabel>
           <CCol sm={10} >
-            <CFormInput required label='Nova Senha' type="password" value={NewPassword} onChange={(e) => setNewPassword(e.target.value)} />
+            <CFormInput required minLength={4} maxLength={20} name='novaSenha' type="password" id="inputsenha" value={newPassword} onChange={(e) => setNewPassword(e.target.value)}/>
           </CCol>
         </CRow>
+
         <CRow className="mb-3 name2">
+          <CFormLabel htmlFor="inputPassword3" className="col-sm-6 col-form-label">Repetir Nova Senha</CFormLabel>
           <CCol sm={10} >
-            <CFormInput required label='Repetir Senha' feedback='Parece bom' type="password" value={RepeatPassword} onChange={(e) => setRepeatPassword(e.target.value)}  />
+            <CFormInput required minLength={4} maxLength={20} name='repSenha' type="password" id="inputsenharep" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} />
           </CCol>
         </CRow>
-        
-        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' type="submit" onClick={ validar }>Trocar de Senha</CButton>
+
+        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' onClick={ validar }>Trocar de Senha</CButton>
       </CForm>
+      <br></br>
     </div>
   )
 }

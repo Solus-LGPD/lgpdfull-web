@@ -32,10 +32,39 @@ export default () => {
         logout: () => {
             sessionStorage.clear();
         },
+        updateUser: async (raw) => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('put', '/user/update', {id: user.id, ...raw  }, token);
+            return json;
+        },
+        updatePass: async ( raw ) => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('patch', '/user/pass', {id: user.id, ...raw  }, token);
+            return json;
+        },
+        getDpos: async () => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/dpo/all', {userId: user.id }, token);
+            return json;
+        },
         getActualDpo: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request('post', '/dpo/actual', {userId: user.id }, token);
+            return json;
+        },
+        postDpo: async (raw) => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/dpo/register', {userId: user.id, ...raw }, token);
+            return json;
+        },
+        updateDpo: async (id ,raw) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('put', '/dpo/update', {id, ...raw }, token);
             return json;
         },
         getInventories: async () => {
@@ -44,15 +73,25 @@ export default () => {
             let json = await request('post', '/mapping/all', {userId: user.id }, token);
             return json;
         },
-        deleteInventory: async (id) => {
+        getOneInventory: async (id) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('delete', '/mapping/remove', { id }, token);
-            return json
+            let json = await request ('post', '/mapping/one', { id }, token);
+            return json;
         },
         postInventory: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             let json = await request('post', '/mapping/register', raw,token);
             return json;
+        },
+        updateInventory: async ( raw ) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('put', '/mapping/update', raw,token);
+            return json;
+        },
+        deleteInventory: async (id) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('delete', '/mapping/remove', { id }, token);
+            return json
         },
         getSectors: async () => {
             const token =  sessionStorage.getItem('token');
@@ -60,5 +99,26 @@ export default () => {
             let json = await request ('post', '/sector/all', { user_id: user.id }, token)
             return json;
         },
+        getOneSector: async (id) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('post', '/sector/one', { id }, token)
+            return json;
+        },
+        postSector: async (tagName) => {
+            const token =  sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request ('post', '/sector/register', { user_id: user.id, tag_name: tagName }, token)
+            return json;
+        },
+        updateSector: async (raw) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('put', '/sector/update', raw, token)
+            return json;
+        },
+        deleteSector:  async (id) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('delete', '/sector/remove', { id }, token)
+            return json;
+        }
     }
 }

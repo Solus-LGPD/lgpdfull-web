@@ -39,7 +39,6 @@ export default () => {
     const getSectorsList = async () => {
         const listResult = new Array()
         const result = await api.getSectors();
-        console.log(result)//
         listResult.push('Escolha o setor do inventário');
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
@@ -60,17 +59,6 @@ export default () => {
     const handlePostInventory = async () => {
         const user = JSON.parse(sessionStorage.getItem('user'));
         const dpo =  await api.getActualDpo()
-        
-        let underAge = false;
-        let sensitive = false;
-
-        if(underAgeData === 'true'){
-            underAge = true;
-        }
-
-        if(sensitiveData === 'true'){
-            sensitive = true
-        }
 
         const dataRaw = {
             userId: user.id,
@@ -84,12 +72,10 @@ export default () => {
             securityData,
             deadlineData,
             justification,
-            underAgeData: underAge,
-            sensitiveData: sensitive,
+            underAgeData,
+            sensitiveData,
             controller
         }
-
-        console.log(dataRaw)
 
         setLoading(true);
         const result = await api.postInventory(dataRaw);
@@ -105,7 +91,7 @@ export default () => {
     return (
         <div >
             <CRow>
-                <h2 class='text-black mb-3'>Criação do inventário de dados pessoais</h2>
+                <h2 class='text-black'>Criação do Inventário de Dados Pessoais</h2>
             </CRow>
            
                 <CForm class='text-black'>
@@ -142,8 +128,8 @@ export default () => {
                         <CFormInput label='Nome do Controlador'type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
                 </CForm>
                 <br></br>
-            <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
-            <br></br>
+                <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
+                <br></br>
             <br></br>
             <br></br>
         </div>

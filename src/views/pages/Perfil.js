@@ -1,50 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react';
 import {
   CButton,
-  CCol,
   CForm,
-  CFormCheck,
   CFormInput,
-  CFormLabel,
-  
-  CFormText,
-  
-  CInputGroup,
-  
-  CInputGroupText,
-  
-  CRow,
+  CFormLabel,  
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilArrowCircleLeft, cilLockLocked } from '@coreui/icons'
 import { Link } from 'react-router-dom'
+import useAPI from '../../services/api';
 
+export default () => {
+  const api = useAPI();
 
+  const [ loading, setLoading ] = useState(false);
+  const [ email, setEmail ] = useState('');
 
-const Perfil = () => {
+  const handleUpdateButton = async () => {
+    
+    const dataRaw = {
+      email
+    }
+
+    console.log(dataRaw)
+
+    setLoading(true);
+    const result = await api.updateUser(dataRaw);
+    setLoading(false);
+
+    if(result.error === undefined){
+      navigate('/lgpdfull')
+    }else{
+      alert(result.message);
+    }
+  }
+
   return (
-    <div class=" bg-transparent text-black ">
-      <Link  to='/lgpdfull'>
-        
-        <CButton class='d-flex text-decoration-underline text-decoration-none border border-0 bg-transparent' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
-      </Link>
-      <CForm >
-        <CForm className='mb-3 mt-3'>
-            <CFormInput label='Primeiro Nome' type="text" id="exampleFormControlInput1" placeholder="Digite seu Nome" aria-describedby="exampleFormControlInputHelpInline" />
-        </CForm>
-        <CForm className='mb-3'>
-            <CFormInput label='Sobrenome' type="text" id="exampleFormControlInput1" placeholder="Digite seu Sobrenome" aria-describedby="exampleFormControlInputHelpInline" />
-        </CForm>
-        <CForm className='mb-3'>
-            <CFormInput label='E-mail' type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" />
-        </CForm>
-        <CForm className='mb-3'>
-            <CFormInput label='Nome da Empresa' type="text" id="exampleFormControlInput1" placeholder="Solus-it" aria-describedby="exampleFormControlInputHelpInline" />
-        </CForm>
-        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' type="submit">Confirmar</CButton>
-      </CForm>
-    </div>
-  )
+    <>
+        <div className=" bg-transparent  ">
+          <Link  to='/lgpdfull'>
+            
+            <CButton class='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
+          </Link>
+          <br></br>
+          <br></br>
+          <br></br>
+          <CForm >
+              <CForm className='mb-3'>
+                  <CFormLabel htmlFor="exampleFormControlInput1">E-mail</CFormLabel>
+                  <CFormInput type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </CForm>
+            <CButton onClick={handleUpdateButton} style={{backgroundColor: "#2085c7"}} color=' text-white' type="submit" disabled={loading}>{loading ? 'Carregando' : 'Atualizar'}</CButton>
+          </CForm>
+      </div>  
+    </>
+  );
 }
-
-export default Perfil
