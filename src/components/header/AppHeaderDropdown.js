@@ -23,7 +23,7 @@ const AppHeaderDropdown = () => {
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
-        <CButton type="button" color=' fw-semibold border border-0 btn btn-ghost-primary text-white 'style={{backgroundColor: "#2085c7" ,fontFamily:'inherit' }} className="position-relative ">Solus
+        <CButton type="button" color=' fw-semibold rounded-pill border border-0 btn btn-ghost-primary text-white 'style={{backgroundColor: "#2085c7" ,fontFamily:'inherit' }} className="position-relative ">Solus
           <CBadge className="border border-light p-2 " color="success" class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-success p-2" position="top-end " shape="rounded-circle" > <span className="visually-hidden">New alerts</span></CBadge>
         </CButton>
       </CDropdownToggle>
