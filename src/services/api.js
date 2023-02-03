@@ -38,6 +38,12 @@ export default () => {
             let json = await request('put', '/user/update', {id: user.id, ...raw  }, token);
             return json;
         },
+        updatePass: async ( raw ) => {
+            const token = sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('patch', '/user/pass', {id: user.id, ...raw  }, token);
+            return json;
+        },
         getDpos: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));

@@ -20,7 +20,7 @@ const routes = [
   { path: '/lgpdfull/perfil', name: 'Perfil', element: Perfil },
   { path: '/inventario', name: 'Inventario', element: Inventario },
   { path: '/inventario/criar', name: 'Criar', element: InventarioCriar },
-  { path: '/dpo', name: 'Dpo', element: Dpo },
+  { path: '/dpo', name: 'DPO', element: Dpo },
   { path: '/dpo/criar', name: 'Criar', element: DpoCriar },
   { path: '/setor', name: 'Setor', element: Setor },
   { path: '/setor/criar', name: 'Criar', element: SetorCriar }

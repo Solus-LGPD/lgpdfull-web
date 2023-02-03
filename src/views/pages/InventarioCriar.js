@@ -39,7 +39,6 @@ export default () => {
     const getSectorsList = async () => {
         const listResult = new Array()
         const result = await api.getSectors();
-        console.log(result)//
         listResult.push('Escolha o setor do inventário');
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
