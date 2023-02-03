@@ -95,34 +95,25 @@ export default () => {
             </CRow>
            
                 <CForm class='text-black'>
-                        <CFormLabel>Identificação</CFormLabel>
-                        <CFormInput type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
+                        <CFormInput label='Identificação' type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CFormLabel>Setor da empresa</CFormLabel>
-                        <CFormSelect options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}></CFormSelect>
+                        <CFormSelect label='Setor da empresa' options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}></CFormSelect>
                         <br></br>
-                        <CFormLabel>Dados pessoais coletados</CFormLabel>
-                        <CFormTextarea rows={3} required value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Dados pessoais coletados' rows={3} required value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Razão da coleta</CFormLabel>
-                        <CFormTextarea rows={2} required value={reasonData} onChange={(e) => setReasonData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Razão da coleta' rows={2} required value={reasonData} onChange={(e) => setReasonData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Como é armazenado?</CFormLabel>
-                        <CFormTextarea rows={2} required value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Como é armazenado?' rows={2} required value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Fonte dos dados</CFormLabel>
-                        <CFormTextarea rows={2} required value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Fonte dos dados' rows={2} required value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Segurança dos dados pessoais</CFormLabel>
-                        <CFormTextarea rows={2} required value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Segurança dos dados pessoais' rows={2} required value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Prazo de retenção dos dados pessoais</CFormLabel>
-                        <CFormTextarea rows={2} required value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Prazo de retenção dos dados pessoais' rows={2} required value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Justificativa do uso</CFormLabel>
-                        <CFormTextarea rows={3} required value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Justificativa do uso' rows={3} required value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Uso de dados pessoais de menores de idade</CFormLabel>
+                        <CFormLabel>Uso de dados pessoais de menores de idade?</CFormLabel>
                         <br></br>
                             <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox1" value={true} label="Sim" onChange={(e) => setUnderAgeData(e.target.value)}/>
                             <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox2" value={false} label="Não" defaultChecked onChange={(e) => setUnderAgeData(e.target.value)}/>
@@ -134,8 +125,7 @@ export default () => {
                             <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox2" value={false} label="Não" defaultChecked  onChange={(e) => setSensitiveData(e.target.value)}/>
                         <br></br>
                         <br></br>
-                        <CFormLabel>Nome do Controlador</CFormLabel>
-                        <CFormInput type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
+                        <CFormInput label='Nome do Controlador'type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
                 </CForm>
                 <br></br>
                 <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
