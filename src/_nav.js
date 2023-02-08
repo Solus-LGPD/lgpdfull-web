@@ -68,26 +68,6 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Inventário',
-    to: '/Inventario',
-    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Todos',
-        to: '/inventario',
-        icon: <CIcon icon={cilLayers} customClassName="nav-icon" />
-      },
-      {
-        component: CNavItem,
-        name: 'Criar',
-        to: '/inventario/criar',
-        icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
-      }
-    ],
-  },
-  {
-    component: CNavGroup,
     name: 'Setor',
     to: '/setor',
     icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
@@ -102,6 +82,26 @@ const _nav = [
         component: CNavItem,
         name: 'Criar',
         to: '/setor/criar',
+        icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
+      }
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Inventário',
+    to: '/Inventario',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Todos',
+        to: '/inventario',
+        icon: <CIcon icon={cilLayers} customClassName="nav-icon" />
+      },
+      {
+        component: CNavItem,
+        name: 'Criar',
+        to: '/inventario/criar',
         icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
       }
     ],

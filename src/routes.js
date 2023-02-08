@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Lgpdfull = React.lazy(() => import('./views/lgpdfull/Lgpdfull'))
+const Lgpdfull = React.lazy(() => import('./views/pages/Lgpdfull'))
 const Trocarsenha = React.lazy(() => import('./views/pages/Trocarsenha'))
 const Logout = React.lazy(() => import('./views/Logout'))
 const Perfil = React.lazy(() => import('./views/pages/Perfil'))

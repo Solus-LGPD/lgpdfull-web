@@ -8,9 +8,9 @@ const Lgpdfull = () => {
                 <CButtonGroup vertical role="group" class='mb-1 m-0 p-0 mt-0 m-3 d-flex  text-center flex-column w-25 ' aria-label="Vertical button group">
                     <h5 style={{color: "#2085c7", 'font-size': '27px'}} class='p-4pb-1 h5 text-decoration-none' >Fase de Mapeamento</h5>
                     <CButton style={{backgroundColor: "#2085c7"}} color=" border border-0 mb-1 rounded-pill text-white" href="http://www.quiz.solus-it.com.br/" target="__blank">Quiz LGPD</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} color=" border border-0 mb-1 rounded-pill text-white">Processos</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} color=" border border-0 mb-1 rounded-pill text-white" href="#">Inventário</CButton>
                     <CButton style={{backgroundColor: "#2085c7"}} color=" border border-0 mb-1 rounded-pill text-white" href="#">DPO</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} color=" border border-0 mb-1 rounded-pill text-white" href="#">Setor</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} color=" border border-0 mb-1 rounded-pill text-white" href="#">Inventário</CButton>
                 </CButtonGroup>
                 <h5 style={{color: "#2085c7", 'font-size': '180px'}} class='justify-content-start flex-column d-flex'>B</h5>
                 <CButtonGroup vertical role="group" aria-label="Vertical button group" class="mt-0 m-3 w-25 text-center d-flex flex-column">
