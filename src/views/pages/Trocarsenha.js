@@ -16,6 +16,7 @@ const Trocarsenha = () => {
   
   const validatePassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=.*[$*&@#.]).{6,}$");
 
+  const [loading, setLoading] = useState(false);
   const [ actualPassword, setActualPassword ] = useState('');
   const [ newPassword, setNewPassword ] = useState('');
   const [ repeatPassword, setRepeatPassword ] = useState('');
@@ -43,9 +44,9 @@ const Trocarsenha = () => {
               newPass: newPassword
             }
 
-            //setLoading(true);
+            setLoading(true);
             const result = await api.updatePass(dataRaw);
-            //setLoading(false);
+            setLoading(false);
 
             if(result.error === undefined){
               setVisible(true);
@@ -108,13 +109,11 @@ const Trocarsenha = () => {
           </CCol>
         </CRow>
 
-        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' onClick={ validar }>Trocar de Senha</CButton>
+        <CButton style={{backgroundColor: "#2085c7"}} color='text-white' onClick={ validar }>{loading ? 'Carregando' : 'Atualizar'}</CButton>
       </CForm>
       <br></br>
     </div>
   )
 }
-
-
 
 export default Trocarsenha

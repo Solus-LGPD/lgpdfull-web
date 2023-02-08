@@ -32,6 +32,11 @@ export default () => {
         logout: () => {
             sessionStorage.clear();
         },
+        savePass: async (email) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('post', '/user/save-password', { email }, token);
+            return json;
+        },
         updateUser: async (raw) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));

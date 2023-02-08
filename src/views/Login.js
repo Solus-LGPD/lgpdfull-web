@@ -24,12 +24,17 @@ import { cilLockLocked, cilUser,cilEnvelopeClosed } from '@coreui/icons'
 import useAPI from '../services/api';
 
 const Login = () => {
+
   const api = useAPI();
   const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false)
+  const [ error, setError ] = useState('');
+  const [ loading, setLoading ] = useState(false);
+  const [ visible, setVisible ] = useState(false);
+  const [ message, setMessage ] = useState('');
+  const [ visibleAlert , setVisibleAlert ] = useState(false);
 
   const handleLoginButton = async () => {
     if(email && password){
@@ -49,7 +54,24 @@ const Login = () => {
     }
   }
 
-  const [visible, setVisible] = useState(false)
+  const handleSavePass = async () => {
+
+    setLoading(true);
+    const result = await api.savePass(email);
+    setLoading(false);
+
+    if(result.error === undefined){
+      setVisibleAlert(true);
+      setMessage('Sucesso!');
+      setColor('success');
+    }else{
+      setVisibleAlert(true);
+      setMessage('E-mail Inválido');
+      setColor('danger');
+    }
+
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -94,8 +116,9 @@ const Login = () => {
                         <CModalHeader onClose={() => setVisible(false)}>
                           <CModalTitle>Redefinir Senha</CModalTitle>
                         </CModalHeader>
-                        <CModalBody>Enviaremos um e-mail com mais informações sobre como redefinir sua senha.</CModalBody>
+                        <CModalBody>Entraremos em contato com você no E-mail que foi cadastrado no sistema.</CModalBody>
                         <CModalBody>
+                          <CAlert visible={visibleAlert} color={color}>{message}</CAlert>
                           <CInputGroup className="mb-3">
                             <CInputGroupText>
                               <CIcon icon={cilEnvelopeClosed} />
@@ -112,7 +135,7 @@ const Login = () => {
                           <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={() => setVisible(false)}>
                             Cancelar
                           </CButton>
-                          <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}}>Redefinir</CButton>
+                          <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={handleSavePass}>Redefinir</CButton>
                         </CModalFooter>
                       </CModal>
                       </CCol>

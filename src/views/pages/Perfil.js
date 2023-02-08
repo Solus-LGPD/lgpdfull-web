@@ -3,7 +3,8 @@ import {
   CButton,
   CForm,
   CFormInput,
-  CFormLabel,  
+  CFormLabel,
+  CAlert  
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilArrowCircleLeft, cilLockLocked } from '@coreui/icons'
@@ -15,14 +16,15 @@ export default () => {
 
   const [ loading, setLoading ] = useState(false);
   const [ email, setEmail ] = useState('');
+  const [ visible, setVisible ] = useState(false);
+  const [ message, setMessage ] = useState('');
+  const [ color, setColor ] = useState('primary');
 
   const handleUpdateButton = async () => {
     
     const dataRaw = {
       email
     }
-
-    console.log(dataRaw)
 
     setLoading(true);
     const result = await api.updateUser(dataRaw);
@@ -31,7 +33,9 @@ export default () => {
     if(result.error === undefined){
       navigate('/lgpdfull')
     }else{
-      alert(result.message);
+      setVisible(true);
+      setMessage('Email Inválido');
+      setColor('danger');
     }
   }
 
@@ -45,12 +49,15 @@ export default () => {
           <br></br>
           <br></br>
           <br></br>
+          <CAlert color={color} dismissible visible={visible} onClose={() => setVisible(false)}>
+            {message}
+          </CAlert>
           <CForm >
               <CForm className='mb-3'>
                   <CFormLabel htmlFor="exampleFormControlInput1">E-mail</CFormLabel>
-                  <CFormInput type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <CFormInput required type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" value={email} onChange={(e) => setEmail(e.target.value)} />
               </CForm>
-            <CButton onClick={handleUpdateButton} style={{backgroundColor: "#2085c7"}} color=' text-white' type="submit" disabled={loading}>{loading ? 'Carregando' : 'Atualizar'}</CButton>
+            <CButton onClick={handleUpdateButton} style={{backgroundColor: "#2085c7"}} color=' text-white' disabled={loading}>{loading ? 'Carregando' : 'Atualizar'}</CButton>
           </CForm>
       </div>  
     </>
