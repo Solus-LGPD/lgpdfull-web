@@ -11,6 +11,8 @@ const Dpo = React.lazy(() => import('./views/pages/Dpo'));
 const DpoCriar = React.lazy(() => import('./views/pages/DpoCriar'));
 const Setor = React.lazy(() => import('./views/pages/Setor'));
 const SetorCriar = React.lazy(() => import('./views/pages/SetorCriar'));
+const Quiz  = React.lazy(() => import('./views/pages/Quiz'));
+const QuizCriar = React.lazy(() => import('./views/pages/QuizCriar'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -23,7 +25,9 @@ const routes = [
   { path: '/dpo', name: 'DPO', element: Dpo },
   { path: '/dpo/criar', name: 'Criar', element: DpoCriar },
   { path: '/setor', name: 'Setor', element: Setor },
-  { path: '/setor/criar', name: 'Criar', element: SetorCriar }
+  { path: '/setor/criar', name: 'Criar', element: SetorCriar },
+  { path: '/quiz', name: 'Quiz', element: Quiz },
+  { path: '/quiz/criar', name: 'Criar', element: QuizCriar }
 ]
 
 export default routes
