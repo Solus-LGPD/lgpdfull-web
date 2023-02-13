@@ -8,8 +8,11 @@ import {
   CFormInput,
   CFormLabel,
   CFormCheck,
+  CPopover,
 } from '@coreui/react';
 import useAPI from '../../services/api';
+import CIcon from '@coreui/icons-react';
+import { cilLightbulb } from '@coreui/icons';
 
 export default () => {
 
@@ -49,10 +52,12 @@ export default () => {
             </CRow>
            
                 <CForm class='text-black'>
-                        <CFormLabel>Nome</CFormLabel>
+                        <CFormLabel>Nome Completo ou Nome do Comitê </CFormLabel>
                         <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CFormLabel>Nome Social</CFormLabel>
+                        <CPopover trigger="focus" content="Nome Social = Como você quer ser chamado. Comitê = Todas as pessoas que são responsaveis pelo sistema. Ex.:Fulano da Silva,Ciclano da Costa,...  "placement="right">
+                            <CButton data-coreui-toggle="popover" color="link" style={{alignItems:'baseline',display:'flex'}}   class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Nome Social ou Nomes das pessoas do Comitê</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        </CPopover>
                         <CFormInput type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
                         <br></br>
                         <CFormLabel>Tipo</CFormLabel>
