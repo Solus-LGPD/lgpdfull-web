@@ -182,7 +182,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 class='text-black'>Inventário de Dados Pessoais</h2>
+                    <h2 className='text-black'>Inventário de Dados Pessoais</h2>
 
                     <CCard>
                         <CCardHeader>
@@ -260,8 +260,8 @@ export default () => {
                         Deseja mesmo excluir este inventário?
                 </CModalBody>
                 <CModalFooter>
-                        <CButton class='m-2 btn btn-primary' style={{backgroundColor: "red"}} color='danger' onClick={handleDeleteButton}>Deletar</CButton>
-                        <CButton class='m-2 btn btn-primary' color='warning' onClick={handleCloseModal}>Cancelar</CButton>
+                        <CButton className='m-2 btn btn-primary' style={{backgroundColor: "red"}} color='danger' onClick={handleDeleteButton}>Deletar</CButton>
+                        <CButton className='m-2 btn btn-primary' color='warning' onClick={handleCloseModal}>Cancelar</CButton>
                 </CModalFooter>
             </CModal>
         </>

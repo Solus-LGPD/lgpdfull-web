@@ -113,17 +113,17 @@ const Login = () => {
                           </CInputGroup>
                         </CModalBody> 
                         <CModalFooter>
-                          <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={() => setVisible(false)}>
+                          <CButton className="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={() => setVisible(false)}>
                             Cancelar
                           </CButton>
-                          <CButton class="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={handleSavePass}>Redefinir</CButton>
+                          <CButton className="btn btn-primary rounded-pill border border-0" style={{backgroundColor: "#2085c7"}} onClick={handleSavePass}>Redefinir</CButton>
                         </CModalFooter>
                       </CModal>
                       </CCol>
                       <CCol xs={6}>
                         <CButton
                           style={{backgroundColor: "#2085c7"}} 
-                          class="btn btn-primary rounded-pill border border-0 "
+                          className="btn btn-primary rounded-pill border border-0 "
                           onClick={handleLoginButton}
                           disabled={loading}
                         >

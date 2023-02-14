@@ -37,7 +37,7 @@ export default () => {
     <>
         <div className=" bg-transparent  ">
           <Link  to='/lgpdfull'>
-            <CButton class='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
+            <CButton className='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
           </Link>
           <br></br>
           <br></br>
