@@ -83,28 +83,28 @@ export default () => {
     return (
         <div>
             <CRow>
-                <h2 class='text-black'>Criação do Inventário de Dados Pessoais</h2>
+                <h2 className='text-black'>Criação do Inventário de Dados Pessoais</h2>
             </CRow>
            
-                <CForm class='text-black'>
+                <CForm className='text-black'>
 
                     <CPopover title='Identificação' trigger="focus" content="Colocar o número de referência para a identificação do inventário. Padrão:(Inventário - SiglaDoSetor 'TI' - Número.) Ex.:Inventário-TI-01"placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Identificação</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Identificação</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormInput title='' trigger="focus" type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>                       
                     <br></br>
                     <CPopover title='Setor da empresa' trigger="focus" content="Colocar o nome do setor a qual se refere o inventário. Ex.:TI,RH,ADM"placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Setor da empresa</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Setor da empresa</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormSelect options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}></CFormSelect>
                     <br></br>
                     <CPopover title='Dados pessoais coletados' trigger="focus" content="Descrever  como (de que forma) os dados  pessoais são coletados.  *MAIÚSCULO e separado por vírgula* Ex.:NOME,CPF,RG,...  "placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Dados pessoais coletados</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Dados pessoais coletados</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormTextarea rows={3} required value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
                     <br></br>
                     <CPopover title='Hipótese de tratamento' trigger="focus" content="Selecione a razão ou motivo pela qual se deseja tratar os dados pessoais."placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Hipótese de tratamento</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Hipótese de tratamento</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormSelect options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}>
                         <option>Selecione...</option>
@@ -122,27 +122,27 @@ export default () => {
                     </CFormSelect>
                     <br></br>
                     <CPopover title='Como é armazenado?' trigger="focus" content="Descrever onde seus dados ficam armazenados. *MAIÚSCULO e separado por vírgula*  Ex.: BANCO DE DADOS, PASTAS FISICAS E EXCEL,... "placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Como é armazenado?</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Como é armazenado?</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormTextarea rows={2} required value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
                     <br></br>
                     <CPopover title='Fonte dos dados' trigger="focus" content="Origem dos dados. *MAIÚSCULO e separado por vírgula* Ex.: TITULAR DOS DADOS, FORNECIDO POR TERCEIROS,..."placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Fonte dos dados</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Fonte dos dados</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormTextarea rows={2} required value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
                     <br></br>
                     <CPopover title='Segurança dos dados pessoais' trigger="focus" content=" Descreva as medidas de segurança usadas para garantir a privacidade dos titulares dos dados. *MAIÚSCULO e separado por vírgula*"placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Segurança dos dados pessoais</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Segurança dos dados pessoais</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormTextarea rows={2} required value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
                     <br></br>
                     <CPopover title='Prazo de retenção dos dados pessoais' trigger="focus" content="Tempo até o descarte dos dados pessoais. *MAIÚSCULO*"placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Prazo de retenção dos dados pessoais</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Prazo de retenção dos dados pessoais</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormTextarea rows={2} required value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
                     <br></br>
                     <CPopover title='Justificativa do uso' trigger="focus" content="Razão ou motivo pela qual se deseja tratar os dados pessoais.*MAIÚSCULO*"placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Justificativa do uso</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Justificativa do uso</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormTextarea rows={3} required value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
                     <br></br>
@@ -159,7 +159,7 @@ export default () => {
                     <br></br>
                     <br></br>
                     <CPopover title='Nome do Controlador' trigger="focus" content="A quem competem as decisões referentes ao tratamento de dados pessoais. *MAIÚSCULO*"placement="right">
-                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Nome do Controlador</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
+                        <CButton color="link" style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Nome do Controlador</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                     </CPopover>
                     <CFormInput type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
                 </CForm>

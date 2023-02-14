@@ -70,7 +70,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 class='text-black'>Inventário de Dados Pessoais</h2>
+                    <h2 className='text-black'>Inventário de Dados Pessoais</h2>
 
                     <CCard>
                         <CCardHeader>
