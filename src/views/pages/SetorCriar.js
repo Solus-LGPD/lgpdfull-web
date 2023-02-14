@@ -27,10 +27,10 @@ export default () => {
     return (
         <>
             <CRow>
-                <h2 class='text-black'>Cadastrar Novo Setor</h2>
+                <h2 className='text-black'>Cadastrar Novo Setor</h2>
             </CRow>
            
-                <CForm class='text-black'>
+                <CForm className='text-black'>
                         <CFormLabel>Nome</CFormLabel>
                         <CFormInput type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
                         <br></br>

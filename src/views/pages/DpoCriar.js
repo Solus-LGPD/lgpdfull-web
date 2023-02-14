@@ -39,10 +39,10 @@ export default () => {
     return (
         <>
             <CRow>
-                <h2 class='text-black'>Registro de Encarregado de Dados Pessoais</h2>
+                <h2 className='text-black'>Registro de Encarregado de Dados Pessoais</h2>
             </CRow>
            
-                <CForm class='text-black'>
+                <CForm className='text-black'>
                         <CFormLabel>Nome Completo ou Nome do Comitê </CFormLabel>
                         <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
                         <br></br>

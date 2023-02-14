@@ -69,7 +69,7 @@ const Trocarsenha = () => {
     <div className=" bg-transparent">
 
       <Link  to='/lgpdfull'>
-        <CButton class='d-flex border border-0 bg-transparent text-white border-none' color=" text-black"><CIcon icon={cilArrowCircleLeft} className="me-2" size="xxl"/></CButton>
+        <CButton className='d-flex border border-0 bg-transparent text-white border-none' color=" text-black"><CIcon icon={cilArrowCircleLeft} className="me-2" size="xxl"/></CButton>
       </Link>
 
       <br></br>
@@ -78,7 +78,7 @@ const Trocarsenha = () => {
           {message}
       </CAlert>
 
-      <CForm name='formularioTrocarSenha' action="#" method="POST" class="text-black">
+      <CForm name='formularioTrocarSenha' action="#" method="POST" className="text-black">
         <CRow className="mb-3 mt-2">
           <CFormLabel htmlFor="inputPassword3" className="col-sm-4 col-form-label">Senha Atual</CFormLabel>
           <CCol sm={10} >

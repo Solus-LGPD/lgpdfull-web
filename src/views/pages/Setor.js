@@ -104,7 +104,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 class='text-black'>Setores</h2>
+                    <h2 className='text-black'>Setores</h2>
 
                     <CCard>
                         <CCardHeader>
@@ -129,7 +129,7 @@ export default () => {
             <CModal visible={showEditModal} onClose={handleCloseModal}>
                 <CModalHeader closeButton>Editar DPO</CModalHeader>
                 <CModalBody>
-                    <CForm class='text-black'>
+                    <CForm className='text-black'>
                         <CFormLabel>Nome do Setor</CFormLabel>
                         <CFormInput type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
                         <br></br>
@@ -147,8 +147,8 @@ export default () => {
                         Deseja mesmo excluir este inventário?
                 </CModalBody>
                 <CModalFooter>
-                        <CButton class='m-2 btn btn-primary' style={{backgroundColor: "red"}} color='danger' onClick={handleDeleteButton}>Deletar</CButton>
-                        <CButton class='m-2 btn btn-primary' color='warning' onClick={handleCloseModal}>Cancelar</CButton>
+                        <CButton className='m-2 btn btn-primary' style={{backgroundColor: "red"}} color='danger' onClick={handleDeleteButton}>Deletar</CButton>
+                        <CButton className='m-2 btn btn-primary' color='warning' onClick={handleCloseModal}>Cancelar</CButton>
                 </CModalFooter>
             </CModal>
         </>

@@ -43,11 +43,11 @@ export default () => {
     return (
         <>
             <CRow>
-                <h2 class='text-black'>Quiz LGPD</h2>
+                <h2 className='text-black'>Quiz LGPD</h2>
             </CRow>
             <br></br>
             <br></br>
-            <CForm class='text-black'>
+            <CForm className='text-black'>
                 <CFormLabel>Q1?</CFormLabel>
                 <br></br>
                     <CFormCheck type="radio" name="q1" id="exampleRadios1" value="0" label="Ainda não" defaultChecked onChange={(e) => setAnswers(e.target.value)}/>
