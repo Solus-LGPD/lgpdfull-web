@@ -43,7 +43,6 @@ export default () => {
     <>
         <div className=" bg-transparent  ">
           <Link  to='/lgpdfull'>
-            
             <CButton class='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
           </Link>
           <br></br>
@@ -52,13 +51,11 @@ export default () => {
           <CAlert color={color} dismissible visible={visible} onClose={() => setVisible(false)}>
             {message}
           </CAlert>
-          <CForm >
-              <CForm className='mb-3'>
-                  <CFormLabel htmlFor="exampleFormControlInput1">E-mail</CFormLabel>
-                  <CFormInput required type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" value={email} onChange={(e) => setEmail(e.target.value)} />
-              </CForm>
-            <CButton onClick={handleUpdateButton} style={{backgroundColor: "#2085c7"}} color=' text-white' disabled={loading}>{loading ? 'Carregando' : 'Atualizar'}</CButton>
+          <CForm className='mb-3'>
+            <CFormLabel htmlFor="exampleFormControlInput1">E-mail</CFormLabel>
+            <CFormInput required type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" value={email} onChange={(e) => setEmail(e.target.value)} />
           </CForm>
+          <CButton onClick={handleUpdateButton} style={{backgroundColor: "#2085c7"}} color=' text-white' disabled={loading}>{loading ? 'Carregando' : 'Atualizar'}</CButton>
       </div>  
     </>
   );

@@ -35,6 +35,7 @@ const Login = () => {
   const [ visible, setVisible ] = useState(false);
   const [ message, setMessage ] = useState('');
   const [ visibleAlert , setVisibleAlert ] = useState(false);
+  const [ color, setColor ] = useState('primary');
 
   const handleLoginButton = async () => {
     if(email && password){

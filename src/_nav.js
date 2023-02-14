@@ -40,11 +40,24 @@ const _nav = [
     name: 'Painel Principal',
   },
   {
-    component: CNavItem,
+    component: CNavGroup,
     name: 'Quiz LGPD',
-    href:'http://www.quiz.solus-it.com.br/',
-    target: '__blank',
+    to: '/quiz',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Todos',
+        to: '/quiz',
+        icon: <CIcon icon={cilLayers} customClassName="nav-icon" />
+      },
+      {
+        component: CNavItem,
+        name: 'Criar',
+        to: '/quiz/criar',
+        icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
+      }
+    ]
   },
   {
     component: CNavGroup,

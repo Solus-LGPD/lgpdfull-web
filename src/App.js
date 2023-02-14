@@ -18,7 +18,7 @@ const Login = React.lazy(() => import('./views/Login'))
 const App = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={loading}>
+      <Suspense fallback={loading.toString()}>
         <Routes>
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />

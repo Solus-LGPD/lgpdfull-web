@@ -124,6 +124,12 @@ export default () => {
             const token =  sessionStorage.getItem('token');
             let json = await request ('delete', '/sector/remove', { id }, token)
             return json;
+        },
+        getAnswers: async () => {
+            const token =  sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request ('get', `/quiz/all/${user.sub}`, undefined , token )
+            return json;
         }
     }
 }

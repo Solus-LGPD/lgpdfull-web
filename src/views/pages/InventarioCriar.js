@@ -18,7 +18,7 @@ export default () => {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(false);
-    const [sectorsList, setSectorsList] = useState('');
+    const [sectorsList, setSectorsList] = useState([]);
     const [tagName, setTagName] = useState('');
     const [sector, setSector] = useState('');
     const [colletedData, setColletedData] = useState('');
@@ -94,42 +94,42 @@ export default () => {
                 <h2 class='text-black'>Criação do Inventário de Dados Pessoais</h2>
             </CRow>
            
-                <CForm class='text-black'>
-                        <CFormInput label='Identificação' type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
-                        <br></br>
-                        <CFormSelect label='Setor da empresa' options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}></CFormSelect>
-                        <br></br>
-                        <CFormTextarea label='Dados pessoais coletados' rows={3} required value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormTextarea label='Razão da coleta' rows={2} required value={reasonData} onChange={(e) => setReasonData(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormTextarea label='Como é armazenado?' rows={2} required value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormTextarea label='Fonte dos dados' rows={2} required value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormTextarea label='Segurança dos dados pessoais' rows={2} required value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormTextarea label='Prazo de retenção dos dados pessoais' rows={2} required value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormTextarea label='Justificativa do uso' rows={3} required value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
-                        <br></br>
-                        <CFormLabel>Uso de dados pessoais de menores de idade?</CFormLabel>
-                        <br></br>
-                            <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox1" value={true} label="Sim" onChange={(e) => setUnderAgeData(e.target.value)}/>
-                            <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox2" value={false} label="Não" defaultChecked onChange={(e) => setUnderAgeData(e.target.value)}/>
-                        <br></br>
-                        <br></br>
-                        <CFormLabel>Trata dados sensíveis?</CFormLabel>
-                        <br></br>
-                            <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox1" value={true} label="Sim"  onChange={(e) => setSensitiveData(e.target.value)}/>
-                            <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox2" value={false} label="Não" defaultChecked  onChange={(e) => setSensitiveData(e.target.value)}/>
-                        <br></br>
-                        <br></br>
-                        <CFormInput label='Nome do Controlador'type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
-                </CForm>
-                <br></br>
-                <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
-                <br></br>
+            <CForm class='text-black'>
+                    <CFormInput label='Identificação' type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
+                    <br></br>
+                    <CFormSelect label='Setor da empresa' options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}></CFormSelect>
+                    <br></br>
+                    <CFormTextarea label='Dados pessoais coletados' rows={3} required value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormTextarea label='Razão da coleta' rows={2} required value={reasonData} onChange={(e) => setReasonData(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormTextarea label='Como é armazenado?' rows={2} required value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormTextarea label='Fonte dos dados' rows={2} required value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormTextarea label='Segurança dos dados pessoais' rows={2} required value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormTextarea label='Prazo de retenção dos dados pessoais' rows={2} required value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormTextarea label='Justificativa do uso' rows={3} required value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
+                    <br></br>
+                    <CFormLabel>Uso de dados pessoais de menores de idade?</CFormLabel>
+                    <br></br>
+                        <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox1" value={true} label="Sim" onChange={(e) => setUnderAgeData(e.target.value)}/>
+                        <CFormCheck inline type="radio" name="underAgeData" id="inlineCheckbox2" value={false} label="Não" defaultChecked onChange={(e) => setUnderAgeData(e.target.value)}/>
+                    <br></br>
+                    <br></br>
+                    <CFormLabel>Trata dados sensíveis?</CFormLabel>
+                    <br></br>
+                        <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox1" value={true} label="Sim"  onChange={(e) => setSensitiveData(e.target.value)}/>
+                        <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox2" value={false} label="Não" defaultChecked  onChange={(e) => setSensitiveData(e.target.value)}/>
+                    <br></br>
+                    <br></br>
+                    <CFormInput label='Nome do Controlador'type='text' required value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
+            </CForm>
+            <br></br>
+            <CButton color='success' disabled={loading} onClick={handlePostInventory}>{loading ? 'Carregando' : 'Criar'}</CButton>
+            <br></br>
             <br></br>
             <br></br>
         </div>
