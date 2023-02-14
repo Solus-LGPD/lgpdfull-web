@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  CButton,
-  CRow,
-  CForm,
-  CFormInput,
-  CFormLabel,
-  CFormTextarea,
-  CFormCheck,
-  CFormSelect,
-  CPopover,
-  CCard
-} from '@coreui/react';
+import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormTextarea,CFormCheck,CFormSelect,CPopover,CCard} from '@coreui/react';
 import useAPI from '../../services/api';
-import { cibSpotlight, cilArrowCircleLeft,cilLightbulb, cilWarning } from '@coreui/icons';
+import {cilLightbulb} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 
 export default () => {
-
     const api = useAPI();
     const navigate = useNavigate();
 

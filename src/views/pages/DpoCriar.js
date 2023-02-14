@@ -1,21 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  CButton,
-  CRow,
-  CForm,
-  CFormInput,
-  CFormLabel,
-  CFormCheck,
-  CPopover,
-} from '@coreui/react';
+import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormCheck,CPopover,} from '@coreui/react';
 import useAPI from '../../services/api';
 import CIcon from '@coreui/icons-react';
 import { cilLightbulb } from '@coreui/icons';
 
 export default () => {
-
     const api = useAPI();
     const navigate = useNavigate();
 
