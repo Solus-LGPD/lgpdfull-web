@@ -1,30 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {
-  CAlert,
-  CButton,
-  CCard,
-  CCardBody,
-  CCardGroup,
-  CCol,
-  CContainer,
-  CForm,
-  CFormInput,
-  CInputGroup,
-  CInputGroupText,
-  CModal,
-  CModalBody,
-  CModalFooter,
-  CModalHeader,
-  CModalTitle,
-  CRow,
-} from '@coreui/react'
+import {CAlert,CButton,CCard,CCardBody,CCardGroup,CCol,CContainer,CForm,CFormInput,CInputGroup,CInputGroupText,CModal,CModalBody,CModalFooter,CModalHeader,CModalTitle,CRow,} from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser,cilEnvelopeClosed } from '@coreui/icons'
 import useAPI from '../services/api';
 
 const Login = () => {
-
   const api = useAPI();
   const navigate = useNavigate();
 
@@ -70,7 +51,6 @@ const Login = () => {
       setMessage('E-mail Inválido');
       setColor('danger');
     }
-
   }
 
   return (
@@ -150,7 +130,6 @@ const Login = () => {
                           {loading ? 'Carregando' : 'Acessar'}
                         </CButton>
                       </CCol>
-                      
                     </CRow>
                   </CForm>
                 </CCardBody>
