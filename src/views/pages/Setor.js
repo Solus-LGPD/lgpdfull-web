@@ -138,7 +138,7 @@ export default () => {
                         </CCardHeader>
                         <CCardBody>
                             <CTable
-                                loading={loading}
+                                loading={loading.toString()}
                                 items={list}
                                 columns={fields}
                                 hover
