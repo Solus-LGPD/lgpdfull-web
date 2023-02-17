@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   CButton,
   CCard,
@@ -22,7 +22,8 @@ import {
 import {
     cilCheck,
     cilX,
-    cilPen
+    cilPen,
+    cilArrowCircleLeft
   } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
@@ -138,13 +139,18 @@ export default () => {
 
     return (
         <>
+                <Link  to='/lgpdfull'>
+                    <CButton className='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
+                </Link>
             <CRow>
+                
                 <CCol>
+                    
                     <h2 className='text-black'>Encarregado dos Dados Pessoais</h2>
 
                     <CCard>
                         <CCardHeader>
-                            <CButton onClick={() => navigate('/dpo/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/dpo/criar')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Cadastrar Novo Encarregado
                             </CButton>
