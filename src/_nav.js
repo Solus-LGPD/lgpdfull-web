@@ -42,8 +42,8 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Criar',
-        to: '/quiz/criar',
+        name: 'Fazer',
+        to: '/quiz/fazer',
         icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
       }
     ]

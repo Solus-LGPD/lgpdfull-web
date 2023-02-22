@@ -25,20 +25,19 @@ import {
   } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
+import { government, topics } from 'src/helpers/quizQuestions';
 
 export default () => {
 
     const api = useAPI();
     const navigate = useNavigate();
 
-    const initalList = ["0","0"]
+    let answers = ["0","0","0"]
+    const questions = ["Q1", "Q2", "Q3"]
 
-    const [ answers, setAnswers ] = useState(initalList);
-
-
-    useEffect(() => {
+    const handleQuiz = async () => {
         console.log(answers)
-    }, []);
+    }
 
     return (
         <>
@@ -48,19 +47,24 @@ export default () => {
             <br></br>
             <br></br>
             <CForm className='text-black'>
-                <CFormLabel>Q1?</CFormLabel>
-                <br></br>
-                    <CFormCheck type="radio" name="q1" id="exampleRadios1" value="0" label="Ainda não" defaultChecked onChange={(e) => setAnswers(e.target.value)}/>
-                    <CFormCheck type="radio" name="q1" id="exampleRadios2" value="1" label="Tem planos para iniciar" onChange={(e) => setAnswers(e.target.value)}/>
-                    <CFormCheck type="radio" name="q1" id="exampleRadios3" value="2" label="Atende parcialmente" onChange={(e) => setAnswers(e.target.value)}/>
-                    <CFormCheck type="radio" name="q1" id="exampleRadios4" value="3" label="Atende integralmente" onChange={(e) => setAnswers(e.target.value)}/>
-                <br></br>
-                <CFormLabel>Q2?</CFormLabel>
-                <br></br>
-                    <CFormCheck type="radio" name="q2" id="exampleRadios1" value="0" label="Ainda não" defaultChecked/>
-                    <CFormCheck type="radio" name="q2" id="exampleRadios2" value="1" label="Tem planos para iniciar"/>
-                    <CFormCheck type="radio" name="q2" id="exampleRadios3" value="2" label="Atende parcialmente"/>
-                    <CFormCheck type="radio" name="q2" id="exampleRadios4" value="3" label="Atende integralmente"/>
+                <CCard hidden={false}>
+                    <CCardBody>
+                        <CCardHeader>{topics[0]}</CCardHeader>
+                        <br></br>
+                        {government.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index] = e.target.value}/>
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index] =e.target.value}/>
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                        <CButton onClick={handleQuiz}>Responder</CButton>
+                    </CCardBody>
+                </CCard>
                 <br></br>
                 <br></br>
             </CForm>
