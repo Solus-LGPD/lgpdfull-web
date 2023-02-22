@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CRow,CForm,CFormLabel,CFormCheck, CPagination, CPaginationItem, CCard} from '@coreui/react';
 import useAPI from '../../services/api';
+import { government, topics } from 'src/helpers/quizQuestions';
 
 export default () => {
 
     const api = useAPI();
     const navigate = useNavigate();
 
-    const initalList = ["0","0"]
+
     
     const [ answers, setAnswers ] = useState(initalList);
     const [governmentCard, setGovernmentCard] = useState(true);
@@ -18,11 +19,13 @@ export default () => {
     const [adequacyCard, setAdequacyCard] = useState(true);
     const [securityCard, setSecurityCard] = useState(true);
     const [violationsCard, setViolationsCard] = useState(true);
-    
-    
-    useEffect(() => {
+   
+    let answers = ["0","0","0"]
+    const questions = ["Q1", "Q2", "Q3"]
+
+    const handleQuiz = async () => {
         console.log(answers)
-    }, []);
+    }
 
     const handlePage1 = () =>{
         setGovernmentCard(false)}
@@ -47,33 +50,36 @@ export default () => {
             <br></br>
             <br></br>
 
-            <CCard hidden={governmentCard}>
-                <CForm className='text-black'>
-                    <CFormLabel>Q1?</CFormLabel>
-                    <br></br>
-                        <CFormCheck type="radio" name="q1" id="exampleRadios1" value="0" label="Ainda não" defaultChecked onChange={(e) => setAnswers(e.target.value)}/>
-                        <CFormCheck type="radio" name="q1" id="exampleRadios2" value="1" label="Tem planos para iniciar" onChange={(e) => setAnswers(e.target.value)}/>
-                        <CFormCheck type="radio" name="q1" id="exampleRadios3" value="2" label="Atende parcialmente" onChange={(e) => setAnswers(e.target.value)}/>
-                        <CFormCheck type="radio" name="q1" id="exampleRadios4" value="3" label="Atende integralmente" onChange={(e) => setAnswers(e.target.value)}/>
-                    <br></br>
-                    <CFormLabel>Q2?</CFormLabel>
-                    <br></br>
-                        <CFormCheck type="radio" name="q2" id="exampleRadios1" value="0" label="Ainda não" defaultChecked/>
-                        <CFormCheck type="radio" name="q2" id="exampleRadios2" value="1" label="Tem planos para iniciar"/>
-                        <CFormCheck type="radio" name="q2" id="exampleRadios3" value="2" label="Atende parcialmente"/>
-                        <CFormCheck type="radio" name="q2" id="exampleRadios4" value="3" label="Atende integralmente"/>
-                    <br></br>
-                    <br></br>
-                </CForm>
-            
-            </CCard>
-            <CPagination align="center" aria-label="Page navigation example">
+
+            <CForm className='text-black'>
+                <CCard hidden={false}>
+                    <CCardBody>
+                        <CCardHeader>{topics[0]}</CCardHeader>
+                        <br></br>
+                        {government.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index] = e.target.value}/>
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index] =e.target.value}/>
+                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                        <CButton onClick={handleQuiz}>Responder</CButton>
+                    </CCardBody>
+                </CCard>
+                <CPagination align="center" aria-label="Page navigation example">
                 <CPaginationItem disabled>Previous</CPaginationItem>
                 <CPaginationItem onClick={handlePage1}>1</CPaginationItem>
                 <CPaginationItem onClick={handlePage2}>2</CPaginationItem>
                 <CPaginationItem>3</CPaginationItem>
                 <CPaginationItem>Next</CPaginationItem>
-            </CPagination>
+                </CPagination>
+                <br></br>
+                <br></br>
+            </CForm>
         </>
     );
 }

@@ -27,7 +27,7 @@ const routes = [
   { path: '/setor', name: 'Setor', element: Setor },
   { path: '/setor/criar', name: 'Criar', element: SetorCriar },
   { path: '/quiz', name: 'Quiz', element: Quiz },
-  { path: '/quiz/criar', name: 'Criar', element: QuizCriar }
+  { path: '/quiz/fazer', name: 'Fazer', element: QuizCriar }
 ]
 
 export default routes
