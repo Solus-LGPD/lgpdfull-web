@@ -8,20 +8,9 @@ import {
   CCol,
   CRow,
   CTable,
-  CModal,
-  CModalHeader,
-  CModalBody,
-  CModalFooter,
-  CForm,
-  CFormLabel,
-  CFormInput,
-  CFormTextarea,
-  CFormCheck,
 } from '@coreui/react';
 import {
     cilCheck,
-    cilX,
-    cilPen
   } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
@@ -72,9 +61,11 @@ export default () => {
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/quiz/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} 
+                            className=" border border-0 rounded-pill text-white" 
+                            onClick={() => navigate('/quiz/novo')}>
                                 <CIcon icon={cilCheck}></CIcon>
-                                Registrar novo quiz
+                                Responder Quiz LGPD
                             </CButton>
                         </CCardHeader>
                         <CCardBody>

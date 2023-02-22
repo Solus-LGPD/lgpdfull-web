@@ -4,16 +4,6 @@ import {cilCursor,cilChart,cilLayers,cilPencil,cilPlus,cilUser,cilChartPie, cilP
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
-  /*{
-    component: CNavItem,
-    name: 'Dashboard',
-    to: '/dashboard',
-    icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    },
-  },*/
   {
     component: CNavTitle,
     name: 'Painel Geral',
@@ -27,7 +17,7 @@ const _nav = [
   {
     component: CNavItem,
     name: 'Ajuda',
-    to: '/',
+    to: '/ajuda',
     icon: <CIcon icon={cilBullhorn} customClassName="nav-icon" />,
   },
   {
@@ -50,7 +40,7 @@ const _nav = [
       {
         component: CNavItem,
         name: 'Fazer',
-        to: '/quiz/fazer',
+        to: '/quiz/novo',
         icon: <CIcon icon={cilPlus} customClassName="nav-icon" />
       }
     ]
