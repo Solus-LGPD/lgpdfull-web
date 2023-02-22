@@ -49,7 +49,6 @@ export default () => {
 
                 result[i] = {
                     id: result[i].id,
-                    answers: result[i].answers,
                     result: result[i].result,
                     createdAt
                 }
@@ -62,8 +61,7 @@ export default () => {
 
     const fields = [
         {label: 'Resultado', key: 'result'},
-        {label: 'Respostas', key: 'answers' },
-        {label: 'Data de Criação', key: 'createdAt'}
+        {label: 'Feito em', key: 'createdAt'}
     ];
 
     return (
