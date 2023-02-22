@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CPagination, CButton, CPaginationItem, CCard} from '@coreui/react';
+import {CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CPagination, CButton, CPaginationItem, CCard, CCardHeader} from '@coreui/react';
 import useAPI from '../../services/api';
 import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/quizQuestions';
 
@@ -18,9 +18,126 @@ export default () => {
     const [violationsCard, setViolationsCard] = useState(true);
    
     let answers = new Array(24).fill("0");
-
     const handleQuiz = async () => {
+        let resultado = 0;
+        for(let i in answers){
+            if ( i < 6 ){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+            else if (i >= 6 && i >=11 ){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+            else if (i == 12 && i == 13 ){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+            else if (i >= 14 && i >= 16 ){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+            else if (answers == 17){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+            else if (i >= 18 && i >= 20){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+            else if (i >= 21 && i >= 23){
+                switch(answers[i]){
+                    case '0':
+                        resultado += 0*0;
+                    break;
+                    case '1':
+                        resultado += 0*0.25;
+                    break;
+                    case '2':
+                        resultado += 0*0.5;
+                    break;
+                    case '3':
+                        resultado += 0*1;
+                    break;
+                }
+            }
+        }
+        console.log(resultado)
         console.log(answers)
+        resultado = resultado * 10;
+        console.log('resultado'+resultado)
     }
 
     const handlePage1 = () =>{
@@ -31,7 +148,7 @@ export default () => {
         setAdequacyCard(true);
         setSecurityCard(true);
         setViolationsCard(true);
-        window.scrollTo(0, 0)
+        /* window.scrollTo(0, 0) */
     }
 
     const handlePage2 = () =>{
@@ -42,7 +159,7 @@ export default () => {
         setAdequacyCard(true);
         setSecurityCard(true);
         setViolationsCard(true);
-        window.scrollTo(0, 0)
+        /* window.scrollTo(0, 0) */
     }
 
     const handlePage3 = () =>{
@@ -53,7 +170,7 @@ export default () => {
         setAdequacyCard(true);
         setSecurityCard(true);
         setViolationsCard(true);
-        window.scrollTo(0, 0)
+        /* window.scrollTo(0, 0) */
     }
 
     const handlePage4 = () =>{
@@ -64,7 +181,7 @@ export default () => {
         setAdequacyCard(true);
         setSecurityCard(true);
         setViolationsCard(true);
-        window.scrollTo(0, 0)
+        /* window.scrollTo(0, 0) */
     }
 
     const handlePage5 = () =>{
@@ -75,7 +192,7 @@ export default () => {
         setAdequacyCard(false);
         setSecurityCard(true);
         setViolationsCard(true);
-        window.scrollTo(0, 0)
+        /* window.scrollTo(0, 0) */
     }
 
     const handlePage6 = () =>{
@@ -86,7 +203,7 @@ export default () => {
         setAdequacyCard(true);
         setSecurityCard(false);
         setViolationsCard(true);
-        window.scrollTo(0, 0)
+        //window.scrollTo(0, 0)
     }
 
     const handlePage7 = () =>{
@@ -97,9 +214,10 @@ export default () => {
         setAdequacyCard(true);
         setSecurityCard(true);
         setViolationsCard(false);
-        window.scrollTo(0, 0)
+        //window.scrollTo(0, 0)
     }
-
+    let teste = [governmentCard,conformityCard]
+    let teste2 =[government,conformity]
     return (
         <>
             <CRow>
@@ -111,11 +229,13 @@ export default () => {
             <CForm className='text-black'>
 
                 {/* 1 */}
-                <CCard hidden={governmentCard}>
+                <CCard /* hidden={teste[0]} */ >
                     <CCardBody>
-                        <CCardTitle>{topics[0]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[0]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
-                        {government.map((item, index) => 
+                        {teste2[0].map((item, index) => 
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
@@ -130,11 +250,13 @@ export default () => {
                 </CCard>
 
                 {/* 2 */}
-                <CCard hidden={conformityCard}>
+                <CCard /* hidden={teste[1]} */>
                     <CCardBody>
-                        <CCardTitle>{topics[1]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[1]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
-                        {conformity.map((item, index) => 
+                        {teste2[1].map((item, index) => 
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+6] = e.target.value} />
@@ -149,9 +271,11 @@ export default () => {
                 </CCard>
 
                 {/* 3 */}
-                <CCard hidden={transparencyCard}>
+                <CCard /* hidden={transparencyCard} */>
                     <CCardBody>
-                        <CCardTitle>{topics[2]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[2]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
                         {transparency.map((item, index) => 
                             <>
@@ -168,9 +292,11 @@ export default () => {
                 </CCard>
 
                 {/* 4 */}
-                <CCard hidden={traceabilityCard}>
+                <CCard /* hidden={traceabilityCard} */>
                     <CCardBody>
-                        <CCardTitle>{topics[3]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[3]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
                         {traceability.map((item, index) => 
                             <>
@@ -187,9 +313,11 @@ export default () => {
                 </CCard>
 
                 {/* 5 */}
-                <CCard hidden={adequacyCard}>
+                <CCard /* hidden={adequacyCard} */>
                     <CCardBody>
-                        <CCardTitle>{topics[4]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[4]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
                         {adequacy.map((item, index) => 
                             <>
@@ -206,9 +334,11 @@ export default () => {
                 </CCard>
 
                 {/* 6 */}
-                <CCard hidden={securityCard}>
+                <CCard /* hidden={securityCard} */>
                     <CCardBody>
-                        <CCardTitle>{topics[5]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[5]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
                         {security.map((item, index) => 
                             <>
@@ -225,9 +355,11 @@ export default () => {
                 </CCard>
 
                 {/* 7 */}
-                <CCard hidden={violationsCard}>
+                <CCard /* hidden={violationsCard} */>
                     <CCardBody>
-                        <CCardTitle>{topics[6]}</CCardTitle>
+                        <CCardHeader>
+                            <CCardTitle>{topics[6]}</CCardTitle>
+                        </CCardHeader>
                         <br></br>
                         {violations.map((item, index) => 
                             <>
@@ -244,10 +376,10 @@ export default () => {
                     </CCardBody>
                 </CCard>
 
-                <br></br>
-                <br></br>
+                {/* <br></br>
+                <br></br> */}
 
-                <CPagination align="center" aria-label="Page navigation example">
+                {/* <CPagination align="center" aria-label="Page navigation example">
                     <CPaginationItem active={!governmentCard} onClick={handlePage1}>1</CPaginationItem>
                     <CPaginationItem active={!conformityCard} onClick={handlePage2}>2</CPaginationItem>
                     <CPaginationItem active={!transparencyCard} onClick={handlePage3}>3</CPaginationItem>
@@ -255,7 +387,7 @@ export default () => {
                     <CPaginationItem active={!adequacyCard} onClick={handlePage5}>5</CPaginationItem>
                     <CPaginationItem active={!securityCard} onClick={handlePage6}>6</CPaginationItem>
                     <CPaginationItem active={!violationsCard} onClick={handlePage7}>7</CPaginationItem>
-                </CPagination>
+                </CPagination> */}
 
                 <br></br>
                 <br></br>
