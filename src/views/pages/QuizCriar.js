@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CRow,CForm,CFormLabel,CFormCheck, CPagination, CPaginationItem, CCard} from '@coreui/react';
+import {CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CPagination, CButton, CPaginationItem, CCard} from '@coreui/react';
 import useAPI from '../../services/api';
-import { government, topics } from 'src/helpers/quizQuestions';
+import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/quizQuestions';
 
 export default () => {
 
     const api = useAPI();
     const navigate = useNavigate();
 
-
-    
-    const [ answers, setAnswers ] = useState(initalList);
-    const [governmentCard, setGovernmentCard] = useState(true);
+    const [governmentCard, setGovernmentCard] = useState(false);
     const [conformityCard, setConformityCard] = useState(true);
     const [transparencyCard, setTransparencyCard] = useState(true);
     const [traceabilityCard, setTraceabilityCard] = useState(true);
@@ -20,27 +17,88 @@ export default () => {
     const [securityCard, setSecurityCard] = useState(true);
     const [violationsCard, setViolationsCard] = useState(true);
    
-    let answers = ["0","0","0"]
-    const questions = ["Q1", "Q2", "Q3"]
+    let answers = new Array(24).fill("0");
 
     const handleQuiz = async () => {
         console.log(answers)
     }
 
     const handlePage1 = () =>{
-        setGovernmentCard(false)}
+        setGovernmentCard(false);
+        setConformityCard(true);
+        setTransparencyCard(true);
+        setTraceabilityCard(true);
+        setAdequacyCard(true);
+        setSecurityCard(true);
+        setViolationsCard(true);
+        window.scrollTo(0, 0)
+    }
+
     const handlePage2 = () =>{
-        setConformityCard(false)}
+        setGovernmentCard(true);
+        setConformityCard(false);
+        setTransparencyCard(true);
+        setTraceabilityCard(true);
+        setAdequacyCard(true);
+        setSecurityCard(true);
+        setViolationsCard(true);
+        window.scrollTo(0, 0)
+    }
+
     const handlePage3 = () =>{
-        setTransparencyCard(false)}
+        setGovernmentCard(true);
+        setConformityCard(true);
+        setTransparencyCard(false);
+        setTraceabilityCard(true);
+        setAdequacyCard(true);
+        setSecurityCard(true);
+        setViolationsCard(true);
+        window.scrollTo(0, 0)
+    }
+
     const handlePage4 = () =>{
-        setTraceabilityCard(false)}
+        setGovernmentCard(true);
+        setConformityCard(true);
+        setTransparencyCard(true);
+        setTraceabilityCard(false);
+        setAdequacyCard(true);
+        setSecurityCard(true);
+        setViolationsCard(true);
+        window.scrollTo(0, 0)
+    }
+
     const handlePage5 = () =>{
-        setAdequacyCard(false)}
+        setGovernmentCard(true);
+        setConformityCard(true);
+        setTransparencyCard(true);
+        setTraceabilityCard(true);
+        setAdequacyCard(false);
+        setSecurityCard(true);
+        setViolationsCard(true);
+        window.scrollTo(0, 0)
+    }
+
     const handlePage6 = () =>{
-        setSecurityCard(false)}
+        setGovernmentCard(true);
+        setConformityCard(true);
+        setTransparencyCard(true);
+        setTraceabilityCard(true);
+        setAdequacyCard(true);
+        setSecurityCard(false);
+        setViolationsCard(true);
+        window.scrollTo(0, 0)
+    }
+
     const handlePage7 = () =>{
-        setViolationsCard(false)}
+        setGovernmentCard(true);
+        setConformityCard(true);
+        setTransparencyCard(true);
+        setTraceabilityCard(true);
+        setAdequacyCard(true);
+        setSecurityCard(true);
+        setViolationsCard(false);
+        window.scrollTo(0, 0)
+    }
 
     return (
         <>
@@ -50,33 +108,155 @@ export default () => {
             <br></br>
             <br></br>
 
-
             <CForm className='text-black'>
-                <CCard hidden={false}>
+
+                {/* 1 */}
+                <CCard hidden={governmentCard}>
                     <CCardBody>
-                        <CCardHeader>{topics[0]}</CCardHeader>
+                        <CCardTitle>{topics[0]}</CCardTitle>
                         <br></br>
                         {government.map((item, index) => 
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
-                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
-                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index] = e.target.value}/>
-                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index] =e.target.value}/>
-                                <CFormCheck type="radio" name={`q${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
+                                <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index] = e.target.value}/>
                                 <br></br>
                             </> 
                         )}
                         <br></br>
-                        <CButton onClick={handleQuiz}>Responder</CButton>
                     </CCardBody>
                 </CCard>
+
+                {/* 2 */}
+                <CCard hidden={conformityCard}>
+                    <CCardBody>
+                        <CCardTitle>{topics[1]}</CCardTitle>
+                        <br></br>
+                        {conformity.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+6] = e.target.value} />
+                                <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index+6] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+6] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+6] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                    </CCardBody>
+                </CCard>
+
+                {/* 3 */}
+                <CCard hidden={transparencyCard}>
+                    <CCardBody>
+                        <CCardTitle>{topics[2]}</CCardTitle>
+                        <br></br>
+                        {transparency.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+12] = e.target.value} />
+                                <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index+12] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+12] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+12] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                    </CCardBody>
+                </CCard>
+
+                {/* 4 */}
+                <CCard hidden={traceabilityCard}>
+                    <CCardBody>
+                        <CCardTitle>{topics[3]}</CCardTitle>
+                        <br></br>
+                        {traceability.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+14] = e.target.value} />
+                                <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index+14] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+14] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+14] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                    </CCardBody>
+                </CCard>
+
+                {/* 5 */}
+                <CCard hidden={adequacyCard}>
+                    <CCardBody>
+                        <CCardTitle>{topics[4]}</CCardTitle>
+                        <br></br>
+                        {adequacy.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+17] = e.target.value} />
+                                <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index+17] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+17] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+17] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                    </CCardBody>
+                </CCard>
+
+                {/* 6 */}
+                <CCard hidden={securityCard}>
+                    <CCardBody>
+                        <CCardTitle>{topics[5]}</CCardTitle>
+                        <br></br>
+                        {security.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+18] = e.target.value} />
+                                <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index+18] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+18] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+18] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                    </CCardBody>
+                </CCard>
+
+                {/* 7 */}
+                <CCard hidden={violationsCard}>
+                    <CCardBody>
+                        <CCardTitle>{topics[6]}</CCardTitle>
+                        <br></br>
+                        {violations.map((item, index) => 
+                            <>
+                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+21] = e.target.value} />
+                                <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index+21] = e.target.value}/>
+                                <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+21] =e.target.value}/>
+                                <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+21] = e.target.value}/>
+                                <br></br>
+                            </> 
+                        )}
+                        <br></br>
+                        <CButton onClick={handleQuiz}>Enviar</CButton>
+                    </CCardBody>
+                </CCard>
+
+                <br></br>
+                <br></br>
+
                 <CPagination align="center" aria-label="Page navigation example">
-                <CPaginationItem disabled>Previous</CPaginationItem>
-                <CPaginationItem onClick={handlePage1}>1</CPaginationItem>
-                <CPaginationItem onClick={handlePage2}>2</CPaginationItem>
-                <CPaginationItem>3</CPaginationItem>
-                <CPaginationItem>Next</CPaginationItem>
+                    <CPaginationItem active={!governmentCard} onClick={handlePage1}>1</CPaginationItem>
+                    <CPaginationItem active={!conformityCard} onClick={handlePage2}>2</CPaginationItem>
+                    <CPaginationItem active={!transparencyCard} onClick={handlePage3}>3</CPaginationItem>
+                    <CPaginationItem active={!traceabilityCard} onClick={handlePage4}>4</CPaginationItem>
+                    <CPaginationItem active={!adequacyCard} onClick={handlePage5}>5</CPaginationItem>
+                    <CPaginationItem active={!securityCard} onClick={handlePage6}>6</CPaginationItem>
+                    <CPaginationItem active={!violationsCard} onClick={handlePage7}>7</CPaginationItem>
                 </CPagination>
+
                 <br></br>
                 <br></br>
             </CForm>
