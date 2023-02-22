@@ -108,7 +108,7 @@ export default () => {
 
                     <CCard>
                         <CCardHeader>
-                            <CButton onClick={() => navigate('/setor/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/setor/criar')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Cadastrar Novo Setor
                             </CButton>

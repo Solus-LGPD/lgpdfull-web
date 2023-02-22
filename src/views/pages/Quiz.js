@@ -74,7 +74,7 @@ export default () => {
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} onClick={() => navigate('/quiz/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/quiz/criar')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Registrar novo quiz
                             </CButton>

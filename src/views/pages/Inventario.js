@@ -186,7 +186,7 @@ export default () => {
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} onClick={() => navigate('/inventario/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/inventario/criar')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Novo Inventário
                             </CButton>

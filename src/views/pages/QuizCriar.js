@@ -1,29 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CRow,
-  CTable,
-  CModal,
-  CModalHeader,
-  CModalBody,
-  CModalFooter,
-  CForm,
-  CFormLabel,
-  CFormInput,
-  CFormTextarea,
-  CFormCheck,
-} from '@coreui/react';
-import {
-    cilCheck,
-    cilX,
-    cilPen
-  } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
+import {CRow,CForm,CFormLabel,CFormCheck, CPagination, CPaginationItem, CCard} from '@coreui/react';
 import useAPI from '../../services/api';
 import { government, topics } from 'src/helpers/quizQuestions';
 
@@ -32,12 +9,38 @@ export default () => {
     const api = useAPI();
     const navigate = useNavigate();
 
+
+    
+    const [ answers, setAnswers ] = useState(initalList);
+    const [governmentCard, setGovernmentCard] = useState(true);
+    const [conformityCard, setConformityCard] = useState(true);
+    const [transparencyCard, setTransparencyCard] = useState(true);
+    const [traceabilityCard, setTraceabilityCard] = useState(true);
+    const [adequacyCard, setAdequacyCard] = useState(true);
+    const [securityCard, setSecurityCard] = useState(true);
+    const [violationsCard, setViolationsCard] = useState(true);
+   
     let answers = ["0","0","0"]
     const questions = ["Q1", "Q2", "Q3"]
 
     const handleQuiz = async () => {
         console.log(answers)
     }
+
+    const handlePage1 = () =>{
+        setGovernmentCard(false)}
+    const handlePage2 = () =>{
+        setConformityCard(false)}
+    const handlePage3 = () =>{
+        setTransparencyCard(false)}
+    const handlePage4 = () =>{
+        setTraceabilityCard(false)}
+    const handlePage5 = () =>{
+        setAdequacyCard(false)}
+    const handlePage6 = () =>{
+        setSecurityCard(false)}
+    const handlePage7 = () =>{
+        setViolationsCard(false)}
 
     return (
         <>
@@ -46,6 +49,8 @@ export default () => {
             </CRow>
             <br></br>
             <br></br>
+
+
             <CForm className='text-black'>
                 <CCard hidden={false}>
                     <CCardBody>
@@ -65,6 +70,13 @@ export default () => {
                         <CButton onClick={handleQuiz}>Responder</CButton>
                     </CCardBody>
                 </CCard>
+                <CPagination align="center" aria-label="Page navigation example">
+                <CPaginationItem disabled>Previous</CPaginationItem>
+                <CPaginationItem onClick={handlePage1}>1</CPaginationItem>
+                <CPaginationItem onClick={handlePage2}>2</CPaginationItem>
+                <CPaginationItem>3</CPaginationItem>
+                <CPaginationItem>Next</CPaginationItem>
+                </CPagination>
                 <br></br>
                 <br></br>
             </CForm>
