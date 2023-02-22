@@ -11,13 +11,13 @@ export default () => {
     const initalList = ["0","0"]
     
     const [ answers, setAnswers ] = useState(initalList);
-    const [governmentCard, setGovernmentCard] = useState(false);
-    const [conformityCard, setConformityCard] = useState(false);
-    const [transparencyCard, setTransparencyCard] = useState(false);
-    const [traceabilityCard, setTraceabilityCard] = useState(false);
-    const [adequacyCard, setAdequacyCard] = useState(false);
-    const [securityCard, setSecurityCard] = useState(false);
-    const [violationsCard, setViolationsCard] = useState(false);
+    const [governmentCard, setGovernmentCard] = useState(true);
+    const [conformityCard, setConformityCard] = useState(true);
+    const [transparencyCard, setTransparencyCard] = useState(true);
+    const [traceabilityCard, setTraceabilityCard] = useState(true);
+    const [adequacyCard, setAdequacyCard] = useState(true);
+    const [securityCard, setSecurityCard] = useState(true);
+    const [violationsCard, setViolationsCard] = useState(true);
     
     
     useEffect(() => {
@@ -25,19 +25,19 @@ export default () => {
     }, []);
 
     const handlePage1 = () =>{
-        setGovernmentCard(true)}
+        setGovernmentCard(false)}
     const handlePage2 = () =>{
-        setConformityCard(true)}
+        setConformityCard(false)}
     const handlePage3 = () =>{
-        setTransparencyCard(true)}
+        setTransparencyCard(false)}
     const handlePage4 = () =>{
-        setTraceabilityCard(true)}
+        setTraceabilityCard(false)}
     const handlePage5 = () =>{
-        setAdequacyCard(true)}
+        setAdequacyCard(false)}
     const handlePage6 = () =>{
-        setSecurityCard(true)}
+        setSecurityCard(false)}
     const handlePage7 = () =>{
-        setViolationsCard(true)}
+        setViolationsCard(false)}
 
     return (
         <>
@@ -70,7 +70,7 @@ export default () => {
             <CPagination align="center" aria-label="Page navigation example">
                 <CPaginationItem disabled>Previous</CPaginationItem>
                 <CPaginationItem onClick={handlePage1}>1</CPaginationItem>
-                <CPaginationItem onClick={handlePage1}>2</CPaginationItem>
+                <CPaginationItem onClick={handlePage2}>2</CPaginationItem>
                 <CPaginationItem>3</CPaginationItem>
                 <CPaginationItem>Next</CPaginationItem>
             </CPagination>

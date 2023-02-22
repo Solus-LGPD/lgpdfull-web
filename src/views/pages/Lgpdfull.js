@@ -20,13 +20,13 @@ const Lgpdfull = () => {
                 <h5 style={{color: "#2085c7", 'fontSize': '180px'}} className=' justify-content-start flex-column d-flex'>B</h5>
                 <CButtonGroup vertical role="group" aria-label="Vertical button group" className="position-relative gap-1 mt-0 m-3 w-25 text-center d-flex flex-column">
                     <h5 style={{color: "#2085c7", 'fontSize': '27px'}} className='position-relative p-4pb-1 h5 text-decoration-none ' >FASE DE IMPLEMENTAÇÃO</h5>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" >Política de Priv.</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#">Ajustes de Contratos</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#">Termos de Uso</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#">Checklist de TI</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href= "#">Cookies</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#">RIPD</CButton>
-                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#">LIA</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled >Política de Priv.</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Ajustes de Contratos</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Termos de Uso</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Checklist de TI</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href= "#" disabled>Cookies</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>RIPD</CButton>
+                    <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>LIA</CButton>
                 </CButtonGroup>
                 <h5 style={{color: "#2085c7", 'fontSize': '180px'}} className='justify-content-start flex-column h1 d-flex'>C</h5>
                 <CButtonGroup vertical role="group" aria-label="Vertical button group" className=" gap-1 mt-0 m-3 w-25 text-center d-flex flex-column">
