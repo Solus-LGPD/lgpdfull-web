@@ -67,13 +67,7 @@ const Trocarsenha = () => {
 
   return (
     <div className=" bg-transparent">
-
-          <Link  to='/lgpdfull'>
-            <CButton className='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
-          </Link>
-
       <br></br>
-
       <CAlert color={color} dismissible visible={visible} onClose={() => setVisible(false)}>
           {message}
       </CAlert>
