@@ -57,7 +57,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 className='text-black'>Inventário de Dados Pessoais</h2>
+                    <h2 className='text-black'>Quiz LGPD</h2>
 
                     <CCard>
                         <CCardHeader>

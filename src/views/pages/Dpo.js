@@ -134,7 +134,7 @@ export default () => {
     }
 
     const fields = [
-        {label: 'Nome Social', key: 'socialName'},
+        {label: 'Nome Social/Nome dos Integrantes do Comitê', key: 'socialName'},
         {label: 'Tipo', key: 'naturalPerson' },
         {label: 'Status', key: 'CBadge' },
         {label: 'Editar', key: 'CButtonEdit'},
