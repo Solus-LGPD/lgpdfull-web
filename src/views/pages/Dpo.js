@@ -23,7 +23,10 @@ import {
     cilCheck,
     cilX,
     cilPen,
-    cilArrowCircleLeft
+    cilArrowCircleLeft,
+    cilArrowLeft,
+    cilArrowThickLeft,
+    cilBackspace
   } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
@@ -139,9 +142,6 @@ export default () => {
 
     return (
         <>
-                <Link  to='/lgpdfull'>
-                    <CButton className='d-flex border border-0 bg-transparent text-white border-none text-decoration-none' color=" text-uppercase "><CIcon icon={cilArrowCircleLeft} className="me-2" size="xl"/>Lgpdfull</CButton>
-                </Link>
             <CRow>
                 
                 <CCol>
