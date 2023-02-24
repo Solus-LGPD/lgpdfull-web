@@ -29,7 +29,7 @@ export default () => {
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getAnswers();
+        const result = await api.getQuizAnswers();
         setLoading(false);
         if(result.error === undefined){
             for(let i = 0; i < result.length; i++){
