@@ -31,11 +31,11 @@ const AppHeaderDropdown = () => {
         <CDropdownHeader className="bg-light fw-semibold py-2">Configurações</CDropdownHeader>
         <CDropdownItem href="/lgpdfull/Perfil">
           <CIcon icon={cilUser} className="me-2" />
-          Perfil
+            Alterar e-mail
         </CDropdownItem>
           <CDropdownItem href='/lgpdfull/trocarsenha'>
             <CIcon icon={cilLockLocked} className="me-2" />
-            Trocar Senha
+            Alterar senha
           </CDropdownItem>
         <CDropdownDivider />
         <CDropdownItem href="/logout">

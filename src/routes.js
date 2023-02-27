@@ -13,10 +13,12 @@ const Setor = React.lazy(() => import('./views/pages/Setor'));
 const SetorCriar = React.lazy(() => import('./views/pages/SetorCriar'));
 const Quiz  = React.lazy(() => import('./views/pages/Quiz'));
 const QuizCriar = React.lazy(() => import('./views/pages/QuizCriar'));
+const Help = React.lazy(() => import('./views/pages/Help'));
+
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
-  { path: '/lgpdfull', name: 'LGPDFull', element: Lgpdfull },
+  { path: '/lgpdfull', element: Lgpdfull },
   { path: '/lgpdfull/trocarsenha', name: 'Trocar de Senha', element: Trocarsenha },
   { path: '/logout', name: 'Logout', element: Logout },
   { path: '/lgpdfull/perfil', name: 'Perfil', element: Perfil },
@@ -27,7 +29,8 @@ const routes = [
   { path: '/setor', name: 'Setor', element: Setor },
   { path: '/setor/criar', name: 'Criar', element: SetorCriar },
   { path: '/quiz', name: 'Quiz', element: Quiz },
-  { path: '/quiz/fazer', name: 'Fazer', element: QuizCriar }
+  { path: '/quiz/novo', name: 'Quiz', element: QuizCriar },
+  { path: '/ajuda', name: 'Ajuda', element: Help }
 ]
 
 export default routes

@@ -126,10 +126,16 @@ export default () => {
             let json = await request ('delete', '/sector/remove', { id }, token)
             return json;
         },
-        getAnswers: async () => {
+        getQuizAnswers: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request ('get', `/quiz/all/${user.sub}`, undefined , token )
+            return json;
+        },
+        postQuiz: async (raw) => {
+            const token =  sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request ('post', '/quiz', {...raw, userId: user.id } , token )
             return json;
         }
     }

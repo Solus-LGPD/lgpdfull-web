@@ -8,20 +8,9 @@ import {
   CCol,
   CRow,
   CTable,
-  CModal,
-  CModalHeader,
-  CModalBody,
-  CModalFooter,
-  CForm,
-  CFormLabel,
-  CFormInput,
-  CFormTextarea,
-  CFormCheck,
 } from '@coreui/react';
 import {
     cilCheck,
-    cilX,
-    cilPen
   } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
@@ -40,7 +29,7 @@ export default () => {
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getAnswers();
+        const result = await api.getQuizAnswers();
         setLoading(false);
         if(result.error === undefined){
             for(let i = 0; i < result.length; i++){
@@ -68,13 +57,15 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 className='text-black'>Inventário de Dados Pessoais</h2>
+                    <h2 className='text-black'>Quiz LGPD</h2>
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/quiz/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} 
+                            className=" border border-0 rounded-pill text-white" 
+                            onClick={() => navigate('/quiz/novo')}>
                                 <CIcon icon={cilCheck}></CIcon>
-                                Registrar novo quiz
+                                Responder Quiz LGPD
                             </CButton>
                         </CCardHeader>
                         <CCardBody>

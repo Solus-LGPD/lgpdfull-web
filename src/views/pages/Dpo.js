@@ -134,7 +134,7 @@ export default () => {
     }
 
     const fields = [
-        {label: 'Nome Social', key: 'socialName'},
+        {label: 'Nome Social/Nome dos Integrantes do Comitê', key: 'socialName'},
         {label: 'Tipo', key: 'naturalPerson' },
         {label: 'Status', key: 'CBadge' },
         {label: 'Editar', key: 'CButtonEdit'},
@@ -175,7 +175,7 @@ export default () => {
                         <CFormLabel>Nome</CFormLabel>
                         <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CFormLabel>Nome Social</CFormLabel>
+                        <CFormLabel>Nome Social ou Nome dos Integrantes do Comitê</CFormLabel>
                         <CFormInput type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
                         <br></br>
                         <CFormLabel>E-mail</CFormLabel>
