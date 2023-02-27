@@ -97,7 +97,7 @@ const Login = () => {
                         <CModalHeader onClose={() => setVisible(false)}>
                           <CModalTitle>Redefinir Senha</CModalTitle>
                         </CModalHeader>
-                        <CModalBody>Entraremos em contato com você no E-mail que foi cadastrado no sistema.</CModalBody>
+                        <CModalBody>Entraremos em contato com você no e-mail que foi cadastrado no sistema.</CModalBody>
                         <CModalBody>
                           <CAlert visible={visibleAlert} color={color}>{message}</CAlert>
                           <CInputGroup className="mb-3">
@@ -140,7 +140,7 @@ const Login = () => {
                     <img className='mb-2 w-100' src='https://media.discordapp.net/attachments/1052661296945971232/1059673126478290975/teste.png?width=1025&height=279'/>
 
                       <p className='mt-5 mb-3'>
-                        O Sistema LGPDFull foi criado para ajudar as empresas na implementação da Lei Geral de Proteção de Dados Pessoais.
+                        O Sistema Solus LGPDFull foi criado para ajudar as empresas na implementação e manutenção da Lei Geral de Proteção de Dados Pessoais.
                       </p>
                   </div>
                 </CCardBody>

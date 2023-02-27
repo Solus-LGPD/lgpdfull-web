@@ -43,10 +43,10 @@ export default () => {
             </CRow>
            
                 <CForm className='text-black'>
-                        <CFormLabel>Nome Completo ou Nome do Comitê </CFormLabel>
+                        <CFormLabel>Nome Completo ou Nome dos Integrantes do Comitê</CFormLabel>
                         <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CPopover trigger="focus" content="Nome Social = Como você quer ser chamado. Comitê = Todas as pessoas que são responsaveis pelo sistema. Ex.:Fulano da Silva,Ciclano da Costa,...  "placement="right">
+                        <CPopover trigger="focus" content="Nome Social = Como você quer ser chamado. Comitê = Todas as pessoas que são integrantes do comitê responsável pela LGPD na empresa. Ex.:Fulano, Ciclano, etc.  "placement="right">
                             <CButton data-coreui-toggle="popover" color="link" style={{alignItems:'baseline',display:'flex'}}   class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Nome Social ou Nomes das pessoas do Comitê</CFormLabel><CIcon icon={cilLightbulb}  height='15'/></CButton>
                         </CPopover>
                         <CFormInput type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
