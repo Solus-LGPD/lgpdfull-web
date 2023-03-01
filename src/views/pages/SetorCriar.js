@@ -17,7 +17,7 @@ export default () => {
         setLoading(false);
 
         if(result.error === undefined){
-            window.location.reload();
+            navigate('/setor');
             alert("Setor Criado");
         }else{
             alert(result.message);

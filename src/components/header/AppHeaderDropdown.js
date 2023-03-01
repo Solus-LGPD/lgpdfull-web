@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  CAvatar,
   CBadge,
   CButton,
   CDropdown,
@@ -16,7 +15,6 @@ import {
   cilLockLocked
 } from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
-import { Link } from 'react-router-dom'
 
 
 const AppHeaderDropdown = () => {

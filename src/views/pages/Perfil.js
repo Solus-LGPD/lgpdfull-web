@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import {CButton,CForm,CFormInput,CFormLabel,CAlert  } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilArrowCircleLeft } from '@coreui/icons'
-import { Link } from 'react-router-dom'
 import useAPI from '../../services/api';
 
 export default () => {

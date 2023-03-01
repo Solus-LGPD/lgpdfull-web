@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import {CButton,CCol,CForm,CFormInput,CFormLabel,CRow,CAlert} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilArrowCircleLeft, cilLockLocked } from '@coreui/icons'
-import { Link } from 'react-router-dom'
 
 const Trocarsenha = () => {
   
@@ -63,7 +60,6 @@ const Trocarsenha = () => {
       }
     }
   } 
-
 
   return (
     <div className=" bg-transparent">

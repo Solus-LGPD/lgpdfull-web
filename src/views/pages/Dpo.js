@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   CButton,
   CCard,
@@ -15,18 +15,11 @@ import {
   CForm,
   CFormLabel,
   CFormInput,
-  CFormTextarea,
-  CFormCheck,
   CBadge
 } from '@coreui/react';
 import {
     cilCheck,
-    cilX,
-    cilPen,
-    cilArrowCircleLeft,
-    cilArrowLeft,
-    cilArrowThickLeft,
-    cilBackspace
+    cilPen
   } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
