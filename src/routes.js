@@ -2,17 +2,17 @@ import React from 'react'
 
 
 const Lgpdfull = React.lazy(() => import('./views/pages/Lgpdfull'))
-const Trocarsenha = React.lazy(() => import('./views/pages/Trocarsenha'))
+const Trocarsenha = React.lazy(() => import('./views/pages/ChangePassword'))
 const Logout = React.lazy(() => import('./views/Logout'))
-const Perfil = React.lazy(() => import('./views/pages/Perfil'))
-const Inventario = React.lazy(() => import('./views/pages/Inventario'));
-const InventarioCriar = React.lazy(() => import('./views/pages/InventarioCriar'));
+const Perfil = React.lazy(() => import('./views/pages/Profile'))
+const Inventario = React.lazy(() => import('./views/pages/Inventory'));
+const InventarioCriar = React.lazy(() => import('./views/pages/CreateInventory'));
 const Dpo = React.lazy(() => import('./views/pages/Dpo'));
-const DpoCriar = React.lazy(() => import('./views/pages/DpoCriar'));
-const Setor = React.lazy(() => import('./views/pages/Setor'));
-const SetorCriar = React.lazy(() => import('./views/pages/SetorCriar'));
+const DpoCriar = React.lazy(() => import('./views/pages/CreateDpo'));
+const Setor = React.lazy(() => import('./views/pages/Sector'));
+const SetorCriar = React.lazy(() => import('./views/pages/CreateSector'));
 const Quiz  = React.lazy(() => import('./views/pages/Quiz'));
-const QuizCriar = React.lazy(() => import('./views/pages/QuizCriar'));
+const QuizCriar = React.lazy(() => import('./views/pages/CreateQuiz'));
 const Help = React.lazy(() => import('./views/pages/Help'));
 
 

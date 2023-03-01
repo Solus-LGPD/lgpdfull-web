@@ -1,21 +1,7 @@
 import React from 'react'
-import {
-  CBadge,
-  CButton,
-  CDropdown,
-  CDropdownDivider,
-  CDropdownHeader,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-} from '@coreui/react'
-import {
-  cilUser,
-  cilExitToApp,
-  cilLockLocked
-} from '@coreui/icons'
+import {CBadge,CButton,CDropdown,CDropdownDivider,CDropdownHeader,CDropdownItem,CDropdownMenu,CDropdownToggle,} from '@coreui/react'
+import {cilUser,cilExitToApp,cilLockLocked} from '@coreui/icons'
 import CIcon from '@coreui/icons-react'
-
 
 const AppHeaderDropdown = () => {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CButton, CCard, CCardHeader} from '@coreui/react';
 import useAPI from '../../services/api';
-import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/quizQuestions';
+import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/QuizQuestions';
 
 export default () => {
 
