@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://52.67.124.155"
 
 const request = async (method, endpoint, params, token=null) => {
     method = method.toLowerCase();
@@ -85,7 +85,8 @@ export default () => {
         },
         postInventory: async ( raw ) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('post', '/mapping/register', raw,token);
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request('post', '/mapping/register', {userId: user.id, ...raw}, token);
             return json;
         },
         updateInventory: async ( raw ) => {

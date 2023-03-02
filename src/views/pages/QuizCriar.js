@@ -212,7 +212,7 @@ export default () => {
 
                 {/* 1 */}
                 <CCard /* hidden={teste[0]} */ >
-                    <CCardBody>
+                    <CCardBody key={1}>
                         <CCardHeader>
                             <CCardTitle>{topics[0]}</CCardTitle>
                         </CCardHeader>
@@ -233,7 +233,7 @@ export default () => {
 
                 {/* 2 */}
                 <CCard>
-                    <CCardBody>
+                    <CCardBody key={2}>
                         <CCardHeader>
                             <CCardTitle>{topics[1]}</CCardTitle>
                         </CCardHeader>
@@ -254,7 +254,7 @@ export default () => {
 
                 {/* 3 */}
                 <CCard>
-                    <CCardBody>
+                    <CCardBody key={3}>
                         <CCardHeader>
                             <CCardTitle>{topics[2]}</CCardTitle>
                         </CCardHeader>
@@ -275,7 +275,7 @@ export default () => {
 
                 {/* 4 */}
                 <CCard>
-                    <CCardBody>
+                    <CCardBody key={4}>
                         <CCardHeader>
                             <CCardTitle>{topics[3]}</CCardTitle>
                         </CCardHeader>
@@ -296,7 +296,7 @@ export default () => {
 
                 {/* 5 */}
                 <CCard>
-                    <CCardBody>
+                    <CCardBody key={5}>
                         <CCardHeader>
                             <CCardTitle>{topics[4]}</CCardTitle>
                         </CCardHeader>
@@ -317,7 +317,7 @@ export default () => {
 
                 {/* 6 */}
                 <CCard>
-                    <CCardBody>
+                    <CCardBody key={6}>
                         <CCardHeader>
                             <CCardTitle>{topics[5]}</CCardTitle>
                         </CCardHeader>
@@ -338,7 +338,7 @@ export default () => {
 
                 {/* 7 */}
                 <CCard>
-                    <CCardBody>
+                    <CCardBody key={7}>
                         <CCardHeader>
                             <CCardTitle>{topics[6]}</CCardTitle>
                         </CCardHeader>
