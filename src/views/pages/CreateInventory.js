@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormTextarea,CFormCheck,CFormSelect,CPopover,CCard} from '@coreui/react';
+import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormTextarea,CFormCheck,CFormSelect,CPopover} from '@coreui/react';
+import useAPI from '../../services/api';
 import {cilLightbulb} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';

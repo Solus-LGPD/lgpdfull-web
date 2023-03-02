@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CButton,CRow,CForm,CFormLabel,CFormInput,} from '@coreui/react';
 import useAPI from '../../services/api';
@@ -17,7 +17,7 @@ export default () => {
         setLoading(false);
 
         if(result.error === undefined){
-            window.location.reload();
+            navigate('/setor');
             alert("Setor Criado");
         }else{
             alert(result.message);

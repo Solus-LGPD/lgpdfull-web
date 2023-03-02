@@ -54,11 +54,11 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+    <div style={{background:'linear-gradient(to bottom, #2085c7 26%, #5f6568 100%)'}} className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
-            <CCardGroup>
+            <CCardGroup style={{boxShadow: '1px 2px 9px #000000'}}>
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>

@@ -1,17 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CRow,
-  CTable,
-} from '@coreui/react';
-import {
-    cilCheck,
-  } from '@coreui/icons';
+import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable} from '@coreui/react';
+import {cilCheck} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
 

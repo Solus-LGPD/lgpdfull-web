@@ -1,33 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
-  CRow,
-  CTable,
-  CModal,
-  CModalHeader,
-  CModalBody,
-  CModalFooter,
-  CForm,
-  CFormLabel,
-  CFormInput,
-  CFormTextarea,
-  CFormCheck,
-  CBadge
-} from '@coreui/react';
-import {
-    cilCheck,
-    cilX,
-    cilPen,
-    cilArrowCircleLeft,
-    cilArrowLeft,
-    cilArrowThickLeft,
-    cilBackspace
-  } from '@coreui/icons';
+import { useNavigate } from 'react-router-dom';
+import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput,CBadge} from '@coreui/react';
+import {cilCheck,cilPen} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
 
