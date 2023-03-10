@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormCheck,CPopover,} from '@coreui/react';
+import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormCheck,CPopover, CAlert,} from '@coreui/react';
 import useAPI from '../../services/api';
 import CIcon from '@coreui/icons-react';
 import { cilLightbulb } from '@coreui/icons';
@@ -14,39 +14,54 @@ export default () => {
     const [ socialName, setSocialName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ naturalPerson, setNaturalPerson ] = useState(true);
+    const [visible, setVisible] = useState(false);
+    const [ message, setMessage ] = useState('');
 
     const handlePostDpo = async () => {
-
+        const convertPerson = Boolean(naturalPerson);
+        
         const dataRaw = {
             name: firstName,
-            naturalPerson,
+            naturalPerson: convertPerson,
             socialName,
             email,
         }
-
+        console.log(dataRaw)
         setLoading(true);
         const result = await api.postDpo(dataRaw);
         setLoading(false);
 
         if(result.error === undefined){
-            navigate('/dpo')
+            setVisible(true);
+            setMessage(`Resistro criado com sucesso`)
+            setTimeout(() => {
+               navigate('/dpo')  
+            }, 900);
+            
         }else{
-            alert(result.message);
+            setVisible(true)
+            setMessage(result.message)
+            
         }
-    }
-
+        
+    } 
+    
     return (
         <>
+            <CAlert color="primary" dismissible  visible={visible} onClose={() => setVisible(false)}>
+                {message}
+            </CAlert>
+
             <CRow>
                 <h2 className='text-black'>Registro de Encarregado de Dados Pessoais</h2>
             </CRow>
            
                 <CForm className='text-black'>
-                        <CFormLabel>Nome Completo ou Nome do Comitê</CFormLabel>
-                        <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
+                        
+                        <CFormInput label='Nome Completo ou Nome do Comitê' type='text' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                         <br></br>
                         <CPopover trigger="focus" content="Nome Social = Como você quer ser chamado. Comitê = Todas as pessoas que são integrantes do comitê responsável pela LGPD na empresa. Ex.:Fulano, Ciclano, etc.  "placement="right">
-                            <CButton data-coreui-toggle="popover" color="link" style={{alignItems:'baseline',display:'flex'}}   class='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Nome Social ou Nomes das pessoas do Comitê</CFormLabel><CIcon icon={cilLightbulb}  height={15}/></CButton>
+                            <CButton data-coreui-toggle="popover"  style={{alignItems:'baseline',display:'flex'}}   className='text-black d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Nome Social ou Nomes das pessoas do Comitê</CFormLabel><CIcon icon={cilLightbulb}  height={15}/></CButton>
                         </CPopover>
                         <CFormInput type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
                         <br></br>
@@ -56,12 +71,11 @@ export default () => {
                             <CFormCheck inline type="radio" name="naturalPerson" id="inlineCheckbox2" value={false} label="Pessoa Jurídica"  onChange={(e) => setNaturalPerson(e.target.value)}/>
                         <br></br>
                         <br></br>
-                        <CFormLabel>E-mail</CFormLabel>
-                        <CFormInput type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
+                        <CFormInput label='E-mail' type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
                         <br></br>
                 </CForm>
             <br></br>
-            <CButton color='success' disabled={loading} onClick={handlePostDpo}>{loading ? 'Carregando' : 'Criar'}</CButton>
+            <CButton color='success' disabled={loading} onClick={handlePostDpo} >{loading ? 'Carregando' : 'Criar'}</CButton>
             <br></br>
             <br></br>
             <br></br>

@@ -4,7 +4,6 @@ import {CButton,CRow,CForm,CFormInput,CFormLabel,CFormTextarea,CFormCheck,CFormS
 import useAPI from '../../services/api';
 import {cilLightbulb} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
-import useAPI from '../../services/api';
 
 export default () => {
     const api = useAPI();
