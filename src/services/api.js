@@ -34,103 +34,99 @@ export default () => {
             sessionStorage.clear();
         },
         savePass: async (email) => {
-            const token = sessionStorage.getItem('token');
-            let json = await request('post', '/user/save-password', { email }, token);
+            let json = await request('get', `/user/${email}`,undefined);
             return json;
         },
         updateUser: async (raw) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('put', '/user/update', {id: user.id, ...raw  }, token);
+            let json = await request('patch', `/user/${user.id}`,raw, token);
             return json;
         },
         updatePass: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', '/user/pass', {id: user.id, ...raw  }, token);
+            let json = await request('patch', `/user/update-pass${user.id}`,raw, token);
             return json;
         },
-        getDpos: async () => {
+        findAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/dpo/all', {userId: user.id }, token);
+            let json = await request('get', `/dpo/all/${user.id}`,undefined, token);
             return json;
         },
-        getActualDpo: async () => {
+        findOne: async (id) => {
             const token = sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/dpo/actual', {userId: user.id }, token);
+            let json = await request('get', `/dpo/${id}`,undefined, token);
             return json;
         },
-        postDpo: async (raw) => {
+        UpdateEmail: async (id) => {
             const token = sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/dpo/register', {userId: user.id, ...raw }, token);
+            let json = await request('patch', `/dpo/${id}`,id, token);
             return json;
         },
-        updateDpo: async (id ,raw) => {
+        remove: async (id) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('put', '/dpo/update', {id, ...raw }, token);
+            let json = await request('delete', `/dpo/${id}`, undefined, token);
             return json;
         },
         getInventories: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/mapping/all', {userId: user.id }, token);
+            let json = await request('get', `/mapping/${user.id}`,undefined, token);
             return json;
         },
         getOneInventory: async (id) => {
             const token = sessionStorage.getItem('token');
-            let json = await request ('post', '/mapping/one', { id }, token);
+            let json = await request ('get', `/mapping/${ id }`, undefined, token);
             return json;
         },
-        postInventory: async ( raw ) => {
+        updateInventory: async ( id ) => {
             const token = sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('post', '/mapping/register', {userId: user.id, ...raw}, token);
-            return json;
-        },
-        updateInventory: async ( raw ) => {
-            const token = sessionStorage.getItem('token');
-            let json = await request('put', '/mapping/update', raw,token);
+            let json = await request('patch', `/mapping/${id}`, id,token);
             return json;
         },
         deleteInventory: async (id) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('delete', '/mapping/remove', { id }, token);
+            let json = await request('delete', `/mapping/${id}`, id , token);
             return json
         },
         getSectors: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request ('post', '/sector/all', { user_id: user.id }, token)
+            let json = await request ('get', `/sector/all/${user.id}`, undefined, token)
             return json;
         },
         getOneSector: async (id) => {
             const token =  sessionStorage.getItem('token');
-            let json = await request ('post', '/sector/one', { id }, token)
+            let json = await request ('get', `/sector/${id}`, undefined, token)
             return json;
         },
-        postSector: async (tagName) => {
+        updateSector: async (id) => {
             const token =  sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request ('post', '/sector/register', { user_id: user.id, tag_name: tagName }, token)
-            return json;
-        },
-        updateSector: async (raw) => {
-            const token =  sessionStorage.getItem('token');
-            let json = await request ('put', '/sector/update', raw, token)
+            let json = await request ('put', `/sector/${id}`, id, token)
             return json;
         },
         deleteSector:  async (id) => {
             const token =  sessionStorage.getItem('token');
-            let json = await request ('delete', '/sector/remove', { id }, token)
+            let json = await request ('delete', `/sector/${id}`, undefined, token)
             return json;
         },
-        getQuizAnswers: async () => {
+        getAllQuizAnswers: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request ('get', `/quiz/all/${user.sub}`, undefined , token )
+            let json = await request ('get', `/quiz/all/${user.id}`, undefined , token )
+            return json;
+        },
+        getQuizAnswers: async (id) => {
+            const token =  sessionStorage.getItem('token');
+            let json = await request ('get', `/quiz/${id}`, undefined , token )
+            return json;
+        },
+        DeleteQuizAnswers: async (id) => {
+            const token =  sessionStorage.getItem('token');
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json = await request ('delete', `/quiz/${id}`, undefined , token )
             return json;
         },
         postQuiz: async (raw) => {
