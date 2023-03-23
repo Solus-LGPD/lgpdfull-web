@@ -33,99 +33,103 @@ export default () => {
         logout: () => {
             sessionStorage.clear();
         },
-        savePass: async (email) => {
-            let json = await request('get', `/user/${email}`,undefined);
+        userSavePass: async ( email ) => {
+            let json = await request('get', `/user/${ email }`,undefined);
             return json;
         },
-        updateUser: async (raw) => {
+        userUpdate: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', `/user/${user.id}`,raw, token);
+            let json = await request('patch', `/user/${ user.id }`, raw , token);
             return json;
         },
-        updatePass: async ( raw ) => {
+        userUpdatePass: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', `/user/update-pass${user.id}`,raw, token);
+            let json = await request('patch', `/user/update-pass${user.id}`, raw , token);
             return json;
         },
-        findAll: async () => {
+        userDelete: async ( ) => {
+            const token = sessionStorage.getItem('token');
+            let json = await request('patch', `/user/update-pass${user.id}`, undefined , token);
+            return json;
+        },
+        dpoFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('get', `/dpo/all/${user.id}`,undefined, token);
+            let json = await request('get', `/dpo/all/${ user.id }`, undefined , token);
             return json;
         },
-        findOne: async (id) => {
+        dpoFindOne: async (id) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('get', `/dpo/${id}`,undefined, token);
+            let json = await request('get', `/dpo/${ id }`, undefined , token);
             return json;
         },
-        UpdateEmail: async (id) => {
+        dpoUpdateEmail: async ( id , raw ) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('patch', `/dpo/${id}`,id, token);
+            let json = await request('patch', `/dpo/${ id }`, raw , token);
             return json;
         },
-        remove: async (id) => {
+        dpoRemove: async ( id ) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('delete', `/dpo/${id}`, undefined, token);
+            let json = await request('delete', `/dpo/${ id }`, undefined , token);
             return json;
         },
-        getInventories: async () => {
+        mappingFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('get', `/mapping/${user.id}`,undefined, token);
+            let json = await request('get', `/mapping/${ user.id }`, undefined , token);
             return json;
         },
-        getOneInventory: async (id) => {
+        mappingFindOne: async ( id ) => {
             const token = sessionStorage.getItem('token');
-            let json = await request ('get', `/mapping/${ id }`, undefined, token);
+            let json = await request ('get', `/mapping/${ id }`, undefined , token);
             return json;
         },
-        updateInventory: async ( id ) => {
+        mappingUpdate: async ( raw ) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('patch', `/mapping/${id}`, id,token);
+            let json = await request('patch', `/mapping/${ id }`, raw , token);
             return json;
         },
-        deleteInventory: async (id) => {
+        mappingDelete: async ( id ) => {
             const token = sessionStorage.getItem('token');
-            let json = await request('delete', `/mapping/${id}`, id , token);
+            let json = await request('delete', `/mapping/${ id }`, undefined , token);
             return json
         },
-        getSectors: async () => {
+        sectorFindAll: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request ('get', `/sector/all/${user.id}`, undefined, token)
+            let json = await request ('get', `/sector/all/${ user.id }`, undefined , token)
             return json;
         },
-        getOneSector: async (id) => {
+        sectorFindOne: async (id) => {
             const token =  sessionStorage.getItem('token');
-            let json = await request ('get', `/sector/${id}`, undefined, token)
+            let json = await request ('get', `/sector/${ id }`, undefined , token)
             return json;
         },
-        updateSector: async (id) => {
+        sectorUpdate: async ( id, raw ) => {
             const token =  sessionStorage.getItem('token');
-            let json = await request ('put', `/sector/${id}`, id, token)
+            let json = await request ('put', `/sector/${ id }`, raw , token)
             return json;
         },
-        deleteSector:  async (id) => {
+        sectorDelete:  async (id) => {
             const token =  sessionStorage.getItem('token');
-            let json = await request ('delete', `/sector/${id}`, undefined, token)
+            let json = await request ('delete', `/sector/${ id }`, undefined , token)
             return json;
         },
-        getAllQuizAnswers: async () => {
+        quizFindAll: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request ('get', `/quiz/all/${user.id}`, undefined , token )
+            let json = await request ('get', `/quiz/all/${ user.id }`, undefined , token )
             return json;
         },
-        getQuizAnswers: async (id) => {
+        quizFindOne: async (id) => {
             const token =  sessionStorage.getItem('token');
             let json = await request ('get', `/quiz/${id}`, undefined , token )
             return json;
         },
-        DeleteQuizAnswers: async (id) => {
+        quizDelete: async (id) => {
             const token =  sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request ('delete', `/quiz/${id}`, undefined , token )
             return json;
         },
