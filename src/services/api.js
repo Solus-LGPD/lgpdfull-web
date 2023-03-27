@@ -9,14 +9,14 @@ const request = async (method, endpoint, params, token=null) => {
     let body = null;
 
     body = JSON.stringify(params);
-
+ 
     if(token){
         headers.Authorization = `Bearer ${token}`
     }
 
-    let req = await fetch(fullUrl, {method, headers, body});
+    let req = await fetch(fullUrl, {method, headers, body}).catch(console.error);
 
-    let json = await req.json();
+    let json = req.json();
 
     return json;
 }
@@ -41,7 +41,7 @@ export default () => {
         userUpdate: async ( email ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', `/user/update-user/${ user.id }`, { email } , token);
+            let json = await request('patch', `/user/${ user.id }`, { email } , token);
             return json;
         },
         userUpdatePass: async ( raw ) => {
