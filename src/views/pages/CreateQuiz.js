@@ -1,14 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CButton, CCard, CCardHeader} from '@coreui/react';
+import { CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CButton, CCard, CCardHeader} from '@coreui/react';
 import useAPI from '../../services/api';
-import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/QuizQuestions';
+import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/quizQuestions';
 
 export default () => {
 
     const api = useAPI();
     const navigate = useNavigate();
-   
+
     let answers = new Array(24).fill("0");
     const handleQuiz = async () => {
         let maturityResult = 0;
@@ -27,7 +27,7 @@ export default () => {
                     case '3':
                         maturityResult += 1*0.25;
                     break;
-                    
+
                 }
             }else if (i >= 6 && i >=11 ){
                 switch(answers[i]){
@@ -119,7 +119,7 @@ export default () => {
                         maturityResult += 1*0.15;
                     break;
                 }
-            } 
+            }
         }
         maturityResult = maturityResult * 10;
         if (maturityResult < 2.99) {
@@ -197,7 +197,7 @@ export default () => {
             }else{
                 alert(result.message);
             }
-        } 
+        }
     }
 
     return (
@@ -217,7 +217,7 @@ export default () => {
                             <CCardTitle>{topics[0]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {government.map((item, index) => 
+                        {government.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
@@ -225,7 +225,7 @@ export default () => {
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                     </CCardBody>
@@ -238,7 +238,7 @@ export default () => {
                             <CCardTitle>{topics[1]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {conformity.map((item, index) => 
+                        {conformity.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+6] = e.target.value} />
@@ -246,7 +246,7 @@ export default () => {
                                 <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+6] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qConformity${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+6] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                     </CCardBody>
@@ -259,7 +259,7 @@ export default () => {
                             <CCardTitle>{topics[2]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {transparency.map((item, index) => 
+                        {transparency.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+12] = e.target.value} />
@@ -267,7 +267,7 @@ export default () => {
                                 <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+12] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qTransparency${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+12] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                     </CCardBody>
@@ -280,7 +280,7 @@ export default () => {
                             <CCardTitle>{topics[3]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {traceability.map((item, index) => 
+                        {traceability.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+14] = e.target.value} />
@@ -288,7 +288,7 @@ export default () => {
                                 <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+14] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qTraceability${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+14] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                     </CCardBody>
@@ -301,7 +301,7 @@ export default () => {
                             <CCardTitle>{topics[4]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {adequacy.map((item, index) => 
+                        {adequacy.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+17] = e.target.value} />
@@ -309,7 +309,7 @@ export default () => {
                                 <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+17] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qAdequacy${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+17] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                     </CCardBody>
@@ -322,7 +322,7 @@ export default () => {
                             <CCardTitle>{topics[5]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {security.map((item, index) => 
+                        {security.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+18] = e.target.value} />
@@ -330,7 +330,7 @@ export default () => {
                                 <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+18] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qSecurity${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+18] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                     </CCardBody>
@@ -343,7 +343,7 @@ export default () => {
                             <CCardTitle>{topics[6]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {violations.map((item, index) => 
+                        {violations.map((item, index) =>
                             <>
                                 <CFormLabel>{index+1} - {item}</CFormLabel>
                                 <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index+21] = e.target.value} />
@@ -351,13 +351,13 @@ export default () => {
                                 <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index+21] =e.target.value}/>
                                 <CFormCheck type="radio" name={`qViolation${index+1}`} id="exampleRadios4" value={3} label="Atende integralmente" onChange={(e) => answers[index+21] = e.target.value}/>
                                 <br></br>
-                            </> 
+                            </>
                         )}
                         <br></br>
                         <CButton onClick={handleQuiz}>Enviar</CButton>
                     </CCardBody>
                 </CCard>
-                
+
                 <br></br>
                 <br></br>
             </CForm>

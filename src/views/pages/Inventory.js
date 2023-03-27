@@ -34,7 +34,7 @@ export default () => {
 
     const getSectorsList = async () => {
         const listResult = new Array()
-        const result = await api.getSectors();
+        const result = await api.sectorFindAll();
         console.log(result)//
         listResult.push('Escolha o setor do inventário');
         if(result.error === undefined){
@@ -55,23 +55,19 @@ export default () => {
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getInventories();
+        const result = await api.mappingFindAll();
         setLoading(false);
         console.log(result)
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
-                
-                let createdAt = new Date(result[i].created_at);
+
+                let createdAt = new Date(result[i].createdAt);
                 createdAt = createdAt.toLocaleDateString();
-    
-                let updatedAt = new Date(result[i].updated_at);
+
+                let updatedAt = new Date(result[i].updatedAt);
                 updatedAt = updatedAt.toLocaleDateString();
-                
+
                 result[i] = {
-                    "id": result[i].id,
-                    "dpoId": result[i].dpo_id,
-                    "userId": result[i].user_id,
-                    "tagName": result[i].tag_name,
                     createdAt,
                     updatedAt,
                     "CButtonEdit": <CButton onClick={() => {handleEditButton(result[i].id)}}><CIcon icon={cilPen}></CIcon></CButton>,
@@ -94,18 +90,18 @@ export default () => {
     const handleEditButton = async (id) => {
         sessionStorage.setItem('inventoryId', id);
         setShowEditModal(true);
-        const result = await api.getOneInventory(id);
+        const result = await api.mappingFindOne(id);
         if(result.error === undefined){
-            setTagName(result.tag_name);
-            setColletedData(result.colleted_data);
-            setSourceData(result.source_data);
-            setReasonData(result.reason_data);
-            setHowStorage(result.how_storage);
-            setSecurityData(result.security_data);
-            setDeadlineData(result.deadline_data);
+            setTagName(result.tagName);
+            setColletedData(result.colletedData);
+            setSourceData(result.sourceData);
+            setReasonData(result.reasonData);
+            setHowStorage(result.howStorage);
+            setSecurityData(result.securityData);
+            setDeadlineData(result.deadlineData);
             setJustification(result.justification);
-            setUnderAgeData(result.under_age_data);
-            setSensitiveData(result.sensitive_data);
+            setUnderAgeData(result.underAgeData);
+            setSensitiveData(result.sensitiveData);
             setController(result.controller);
         }
         else{
@@ -128,7 +124,6 @@ export default () => {
         }
 
         const dataRaw = {
-            id,
             sourceData,
             colletedData,
             reasonData,
@@ -142,7 +137,7 @@ export default () => {
         }
 
         setLoading(true);
-        const result  = await api.updateInventory(dataRaw);        
+        const result  = await api.mappingUpdate(id, dataRaw);
         setLoading(false);
 
         if(result.error === undefined){
@@ -160,7 +155,7 @@ export default () => {
 
     const handleDeleteButton = async () => {
         const id = sessionStorage.getItem('inventoryId');
-        const result  = await api.deleteInventory(id);
+        const result  = await api.mappingDelete(id);
         if(result.error === undefined){
             sessionStorage.removeItem('inventoryId');
             window.location.reload();

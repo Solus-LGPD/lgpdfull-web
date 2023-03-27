@@ -30,12 +30,12 @@ export default () => {
 
     const getSectorsList = async () => {
         const listResult = new Array()
-        const result = await api.getSectors();
+        const result = await api.sectorFindAll();
         listResult.push('Escolha o setor do inventário');
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
                 let options = {
-                    label: result[i].tag_name,
+                    label: result[i].tagName,
                     value: result[i].id
                 }
 
@@ -49,7 +49,7 @@ export default () => {
     }
 
     const handlePostInventory = async () => {
-        const dpo =  await api.getActualDpo()
+        const dpo =  await api.actualDpo();
 
         const dataRaw = {
             dpoId: dpo.id,
@@ -68,7 +68,7 @@ export default () => {
         }
 
         setLoading(true);
-        const result = await api.postInventory(dataRaw);
+        const result = await api.postMapping(dataRaw);
         setLoading(false);
 
         if(result.error === undefined){
@@ -83,13 +83,13 @@ export default () => {
             <CRow>
                 <h2 className='text-black'>Criação do Inventário de Dados Pessoais</h2>
             </CRow>
-           
+
                 <CForm className='text-black'>
 
                     <CPopover title='Identificação' trigger="focus" content="Colocar o número de referência para a identificação do inventário. Padrão:(Inventário - SiglaDoSetor 'TI' - Número.) Ex.:Inventário-TI-01"placement="right">
                         <CButton color='text-black' style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Identificação</CFormLabel><CIcon icon={cilLightbulb}  height={15}/></CButton>
                     </CPopover>
-                    <CFormInput title='' trigger="focus" type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>                       
+                    <CFormInput title='' trigger="focus" type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
                     <br></br>
                     <CPopover title='Setor da empresa' trigger="focus" content="Colocar o nome do setor a qual se refere o inventário. Ex.:TI,RH,ADM"placement="right">
                         <CButton color='text-black' style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Setor da empresa</CFormLabel><CIcon icon={cilLightbulb}  height={15}/></CButton>
