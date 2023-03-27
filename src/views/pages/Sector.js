@@ -28,7 +28,7 @@ export default () => {
     const handleEditButton =  async (id) => {
         sessionStorage.setItem('sectorId', id);
         setShowEditModal(true);
-        const result = await api.getOneSector(id);
+        const result = await api.sectorFindOne(id);
         if(result.error === undefined){
             setTagName(result.tag_name);
         }
@@ -38,13 +38,9 @@ export default () => {
     }
 
     const handleUpdateButton = async () => {
-        const dataRaw = {
-            id: sessionStorage.getItem('sectorId'),
-            tag_name: tagName
-        }
-
+        
         setLoading(true);
-        const result = await api.updateSector(dataRaw);
+        const result = await api.sectorUpdate(sessionStorage.getItem('sectorId'), tagName);
         setLoading(false);
 
         if(result.error === undefined){
@@ -61,8 +57,8 @@ export default () => {
 
     const handleDeleteButton = async () => {
         const id = sessionStorage.getItem('sectorId');
-        const result  = await api.deleteSector(id);
-        if(result.error === undefined){
+        const result  = await api.sectorDelete(id);
+        if(result.status === 204){
             sessionStorage.removeItem('sectorId');
             alert("Setor removido")
             window.location.reload();
@@ -75,7 +71,7 @@ export default () => {
     const getList = async () => {
 
         setLoading(true);
-        const result = await api.getSectors();
+        const result = await api.sectorFindAll();
         setLoading(false);
 
         if(result.error === undefined){
@@ -83,7 +79,7 @@ export default () => {
 
                 result[i] = {
                     "id": result[i].id,
-                    tagName: result[i].tag_name,
+                    tagName: result[i].tagName,
                     "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
                     "CButtonRemove": <CButton onClick={() => {handleDeleteModal(result[i].id)}} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }

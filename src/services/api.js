@@ -23,6 +23,7 @@ const request = async (method, endpoint, params, token=null) => {
 
 export default () => {
     return {
+        // endpoints usuário
         gettoken: () => {
             return sessionStorage.getItem('token');
         },
@@ -37,10 +38,10 @@ export default () => {
             let json = await request('get', `/user/${ email }`,undefined);
             return json;
         },
-        userUpdate: async ( raw ) => {
+        userUpdate: async ( email ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', `/user/${ user.id }`, raw , token);
+            let json = await request('patch', `/user/update-user/${ user.id }`, { email } , token);
             return json;
         },
         userUpdatePass: async ( raw ) => {
@@ -54,6 +55,8 @@ export default () => {
             let json = await request('patch', `/user/update-pass${user.id}`, undefined , token);
             return json;
         },
+
+        // endpoints dpo
         dpoFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -75,6 +78,8 @@ export default () => {
             let json = await request('delete', `/dpo/${ id }`, undefined , token);
             return json;
         },
+        
+        // endpoints inventário
         mappingFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -92,9 +97,17 @@ export default () => {
             return json;
         },
         mappingDelete: async ( id ) => {
-            const token = sessionStorage.getItem('token');
+            const token = sessionStorage.getItem( 'token' );
             let json = await request('delete', `/mapping/${ id }`, undefined , token);
             return json
+        },
+
+        // endpoints setor
+        postSector: async ( tagName ) => {
+            const token =  sessionStorage.getItem( 'token' );
+            const user = JSON.parse(sessionStorage.getItem( 'user' ));
+            let json = await request ('post', `/sector`, { tagName , userId: user.id } , token)
+            return json;
         },
         sectorFindAll: async () => {
             const token =  sessionStorage.getItem('token');
@@ -107,9 +120,9 @@ export default () => {
             let json = await request ('get', `/sector/${ id }`, undefined , token)
             return json;
         },
-        sectorUpdate: async ( id, raw ) => {
+        sectorUpdate: async ( id, tagName) => {
             const token =  sessionStorage.getItem('token');
-            let json = await request ('put', `/sector/${ id }`, raw , token)
+            let json = await request ('put', `/sector/${ id }`, { tagName }, token)
             return json;
         },
         sectorDelete:  async (id) => {
@@ -117,6 +130,8 @@ export default () => {
             let json = await request ('delete', `/sector/${ id }`, undefined , token)
             return json;
         },
+
+        // endpoints quiz
         quizFindAll: async () => {
             const token =  sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));

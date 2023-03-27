@@ -13,12 +13,8 @@ export default () => {
 
   const handleUpdateButton = async () => {
     
-    const dataRaw = {
-      email
-    }
-
     setLoading(true);
-    const result = await api.updateUser(dataRaw);
+    const result = await api.userUpdate(email);
     setLoading(false);
 
     if(result.error === undefined){
