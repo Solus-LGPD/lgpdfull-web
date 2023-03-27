@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import {CButton,CForm,CFormInput,CFormLabel,CAlert  } from '@coreui/react'
 import useAPI from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 
 export default () => {
   const api = useAPI();
+  const navigate = useNavigate();
 
   const [ loading, setLoading ] = useState(false);
   const [ email, setEmail ] = useState('');
@@ -12,7 +14,7 @@ export default () => {
   const [ color, setColor ] = useState('primary');
 
   const handleUpdateButton = async () => {
-    
+
     setLoading(true);
     const result = await api.userUpdate(email);
     setLoading(false);
@@ -38,7 +40,7 @@ export default () => {
             <CFormInput required type="email" id="exampleFormControlInput1" placeholder="name@example.com" aria-describedby="exampleFormControlInputHelpInline" value={email} onChange={(e) => setEmail(e.target.value)} />
           </CForm>
           <CButton  onClick={handleUpdateButton} style={{backgroundColor: "#2085c7"}} color=' text-white' disabled={loading}>{loading ? 'Carregando' : 'Atualizar'}</CButton>
-      </div>  
+      </div>
     </>
   );
 }
