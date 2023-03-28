@@ -52,19 +52,18 @@ export default () => {
             let json = await request('patch', `/user/update-pass${user.id}`, raw , token);
             return json;
         },
-        actualDpo: async () => {
-            const token = sessionStorage.getItem('token');
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            let json =  await request('patch', `/dpo/actual/${user.id}`, undefined, token)
-            return json;
-        },
-
         // endpoints dpo
         dpoFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
             let json = await request('get', `/dpo/all/${ user.id }`, undefined , token);
             return json;
+        },
+        actualDpo: async () => {
+          const token = sessionStorage.getItem('token');
+          const user = JSON.parse(sessionStorage.getItem('user'));
+          let json =  await request('get', `/dpo/actual/${user.id}`, undefined, token)
+          return json;
         },
         dpoFindOne: async (id) => {
             const token = sessionStorage.getItem('token');
@@ -86,7 +85,7 @@ export default () => {
         mappingFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('get', `/mapping/${ user.id }`, undefined , token);
+            let json = await request('get', `/mapping/all/${ user.id }`, undefined , token);
             return json;
         },
         mappingFindOne: async ( id ) => {
