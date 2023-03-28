@@ -68,6 +68,10 @@ export default () => {
                 updatedAt = updatedAt.toLocaleDateString();
 
                 result[i] = {
+                    "id": result[i].id,
+                    "dpoId": result[i].dpoId,
+                    "userId": result[i].userId,
+                    "tagName": result[i].tagName,
                     createdAt,
                     updatedAt,
                     "CButtonEdit": <CButton onClick={() => {handleEditButton(result[i].id)}}><CIcon icon={cilPen}></CIcon></CButton>,

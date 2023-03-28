@@ -28,7 +28,7 @@ export default () => {
         }
         console.log(dataRaw)
         setLoading(true);
-        const result = await api.postDpo(dataRaw);
+        const result = await api.postDPO(dataRaw);
         setLoading(false);
 
         if(result.error === undefined){

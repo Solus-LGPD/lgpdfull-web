@@ -58,7 +58,7 @@ export default () => {
     const handleDeleteButton = async () => {
         const id = sessionStorage.getItem('sectorId');
         const result  = await api.sectorDelete(id);
-        if(result.status === 204){
+        if(result.error === undefined){
             sessionStorage.removeItem('sectorId');
             alert("Setor removido")
             window.location.reload();
@@ -83,6 +83,8 @@ export default () => {
                     "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
                     "CButtonRemove": <CButton onClick={() => {handleDeleteModal(result[i].id)}} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }
+
+                console.log(result[i].id)
             }
             setList(result);
         }else{

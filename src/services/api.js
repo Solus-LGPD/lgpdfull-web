@@ -52,6 +52,12 @@ export default () => {
             return json;
         },
         // endpoints dpo
+        postDPO: async ( raw ) => {
+            const token =  sessionStorage.getItem( 'token' );
+            const user = JSON.parse(sessionStorage.getItem( 'user' ));
+            let json = await request ('post', `/dpo`, { ...raw , userId: user.id }, token)
+            return json;
+        },
         dpoFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -81,6 +87,12 @@ export default () => {
         },
 
         // endpoints inventário
+        postMapping: async ( raw ) => {
+            const token =  sessionStorage.getItem( 'token' );
+            const user = JSON.parse(sessionStorage.getItem( 'user' ));
+            let json = await request ('post', `/mapping`, {userId: user.id, ...raw ,  }, token)
+            return json;
+        },
         mappingFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -92,7 +104,7 @@ export default () => {
             let json = await request ('get', `/mapping/${ id }`, undefined , token);
             return json;
         },
-        mappingUpdate: async ( raw ) => {
+        mappingUpdate: async ( id , raw ) => {
             const token = sessionStorage.getItem('token');
             let json = await request('patch', `/mapping/${ id }`, raw , token);
             return json;

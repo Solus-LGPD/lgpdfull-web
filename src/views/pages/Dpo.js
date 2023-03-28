@@ -28,7 +28,7 @@ export default () => {
     const handleEditButton =  async (id) => {
         sessionStorage.setItem('dpoId', id);
         setShowEditModal(true);
-        const result = await api.getActualDpo();
+        const result = await api.actualDpo();
         if(result.error === undefined){
             setSocialName(result.socialName);
             setEmail(result.email);

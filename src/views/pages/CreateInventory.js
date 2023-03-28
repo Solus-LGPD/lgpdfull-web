@@ -49,7 +49,10 @@ export default () => {
     }
 
     const handlePostInventory = async () => {
+        setLoading(true);
         const dpo =  await api.actualDpo();
+        const convertAgeData = Boolean(underAgeData)
+        const convertSensitiveData = Boolean(sensitiveData)
 
         const dataRaw = {
             dpoId: dpo.id,
@@ -62,12 +65,11 @@ export default () => {
             securityData,
             deadlineData,
             justification,
-            underAgeData,
-            sensitiveData,
+            underAgeData: convertAgeData,
+            sensitiveData: convertSensitiveData,
             controller
         }
 
-        setLoading(true);
         const result = await api.postMapping(dataRaw);
         setLoading(false);
 
