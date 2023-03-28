@@ -30,7 +30,7 @@ export default () => {
         setShowEditModal(true);
         const result = await api.sectorFindOne(id);
         if(result.error === undefined){
-            setTagName(result.tag_name);
+            setTagName(result.tagName);
         }
         else{
             alert(result.message);

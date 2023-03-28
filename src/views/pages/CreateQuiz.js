@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CButton, CCard, CCardHeader} from '@coreui/react';
 import useAPI from '../../services/api';
-import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from 'src/helpers/quizQuestions';
+import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from '../../helpers/QuizQuestions';
 
 export default () => {
 
@@ -217,9 +217,9 @@ export default () => {
                             <CCardTitle>{topics[0]}</CCardTitle>
                         </CCardHeader>
                         <br></br>
-                        {government.map((item, index) =>
+                        {government.map(( item , index) =>
                             <>
-                                <CFormLabel>{index+1} - {item}</CFormLabel>
+                                <CFormLabel >{ index + 1 } - { item }</CFormLabel>
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios1" value={0} label="Ainda não" defaultChecked onChange={(e) => answers[index] = e.target.value} />
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios2" value={1} label="Tem planos para iniciar" onChange={(e) => answers[index] = e.target.value}/>
                                 <CFormCheck type="radio" name={`qGovernment${index+1}`} id="exampleRadios3" value={2} label="Atende parcialmente" onChange={(e) => answers[index] =e.target.value}/>

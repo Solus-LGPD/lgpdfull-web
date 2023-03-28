@@ -39,7 +39,7 @@ const Login = () => {
   const handleSavePass = async () => {
 
     setLoading(true);
-    const result = await api.savePass(email);
+    const result = await api.userSavePass(email);
     setLoading(false);
 
     if(result.error === undefined){

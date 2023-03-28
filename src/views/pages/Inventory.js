@@ -35,18 +35,18 @@ export default () => {
     const getSectorsList = async () => {
         const listResult = new Array()
         const result = await api.sectorFindAll();
-        console.log(result)//
+        console.log(result)
         listResult.push('Escolha o setor do inventário');
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
                 let options = {
-                    label: result[i].tag_name,
+                    label: result[i].tagName,
                     value: result[i].id
                 }
 
                 listResult.push(options);
             }
-            console.log(listResult)//
+            console.log(listResult)
             setSectorsList(listResult)
         }else{
             alert(result.message);

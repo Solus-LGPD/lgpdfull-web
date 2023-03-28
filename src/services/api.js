@@ -16,7 +16,7 @@ const request = async (method, endpoint, params, token=null) => {
 
     let req = await fetch(fullUrl, {method, headers, body}).catch(console.error);
 
-    let json = req.json();
+    let json = await req.json();
 
     return json;
 }
