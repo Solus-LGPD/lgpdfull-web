@@ -1,8 +1,8 @@
 const BASE_URL = "http://localhost:3000"
-// const BASE_URL = "http://52.67.124.155"
+// TESTE const BASE_URL = "http://52.67.124.155"
 
 const request = async (method, endpoint, params, token=null) => {
-    method = method.toLowerCase();
+    method = method.toUpperCase();
 
     let headers = {'Content-Type': 'application/json'};
     let fullUrl = `${BASE_URL}${endpoint}`;
@@ -35,7 +35,8 @@ export default () => {
             sessionStorage.clear();
         },
         userSavePass: async ( email ) => {
-            let json = await request('get', `/user/${ email }`,undefined);
+            let json = await request('get',
+              `/user/${ email }`,undefined);
             return json;
         },
         userUpdate: async ( email ) => {
@@ -50,9 +51,10 @@ export default () => {
             let json = await request('patch', `/user/update-pass${user.id}`, raw , token);
             return json;
         },
-        userDelete: async ( ) => {
+        actualDpo: async () => {
             const token = sessionStorage.getItem('token');
-            let json = await request('patch', `/user/update-pass${user.id}`, undefined , token);
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            let json =  await request('patch', `/dpo/actual/${user.id}`, undefined, token)
             return json;
         },
 
@@ -78,7 +80,7 @@ export default () => {
             let json = await request('delete', `/dpo/${ id }`, undefined , token);
             return json;
         },
-        
+
         // endpoints inventário
         mappingFindAll: async () => {
             const token = sessionStorage.getItem('token');
