@@ -83,8 +83,6 @@ export default () => {
                     "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
                     "CButtonRemove": <CButton onClick={() => {handleDeleteModal(result[i].id)}} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }
-
-                console.log(result[i].id)
             }
             setList(result);
         }else{

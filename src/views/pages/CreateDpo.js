@@ -26,7 +26,6 @@ export default () => {
             socialName,
             email,
         }
-        console.log(dataRaw)
         setLoading(true);
         const result = await api.postDPO(dataRaw);
         setLoading(false);

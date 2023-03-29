@@ -41,7 +41,6 @@ export default () => {
 
                 listResult.push(options);
             }
-            console.log(listResult)//
             setSectorsList(listResult)
         }else{
             alert(result.message);

@@ -48,7 +48,7 @@ export default () => {
         userUpdatePass: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', `/user/update-pass${user.id}`, raw , token);
+            let json = await request('patch', `/user/update-pass/${user.id}`, raw , token);
             return json;
         },
         // endpoints dpo
