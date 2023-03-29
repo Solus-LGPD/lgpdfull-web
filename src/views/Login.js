@@ -46,6 +46,9 @@ const Login = () => {
       setVisibleAlert(true);
       setMessage('Sucesso!');
       setColor('success');
+      setTimeout(() => {
+        location.reload()
+     }, 900);
     }else{
       setVisibleAlert(true);
       setMessage('E-mail Inválido');
