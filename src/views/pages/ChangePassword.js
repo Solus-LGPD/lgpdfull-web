@@ -1,8 +1,12 @@
+import useAPI from '../../services/api';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import {CButton,CCol,CForm,CFormInput,CFormLabel,CRow,CAlert} from '@coreui/react'
 
 const Trocarsenha = () => {
-  
+  const api = useAPI();
+  const navigate = useNavigate();
+
   const validatePassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=.*[$*&@#.]).{6,}$");
 
   const [loading, setLoading] = useState(false);
@@ -29,18 +33,21 @@ const Trocarsenha = () => {
           }else{
               
             const dataRaw = {
-              pass: actualPassword,
+              actualPass: actualPassword,
               newPass: newPassword
             }
 
             setLoading(true);
-            const result = await api.updatePass(dataRaw);
+            const result = await api.userUpdatePass(dataRaw);
             setLoading(false);
 
             if(result.error === undefined){
               setVisible(true);
               setMessage('Senha atualizada.');
               setColor('success');
+              setTimeout(() => {
+                navigate('/lgpdfull')  
+             }, 900);
             }else{
               setVisible(true);
               setMessage(result.message);

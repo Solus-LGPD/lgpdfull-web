@@ -30,7 +30,7 @@ export default () => {
         setShowEditModal(true);
         const result = await api.sectorFindOne(id);
         if(result.error === undefined){
-            setTagName(result.tag_name);
+            setTagName(result.tagName);
         }
         else{
             alert(result.message);
@@ -58,7 +58,7 @@ export default () => {
     const handleDeleteButton = async () => {
         const id = sessionStorage.getItem('sectorId');
         const result  = await api.sectorDelete(id);
-        if(result.status === 204){
+        if(result.error === undefined){
             sessionStorage.removeItem('sectorId');
             alert("Setor removido")
             window.location.reload();

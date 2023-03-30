@@ -39,13 +39,16 @@ const Login = () => {
   const handleSavePass = async () => {
 
     setLoading(true);
-    const result = await api.savePass(email);
+    const result = await api.userSavePass(email);
     setLoading(false);
 
     if(result.error === undefined){
       setVisibleAlert(true);
       setMessage('Sucesso!');
       setColor('success');
+      setTimeout(() => {
+        location.reload()
+     }, 900);
     }else{
       setVisibleAlert(true);
       setMessage('E-mail Inválido');

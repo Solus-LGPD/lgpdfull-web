@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput,CFormTextarea,CFormCheck,} from '@coreui/react';
+import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput,CFormTextarea,CFormCheck, CFormSelect,} from '@coreui/react';
 import {cilCheck,cilX,cilPen} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
@@ -35,18 +35,16 @@ export default () => {
     const getSectorsList = async () => {
         const listResult = new Array()
         const result = await api.sectorFindAll();
-        console.log(result)//
         listResult.push('Escolha o setor do inventário');
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
                 let options = {
-                    label: result[i].tag_name,
+                    label: result[i].tagName,
                     value: result[i].id
                 }
 
                 listResult.push(options);
             }
-            console.log(listResult)//
             setSectorsList(listResult)
         }else{
             alert(result.message);
@@ -57,7 +55,6 @@ export default () => {
         setLoading(true);
         const result = await api.mappingFindAll();
         setLoading(false);
-        console.log(result)
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
 
@@ -68,13 +65,16 @@ export default () => {
                 updatedAt = updatedAt.toLocaleDateString();
 
                 result[i] = {
+                    "id": result[i].id,
+                    "dpoId": result[i].dpoId,
+                    "userId": result[i].userId,
+                    "tagName": result[i].tagName,
                     createdAt,
                     updatedAt,
                     "CButtonEdit": <CButton onClick={() => {handleEditButton(result[i].id)}}><CIcon icon={cilPen}></CIcon></CButton>,
                     "CButtonRemove": <CButton onClick={() => {handleDeleteModal(result[i].id)}} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }
             }
-            console.log(result)
             setList(result)
         }else{
             alert(result.message);
@@ -209,8 +209,21 @@ export default () => {
                         <CFormLabel>Dados pessoais coletados</CFormLabel>
                         <CFormTextarea rows={3} value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Razão da coleta</CFormLabel>
-                        <CFormTextarea rows={2} value={reasonData} onChange={(e) => setReasonData(e.target.value)}></CFormTextarea>
+                        <CFormLabel>Hipótese de tratamento</CFormLabel>
+                        <CFormSelect  required value={reasonData} onChange={(e) => setReasonData(e.target.value)}>
+                        <option>Selecione...</option>
+                        <option key={11} value="11">Consentimento - Mendiante consetimento do titular</option>
+                        <option key={10} value="10">Regulatório - Para cumprimento de obrigação legal ou regulatória pelo controlador</option>
+                        <option key={9} value="9">Governo - Pela administração pública, para tratamento de dados necessários a política pública</option>
+                        <option key={8} value="8">Pesquisa - Para realização de estudos por órgão de pesquisa, sendo garantida a anonimização dos dados</option>
+                        <option key={7} value="7">Contratos - Quando necessário para a execução de contrato</option>
+                        <option key={6} value="5">Judicial - Exercício regular de direitos, inclusive em contrato e em processo judicial,administrativo e arbitral</option>
+                        <option key={5} value="6">Vida - Para a proteção da vida ou incolumidade física do títular ou terceiros</option>
+                        <option key={4} value="4">Saúde - Para a tutela da saúde, com procedimento realizado por profissionais da área da saúde ou por entidades sanitárias</option>
+                        <option key={3} value="3">Legítimo interesse - Interesses legítimos do controlador ou de terceiro</option>
+                        <option key={2} value="2">Crédito - Para proteção do crédito</option>
+                        <option key={1} value="1">Dados sensíveis - Para garantia da prevenção à fraude e á segurança do títular</option>
+                        </CFormSelect>
                         <br></br>
                         <CFormLabel>Como é armazenado?</CFormLabel>
                         <CFormTextarea rows={2} value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>

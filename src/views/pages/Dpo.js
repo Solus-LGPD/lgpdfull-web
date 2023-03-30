@@ -28,9 +28,9 @@ export default () => {
     const handleEditButton =  async (id) => {
         sessionStorage.setItem('dpoId', id);
         setShowEditModal(true);
-        const result = await api.getActualDpo();
+        const result = await api.actualDpo();
         if(result.error === undefined){
-            setSocialName(result.social_name);
+            setSocialName(result.socialName);
             setEmail(result.email);
             setFirstName(result.name);
         }
@@ -49,7 +49,7 @@ export default () => {
         }
 
         setLoading(true);
-        const result = await api.updateDpo(id ,dataRaw);
+        const result = await api.dpoUpdateEmail(id ,dataRaw);
         setLoading(false);
 
         if(result.error === undefined){
@@ -62,13 +62,13 @@ export default () => {
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getDpos();
+        const result = await api.dpoFindAll();
         setLoading(false);
         if(result.error === undefined){
             for(let i = 0; i<result.length ; i++){
 
                 let naturalPerson = 'Pessoa Jurídica'
-                if(result[i].natural_person === true){
+                if(result[i].naturalPerson === true){
                     naturalPerson = 'Pessoa Física';
                 }
 
@@ -87,7 +87,7 @@ export default () => {
                     result[i] = {
                         "id": result[i].id,
                         naturalPerson,
-                        socialName: result[i].social_name,
+                        socialName: result[i].socialName,
                         "CBadge": statusComponent,
                         "CButtonEdit": <CButton onClick={() => handleEditButton(result[i].id)}><CIcon icon={cilPen}></CIcon></CButton>,
                     }
@@ -95,7 +95,7 @@ export default () => {
                     result[i] = {
                         "id": result[i].id,
                         naturalPerson,
-                        socialName: result[i].social_name,
+                        socialName: result[i].socialName,
                         "CBadge": statusComponent,
                         "CButtonEdit": <CButton disabled><CIcon icon={cilPen}></CIcon></CButton>,
                     }

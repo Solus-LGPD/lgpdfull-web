@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://localhost:3000"
+const BASE_URL = "http://192.168.200.226"
 // TESTE const BASE_URL = "http://52.67.124.155"
 
 const request = async (method, endpoint, params, token=null) => {
@@ -9,12 +10,12 @@ const request = async (method, endpoint, params, token=null) => {
     let body = null;
 
     body = JSON.stringify(params);
-
+ 
     if(token){
         headers.Authorization = `Bearer ${token}`
     }
 
-    let req = await fetch(fullUrl, {method, headers, body}).catch(error => console.log(error));
+    let req = await fetch(fullUrl, {method, headers, body}).catch(console.error);
 
     let json = await req.json();
 
@@ -42,17 +43,22 @@ export default () => {
         userUpdate: async ( email ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch',
-              `/user/${ user.id }`, { email } , token);
+            let json = await request('patch', `/user/${ user.id }`, { email } , token);
             return json;
         },
         userUpdatePass: async ( raw ) => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
-            let json = await request('patch', `/user/update-pass${user.id}`, raw , token);
+            let json = await request('patch', `/user/update-pass/${user.id}`, raw , token);
             return json;
         },
         // endpoints dpo
+        postDPO: async ( raw ) => {
+            const token =  sessionStorage.getItem( 'token' );
+            const user = JSON.parse(sessionStorage.getItem( 'user' ));
+            let json = await request ('post', `/dpo`, { ...raw , userId: user.id }, token)
+            return json;
+        },
         dpoFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -82,6 +88,12 @@ export default () => {
         },
 
         // endpoints inventário
+        postMapping: async ( raw ) => {
+            const token =  sessionStorage.getItem( 'token' );
+            const user = JSON.parse(sessionStorage.getItem( 'user' ));
+            let json = await request ('post', `/mapping`, {userId: user.id, ...raw ,  }, token)
+            return json;
+        },
         mappingFindAll: async () => {
             const token = sessionStorage.getItem('token');
             const user = JSON.parse(sessionStorage.getItem('user'));
@@ -93,7 +105,7 @@ export default () => {
             let json = await request ('get', `/mapping/${ id }`, undefined , token);
             return json;
         },
-        mappingUpdate: async ( raw ) => {
+        mappingUpdate: async ( id , raw ) => {
             const token = sessionStorage.getItem('token');
             let json = await request('patch', `/mapping/${ id }`, raw , token);
             return json;
