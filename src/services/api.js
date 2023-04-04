@@ -1,5 +1,5 @@
-// const BASE_URL = "http://localhost:3000"
-const BASE_URL = "http://192.168.200.226"
+const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://192.168.200.226"
 // TESTE const BASE_URL = "http://52.67.124.155"
 
 const request = async (method, endpoint, params, token=null) => {
