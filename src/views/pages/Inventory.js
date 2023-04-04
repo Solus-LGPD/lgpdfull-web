@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput,CFormTextarea,CFormCheck, CFormSelect,} from '@coreui/react';
-import {cilCheck,cilX,cilPen} from '@coreui/icons';
+import {cilCheck,cilX,cilPen, cilDataTransferDown} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../services/api';
 
@@ -71,6 +71,7 @@ export default () => {
                     "tagName": result[i].tagName,
                     createdAt,
                     updatedAt,
+                    "CButtonDownload": <CButton onClick={() => {handleEditButton(result[i].id)}} color='success' ><CIcon  icon={cilDataTransferDown}></CIcon></CButton>,
                     "CButtonEdit": <CButton onClick={() => {handleEditButton(result[i].id)}}><CIcon icon={cilPen}></CIcon></CButton>,
                     "CButtonRemove": <CButton onClick={() => {handleDeleteModal(result[i].id)}} color="danger"><CIcon icon={cilX}></CIcon></CButton>
                 }
@@ -169,6 +170,7 @@ export default () => {
         {label: 'Identificação', key: 'tagName'},
         {label: 'Data de Criação', key: 'createdAt' },
         {label: 'Data de Atualização', key: 'updatedAt' },
+        {label: 'Download', key: 'CButtonDownload' },
         {label: 'Editar', key: 'CButtonEdit'},
         {label: 'Deletar', key: 'CButtonRemove'}
     ];
@@ -203,14 +205,11 @@ export default () => {
                 <CModalHeader closeButton>Editar Inventário</CModalHeader>
                 <CModalBody>
                     <CForm>
-                    <CFormLabel>Identificação</CFormLabel>
-                        <CFormInput disabled type='text' value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
+                        <CFormInput label='Identificação' disabled type='text' value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CFormLabel>Dados pessoais coletados</CFormLabel>
-                        <CFormTextarea rows={3} value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Dados pessoais coletados' rows={3} value={colletedData} onChange={(e) => setColletedData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Hipótese de tratamento</CFormLabel>
-                        <CFormSelect  required value={reasonData} onChange={(e) => setReasonData(e.target.value)}>
+                        <CFormSelect label='Hipótese de tratamento' required value={reasonData} onChange={(e) => setReasonData(e.target.value)}>
                         <option>Selecione...</option>
                         <option key={11} value="11">Consentimento - Mendiante consetimento do titular</option>
                         <option key={10} value="10">Regulatório - Para cumprimento de obrigação legal ou regulatória pelo controlador</option>
@@ -225,20 +224,15 @@ export default () => {
                         <option key={1} value="1">Dados sensíveis - Para garantia da prevenção à fraude e á segurança do títular</option>
                         </CFormSelect>
                         <br></br>
-                        <CFormLabel>Como é armazenado?</CFormLabel>
-                        <CFormTextarea rows={2} value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Como é armazenado?' rows={2} value={howStorage} onChange={(e) => setHowStorage(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Fonte dos dados</CFormLabel>
-                        <CFormTextarea rows={2} value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Fonte dos dados' rows={2} value={sourceData} onChange={(e) => setSourceData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Segurança dos dados pessoais</CFormLabel>
-                        <CFormTextarea rows={2} value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Segurança dos dados pessoais' rows={2} value={securityData} onChange={(e) => setSecurityData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Prazo de retenção dos dados pessoais</CFormLabel>
-                        <CFormTextarea rows={2} value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Prazo de retenção dos dados pessoais' rows={2} value={deadlineData} onChange={(e) => setDeadlineData(e.target.value)}></CFormTextarea>
                         <br></br>
-                        <CFormLabel>Justificativa do uso</CFormLabel>
-                        <CFormTextarea rows={3} value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
+                        <CFormTextarea label='Justificativa do uso' rows={3} value={justification} onChange={(e) => setJustification(e.target.value)}></CFormTextarea>
                         <br></br>
                         <CFormLabel>Uso de dados pessoais de menores de idade</CFormLabel>
                         <br></br>
@@ -252,16 +246,14 @@ export default () => {
                             <CFormCheck inline type="radio" name="sensitiveData" id="inlineCheckbox2" value={false} label="Não" defaultChecked={sensitiveData}  onChange={(e) => setSensitiveData(e.target.value)}/>
                         <br></br>
                         <br></br>
-                        <CFormLabel>Nome do Controlador</CFormLabel>
-                        <CFormInput type='text' value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
+                        <CFormInput label='Nome do Controlador' type='text' value={controller} onChange={(e) => setController(e.target.value)}></CFormInput>
                     </CForm>
                 </CModalBody>
                 <CModalFooter>
                     <CButton onClick={handleUpdateButton}>Atualizar</CButton>
-                    <CButton color='danger' onClick={handleCloseModal}>Cancelar</CButton>
+                    <CButton onClick={handleCloseModal} color='danger'>Cancelar</CButton>
                 </CModalFooter>
             </CModal>
-
             <CModal fullscreen='sm' visible={showDeleteModal} onClose={handleCloseModal}>
                 <CModalHeader closeButton>Excluir Inventário Inventário</CModalHeader>
                 <CModalBody >
