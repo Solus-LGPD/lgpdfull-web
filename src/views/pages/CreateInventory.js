@@ -97,6 +97,11 @@ export default () => {
                     </CPopover>
                     <CFormSelect options={sectorsList} required value={sector} onChange={(e) => setSector(e.target.value)}></CFormSelect>
                     <br></br>
+                   
+                    {/* <div className="mb-3 text-black">
+                        <CFormInput type="file" id="formFile" label="Imagem para comprovação" />
+                    </div> */}
+                    
                     <CPopover title='Dados pessoais coletados' trigger="focus" content="Descrever  como (de que forma) os dados  pessoais são coletados.  *MAIÚSCULO e separado por vírgula* Ex.:NOME,CPF,RG,...  "placement="right">
                         <CButton color='text-black' style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><CFormLabel>Dados pessoais coletados</CFormLabel><CIcon icon={cilLightbulb}  height={15}/></CButton>
                     </CPopover>
