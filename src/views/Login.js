@@ -76,7 +76,7 @@ const Login = () => {
                       </CInputGroupText>
                       <CFormInput 
                         placeholder="E-mail" 
-                        value={email} 
+                        value={email.trim()} 
                         disabled={loading}
                         onChange={(e) => setEmail(e.target.value)} 
                       />
