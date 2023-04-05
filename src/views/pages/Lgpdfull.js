@@ -13,10 +13,10 @@ const Lgpdfull = () => {
             <h5 style={{color: "#2085c7", 'fontSize': '180px'}} className='justify-content-start flex-column d-flex'>A</h5>
             <CButtonGroup vertical role="group" aria-label="Vertical button group" className="position-relative gap-1 mt-0 m-3 w-25 text-center d-flex flex-column">
                 <h5 style={{color: "#2085c7", 'fontSize': '27px'}} className='p-4pb-1 h5 text-decoration-none ' >FASE DE MAPEAMENTO</h5>
-                <CButton style={{backgroundColor: "#2085c7"}} className="  border border-0 rounded-pill text-white" href="/quiz">Quiz LGPD <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/dpo">DPO</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/setor">Setor</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/inventario">Inventário</CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/quiz">Quiz LGPD <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/dpo">DPO <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/setor">Setor <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="/inventario">Inventário <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
             <br></br>
             <br></br>
             <br></br>
@@ -27,24 +27,24 @@ const Lgpdfull = () => {
             <h5 style={{color: "#2085c7", 'fontSize': '180px'}} className=' justify-content-start flex-column d-flex'>B</h5>
             <CButtonGroup vertical role="group" aria-label="Vertical button group" className="position-relative gap-1 mt-0 m-3 w-25 text-center d-flex flex-column">
                 <h5 style={{color: "#2085c7", 'fontSize': '27px'}} className='position-relative p-4pb-1 h5 text-decoration-none ' >FASE DE IMPLEMENTAÇÃO</h5>
-                <CButton style={{backgroundColor: "#2085c7"}}  className=" border border-0 rounded-pill text-white" href="#" disabled >Política de Priv.</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Ajustes de Contratos</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Termos de Uso</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Checklist de TI</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href= "#" disabled>Cookies</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>RIPD</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>LIA</CButton>
+                <CButton style={{backgroundColor: "#2085c7"}}  className=" border border-0 rounded-pill text-white" href="#" disabled >Política de Priv. <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Ajustes de Contratos <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Termos de Uso <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>Checklist de TI <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href= "#" disabled>Cookies <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>RIPD <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" href="#" disabled>LIA <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
             </CButtonGroup>
 
             <h5 style={{color: "#2085c7", 'fontSize': '180px'}} className='justify-content-start flex-column h1 d-flex'>C</h5>
             <CButtonGroup vertical role="group" aria-label="Vertical button group" className=" gap-1 mt-0 m-3 w-25 text-center d-flex flex-column">
                 <h5 style={{color: "#2085c7", 'fontSize': '27px'}} className='p-4pb-1 h5 text-decoration-none ' >FASE DE IMPLEMENTAÇÃO AVANÇADA E MANUTENÇÃO</h5>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Comunicação c/ o Titular</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Política de Segurança</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Privacy by Design</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Treinamentos</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Incidentes</CButton>
-                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Quiz LGPD Final</CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Comunicação c/ o Titular <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Política de Segurança <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Privacy by Design <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Treinamentos <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Incidentes <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
+                <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white"  href="#" disabled>Quiz LGPD Final <input className="form-check-input " type="checkbox" value={Check} style={{backgroundColor:'#8f9779',borderRadius: '50px',boxShadow:'none'}} onClick={handleCheck} ></input></CButton>
             </CButtonGroup>
         </div>
         
