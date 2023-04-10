@@ -151,17 +151,84 @@ const _nav = [
           {
             component: CNavItem,
             name: 'Termos de uso',
-            to: '/lgpdfull/quiz/novo',
+            to: '/lgpdfull/termos-de-uso',
             icon: <CIcon icon={ cilPenAlt } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Política de Cookies',
-            to: '/lgpdfull/quiz/novo',
+            to: '/lgpdfull/politica-de-cookies',
             icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
           },
         ]
       },
+      {
+        component: CNavGroup,
+        name: 'Chacklist de TI',
+        icon: <CIcon icon={ cilDescription } customClassName="nav-icon" />,
+        items: [
+          {
+            component: CNavItem,
+            name: 'CONTROLE DE ACESSO',
+            to: '/lgpdfull/politica-de-privacidade',
+            icon: <CIcon icon={ cilLockLocked } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'DADOS ARMAZENADOS',
+            to: '/lgpdfull/quiz/novo',
+            icon: <CIcon icon={ cilUserPlus } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'SEGURANÇA NAS COMUNICAÇÕES',
+            to: '/lgpdfull/termos-de-uso',
+            icon: <CIcon icon={ cilPenAlt } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'GERENCIAMENTO DE VULNERABILIDADES',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'DISPOSITIVOS MÓVEIS',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'SERVIÇOS EM NUVEM',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'COOKIES',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'POLÍTICA DE SEGURANÇA DA INFORMAÇÃO',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'CONSCIENTIZAÇÃO E TREINAMENTO',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'CONTRATOS',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+          },
+        ]
+      }
 /*       {
         component: CNavGroup,
         name: 'Ajustes de TI',
