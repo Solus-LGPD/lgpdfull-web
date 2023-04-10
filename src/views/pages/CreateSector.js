@@ -11,13 +11,13 @@ export default () => {
     const [ loading, setLoading ] = useState(false);
 
     const handlePostSector = async () => {
-        
+
         setLoading(true);
         const result = await api.postSector(tagName);
         setLoading(false);
 
         if(result.error === undefined){
-            navigate('/setor');
+            navigate('/lgpdfull/setor');
             alert("Setor Criado");
         }else{
             alert(result.message);
@@ -29,7 +29,7 @@ export default () => {
             <CRow>
                 <h2 className='text-black'>Cadastrar Novo Setor</h2>
             </CRow>
-           
+
                 <CForm className='text-black'>
                         <CFormLabel>Nome</CFormLabel>
                         <CFormInput type='text' required value={tagName} onChange={(e) => setTagName(e.target.value)}></CFormInput>
@@ -40,6 +40,6 @@ export default () => {
             <br></br>
             <br></br>
             <br></br>
-        </>        
+        </>
     );
 }

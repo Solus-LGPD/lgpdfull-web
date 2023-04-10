@@ -22,7 +22,7 @@ const AppHeaderDropdown = () => {
             Alterar senha
           </CDropdownItem>
         <CDropdownDivider />
-        <CDropdownItem href="/logout">
+        <CDropdownItem href="/lgpdfull/logout">
           <CIcon icon={cilExitToApp} className="me-2" />
           Sair
         </CDropdownItem>

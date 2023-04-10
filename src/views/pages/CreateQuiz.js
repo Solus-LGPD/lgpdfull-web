@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CRow, CForm, CFormLabel, CCardBody, CCardTitle, CFormCheck, CButton, CCard, CCardHeader} from '@coreui/react';
 import useAPI from '../../services/api';
-import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from '../../helpers/QuizQuestions';
+import { conformity, government, topics, transparency, traceability, adequacy, security, violations } from '../../utils/quizQuestions';
 
 export default () => {
 
@@ -132,7 +132,7 @@ export default () => {
             const result = await api.postQuiz(raw);
 
             if(result.error === undefined){
-                navigate('/quiz');
+                navigate('/lgpdfull/quiz');
             }else{
                 alert(result.message);
             }
@@ -148,7 +148,7 @@ export default () => {
             const result = await api.postQuiz(raw);
 
             if(result.error === undefined){
-                navigate('/quiz');
+                navigate('/lgpdfull/quiz');
             }else{
                 alert(result.message);
             }
@@ -163,7 +163,7 @@ export default () => {
             const result = await api.postQuiz(raw);
 
             if(result.error === undefined){
-                navigate('/quiz');
+                navigate('/lgpdfull/quiz');
             }else{
                 alert(result.message);
             }
@@ -178,7 +178,7 @@ export default () => {
             const result = await api.postQuiz(raw);
 
             if(result.error === undefined){
-                navigate('/quiz');
+                navigate('/lgpdfull/quiz');
             }else{
                 alert(result.message);
             }
@@ -193,7 +193,7 @@ export default () => {
             const result = await api.postQuiz(raw);
 
             if(result.error === undefined){
-                navigate('/quiz');
+                navigate('/lgpdfull/quiz');
             }else{
                 alert(result.message);
             }
