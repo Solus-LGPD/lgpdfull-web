@@ -9,7 +9,7 @@ export default () => {
     useEffect(() => {
         const doLogout = () => {
             api.logout();
-            navigate("/login");
+            navigate("/lgpdfull/acesso");
         }
         doLogout();
     }, []);

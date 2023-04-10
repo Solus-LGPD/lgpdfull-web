@@ -10,7 +10,7 @@ const request = async (method, endpoint, params, token=null) => {
     let body = null;
 
     body = JSON.stringify(params);
- 
+
     if(token){
         headers.Authorization = `Bearer ${token}`
     }

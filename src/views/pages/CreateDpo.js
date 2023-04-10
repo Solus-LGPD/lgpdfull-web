@@ -19,7 +19,7 @@ export default () => {
 
     const handlePostDpo = async () => {
         const convertPerson = Boolean(naturalPerson);
-        
+
         const dataRaw = {
             name: firstName,
             naturalPerson: convertPerson,
@@ -34,17 +34,17 @@ export default () => {
             setVisible(true);
             setMessage(`Resistro criado com sucesso`)
             setTimeout(() => {
-               navigate('/dpo')  
+               navigate('/lgpdfull/dpo')
             }, 900);
-            
+
         }else{
             setVisible(true)
             setMessage(result.message)
-            
+
         }
-        
-    } 
-    
+
+    }
+
     return (
         <>
             <CAlert color="primary" dismissible  visible={visible} onClose={() => setVisible(false)}>
@@ -54,9 +54,9 @@ export default () => {
             <CRow>
                 <h2 className='text-black'>Registro de Encarregado de Dados Pessoais</h2>
             </CRow>
-           
+
                 <CForm className='text-black'>
-                        
+
                         <CFormInput label='Nome Completo ou Nome do Comitê' type='text' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                         <br></br>
                         <CPopover trigger="focus" content="Nome Social = Como você quer ser chamado. Comitê = Todas as pessoas que são integrantes do comitê responsável pela LGPD na empresa. Ex.:Fulano, Ciclano, etc.  "placement="right">

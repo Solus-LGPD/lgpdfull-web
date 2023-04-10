@@ -117,14 +117,14 @@ export default () => {
     return (
         <>
             <CRow>
-                
+
                 <CCol>
-                    
+
                     <h2 className='text-black'>Encarregado dos Dados Pessoais</h2>
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/dpo/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/lgpdfull/dpo/criar')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Cadastrar Novo Encarregado
                             </CButton>
