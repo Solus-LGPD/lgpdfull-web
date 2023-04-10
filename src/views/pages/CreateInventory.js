@@ -73,7 +73,7 @@ export default () => {
         setLoading(false);
 
         if(result.error === undefined){
-            navigate('/inventario')
+            navigate('/lgpdfull/inventario')
         }else{
             alert(result.message);
         }

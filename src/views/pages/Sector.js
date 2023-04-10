@@ -38,7 +38,7 @@ export default () => {
     }
 
     const handleUpdateButton = async () => {
-        
+
         setLoading(true);
         const result = await api.sectorUpdate(sessionStorage.getItem('sectorId'), tagName);
         setLoading(false);
@@ -104,7 +104,7 @@ export default () => {
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/setor/criar')}>
+                            <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/lgpdfull/setor/criar')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Cadastrar Novo Setor
                             </CButton>

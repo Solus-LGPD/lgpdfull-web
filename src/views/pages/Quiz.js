@@ -51,9 +51,9 @@ export default () => {
 
                     <CCard>
                         <CCardHeader>
-                            <CButton style={{backgroundColor: "#2085c7"}} 
-                            className=" border border-0 rounded-pill text-white" 
-                            onClick={() => navigate('/quiz/novo')}>
+                            <CButton style={{backgroundColor: "#2085c7"}}
+                            className=" border border-0 rounded-pill text-white"
+                            onClick={() => navigate('/lgpdfull/quiz/novo')}>
                                 <CIcon icon={cilCheck}></CIcon>
                                 Responder Quiz LGPD
                             </CButton>
@@ -69,7 +69,7 @@ export default () => {
                         </CCardBody>
                     </CCard>
                 </CCol>
-            </CRow>            
+            </CRow>
         </>
     );
 }

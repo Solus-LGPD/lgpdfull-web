@@ -20,7 +20,7 @@ const App = () => {
     <BrowserRouter>
       <Suspense fallback={loading.toString()}>
         <Routes>
-          <Route exact path="/login" name="Login Page" element={<Login />} />
+          <Route exact path="/lgpdfull/acesso" name="Login Page" element={<Login />} />
           <Route path="*" name="Home" element={<DefaultLayout />} />
         </Routes>
       </Suspense>
