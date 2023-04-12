@@ -18,7 +18,13 @@ import {
   cilPlus,
   cilUser,
   cilChartPie,
-  cilBullhorn
+  cilBullhorn,
+  cilSpeak,
+  cilShieldAlt,
+  cilMobile,
+  cilCloud,
+  cilHttps,
+  cilPuzzle
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -169,63 +175,63 @@ const _nav = [
         items: [
           {
             component: CNavItem,
-            name: 'CONTROLE DE ACESSO',
-            to: '/lgpdfull/politica-de-privacidade',
+            name: 'Controle de Acesso',
+            to: '/lgpdfull/controle-de-acesso',
             icon: <CIcon icon={ cilLockLocked } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
-            name: 'DADOS ARMAZENADOS',
+            name: 'Dados Armazenados',
             to: '/lgpdfull/quiz/novo',
             icon: <CIcon icon={ cilUserPlus } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
-            name: 'SEGURANÇA NAS COMUNICAÇÕES',
+            name: 'Segurança nas Comunicações',
             to: '/lgpdfull/termos-de-uso',
-            icon: <CIcon icon={ cilPenAlt } customClassName="nav-icon" />
+            icon: <CIcon icon={ cilSpeak } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
-            name: 'GERENCIAMENTO DE VULNERABILIDADES',
+            name: 'Gerenciamento de Vulnerabilida',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilShieldAlt } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'Dispositivos Móveis',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilMobile } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'Serviços em Nuvem',
+            to: '/lgpdfull/politica-de-cookies',
+            icon: <CIcon icon={ cilCloud } customClassName="nav-icon" />
+          },
+          {
+            component: CNavItem,
+            name: 'Cookies',
             to: '/lgpdfull/politica-de-cookies',
             icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
-            name: 'DISPOSITIVOS MÓVEIS',
+            name: 'Política de Segurança da Informação',
             to: '/lgpdfull/politica-de-cookies',
-            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+            icon: <CIcon icon={ cilHttps } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
-            name: 'SERVIÇOS EM NUVEM',
+            name: 'Conscientização e Treinamento',
             to: '/lgpdfull/politica-de-cookies',
-            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+            icon: <CIcon icon={ cilPuzzle } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
-            name: 'COOKIES',
+            name: 'Contratos',
             to: '/lgpdfull/politica-de-cookies',
-            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
-          },
-          {
-            component: CNavItem,
-            name: 'POLÍTICA DE SEGURANÇA DA INFORMAÇÃO',
-            to: '/lgpdfull/politica-de-cookies',
-            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
-          },
-          {
-            component: CNavItem,
-            name: 'CONSCIENTIZAÇÃO E TREINAMENTO',
-            to: '/lgpdfull/politica-de-cookies',
-            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
-          },
-          {
-            component: CNavItem,
-            name: 'CONTRATOS',
-            to: '/lgpdfull/politica-de-cookies',
-            icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
+            icon: <CIcon icon={ cilDescription } customClassName="nav-icon" />
           },
         ]
       }

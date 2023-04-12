@@ -21,6 +21,7 @@ const Ajuda = React.lazy(() => import('./views/pages/Help'));
 const PoliticaDePrivacidade = React.lazy(() => import('./views/pages/PrivacyPolicy'));
 const TermosDeUso = React.lazy(() => import('./views/pages/UseTerms'));
 const PoliticaDeCookies = React.lazy(() => import('./views/pages/CookiesPolicy'));
+const ControlDeAcesso = React.lazy(() => import('./views/pages/chacklistTI/AccessControl'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -42,6 +43,8 @@ const routes = [
   { path: '/lgpdfull/politica-de-privacidade', name: 'Política De Privacidade', element: PoliticaDePrivacidade },
   { path: '/lgpdfull/termos-de-uso', name: 'Termos De Uso', element: TermosDeUso },
   { path: '/lgpdfull/politica-de-cookies', name: 'Politica de Cookies', element: PoliticaDeCookies },
+  { path: '/lgpdfull/controle-de-acesso', name: 'Controle de Acesso', element: ControlDeAcesso },
+
 ]
 
 export default routes
