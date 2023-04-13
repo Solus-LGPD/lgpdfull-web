@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useApi from "../services/api";
+import useApi from "../../../services/api";
 
 export default () => {
     const api = useApi();

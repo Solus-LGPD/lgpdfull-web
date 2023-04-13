@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {CButton,CForm,CFormInput,CFormLabel,CAlert  } from '@coreui/react'
-import useAPI from '../../services/api';
+import useAPI from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 export default () => {

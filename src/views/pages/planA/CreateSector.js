@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CButton,CRow,CForm,CFormLabel,CFormInput,} from '@coreui/react';
-import useAPI from '../../services/api';
+import useAPI from '../../../services/api';
 
 export default () => {
     const api = useAPI();

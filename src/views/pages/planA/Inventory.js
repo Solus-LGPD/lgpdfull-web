@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput,CFormTextarea,CFormCheck, CFormSelect,} from '@coreui/react';
 import {cilCheck,cilX,cilPen, cilDataTransferDown} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
-import useAPI from '../../services/api';
+import useAPI from '../../../services/api';
 
 export default () => {
     const api = useAPI();

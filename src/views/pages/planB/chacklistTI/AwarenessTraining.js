@@ -1,8 +1,8 @@
 import { CButton, CCard, CCardBody, CForm, CFormCheck, CFormInput, CFormLabel, CFormTextarea, CRow } from "@coreui/react"
-import {controll} from '../../../utils/checklistQuestions'
+import {training} from '../../../../utils/checklistQuestions'
 import React, { useState } from 'react';
 
-const Checklist = () => {
+const Training = () => {
   const [checklist, setChecklist] = useState(new Array(7).fill(false));
 
   const handleCheck = (index) => {
@@ -17,13 +17,13 @@ const Checklist = () => {
   };
 
   return (
-    <CForm>
+    <CForm style={{marginBottom:'30px'}}>
       <CRow>
-        <h2 className="text-black">CHECKLIST – Controle de Acesso </h2>
+        <h2 className="text-black">CHECKLIST – Conscientização e Treinamento </h2>
       </CRow>
         <CCard>
-            <CCardBody className="text-black">
-            {controll.map((question, index) => (
+          <CCardBody className="text-black">
+            {training.map((question, index) => (
                 <div key={index}>
                 <CFormLabel>{question}</CFormLabel>
                 <CFormCheck
@@ -60,11 +60,11 @@ const Checklist = () => {
                 )}
                 </div>
             ))}
-            <CButton onClick={handleSubmit}>Enviar</CButton>
-            </CCardBody>
+            <CButton style={{marginTop:'20px'}} onClick={handleSubmit}>Enviar</CButton>
+          </CCardBody>
         </CCard>
     </CForm>
   );
 };
 
-export default Checklist;
+export default Training;

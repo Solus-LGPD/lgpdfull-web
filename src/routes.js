@@ -2,26 +2,36 @@ import React from 'react'
 
 
 const Lgpdfull = React.lazy(() => import('./views/pages/Lgpdfull'))
-const Trocarsenha = React.lazy(() => import('./views/pages/ChangePassword'))
-const Logout = React.lazy(() => import('./views/Logout'))
-const Perfil = React.lazy(() => import('./views/pages/Profile'))
+const Trocarsenha = React.lazy(() => import('./views/pages/profile/ChangePassword'))
+const Logout = React.lazy(() => import('./views/pages/profile/Logout'))
+const Perfil = React.lazy(() => import('./views/pages/profile/Profile'))
 
 //FASE A
-const Inventario = React.lazy(() => import('./views/pages/Inventory'));
-const InventarioCriar = React.lazy(() => import('./views/pages/CreateInventory'));
-const Dpo = React.lazy(() => import('./views/pages/Dpo'));
-const DpoCriar = React.lazy(() => import('./views/pages/CreateDpo'));
-const Setor = React.lazy(() => import('./views/pages/Sector'));
-const SetorCriar = React.lazy(() => import('./views/pages/CreateSector'));
-const Quiz  = React.lazy(() => import('./views/pages/Quiz'));
-const QuizCriar = React.lazy(() => import('./views/pages/CreateQuiz'));
-const Ajuda = React.lazy(() => import('./views/pages/Help'));
+const Inventario = React.lazy(() => import('./views/pages/planA/Inventory'));
+const InventarioCriar = React.lazy(() => import('./views/pages/planA/CreateInventory'));
+const Dpo = React.lazy(() => import('./views/pages/planA/Dpo'));
+const DpoCriar = React.lazy(() => import('./views/pages/planA/CreateDpo'));
+const Setor = React.lazy(() => import('./views/pages/planA/Sector'));
+const SetorCriar = React.lazy(() => import('./views/pages/planA/CreateSector'));
+const Quiz  = React.lazy(() => import('./views/pages/planA/Quiz'));
+const QuizCriar = React.lazy(() => import('./views/pages/planA/CreateQuiz'));
+const Ajuda = React.lazy(() => import('./views/pages/profile/Help'));
 
 //FASE B
-const PoliticaDePrivacidade = React.lazy(() => import('./views/pages/PrivacyPolicy'));
-const TermosDeUso = React.lazy(() => import('./views/pages/UseTerms'));
-const PoliticaDeCookies = React.lazy(() => import('./views/pages/CookiesPolicy'));
-const ControlDeAcesso = React.lazy(() => import('./views/pages/chacklistTI/AccessControl'));
+const PoliticaDePrivacidade = React.lazy(() => import('./views/pages/planB/PrivacyPolicy'));
+const TermosDeUso = React.lazy(() => import('./views/pages/planB/UseTerms'));
+const PoliticaDeCookies = React.lazy(() => import('./views/pages/planB/CookiesPolicy'));
+const PenelChecklist = React.lazy(() => import('./views/pages/planB/chacklistTI/PanelChecklist'));
+const ControlDeAcesso = React.lazy(() => import('./views/pages/planB/chacklistTI/AccessControl'));
+const DadosArmazenados = React.lazy(() => import('./views/pages/planB/chacklistTI/StoredData'));
+const SecurityInCommunications = React.lazy(() => import('./views/pages/planB/chacklistTI/SecurityCommunications'));
+const VulnerabilityManagement = React.lazy(() => import('./views/pages/planB/chacklistTI/VulnerabilityManagement'));
+const MobileDevices = React.lazy(() => import('./views/pages/planB/chacklistTI/MobileDevices'));
+const CloudServices = React.lazy(() => import('./views/pages/planB/chacklistTI/CloudServices'));
+const Cookies = React.lazy(() => import('./views/pages/planB/chacklistTI/Cookies'));
+const InformationSecurityPolicy = React.lazy(() => import('./views/pages/planB/chacklistTI/InformationSecurityPolicy'));
+const AwarenessandTraining = React.lazy(() => import('./views/pages/planB/chacklistTI/AwarenessTraining'));
+const Contracts = React.lazy(() => import('./views/pages/planB/chacklistTI/Contracts'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -43,7 +53,17 @@ const routes = [
   { path: '/lgpdfull/politica-de-privacidade', name: 'Política De Privacidade', element: PoliticaDePrivacidade },
   { path: '/lgpdfull/termos-de-uso', name: 'Termos De Uso', element: TermosDeUso },
   { path: '/lgpdfull/politica-de-cookies', name: 'Politica de Cookies', element: PoliticaDeCookies },
-  { path: '/lgpdfull/controle-de-acesso', name: 'Controle de Acesso', element: ControlDeAcesso },
+  { path: '/lgpdfull/chacklist/painel-do-checklist', name: 'Painel do Checklist', element: PenelChecklist },
+  { path: '/lgpdfull/chacklist/controle-de-acesso', name: 'Controle de Acesso', element: ControlDeAcesso },
+  { path: '/lgpdfull/chacklist/dados-armazenados', name: 'Dados Armazenados', element: DadosArmazenados },
+  { path: '/lgpdfull/chacklist/seguranca-nas-comunicacoes', name: 'Segurança Nas Comunicações', element: SecurityInCommunications },
+  { path: '/lgpdfull/chacklist/gerenciamento-de-vulnerabilidade', name: 'Gerenciamento de Vulnerabilidade', element: VulnerabilityManagement },
+  { path: '/lgpdfull/chacklist/dispositivos-moveis', name: 'Dispositivos Móveis', element: MobileDevices },
+  { path: '/lgpdfull/chacklist/servicos-em-nuvem', name: 'Serviços em Nuvem', element: CloudServices },
+  { path: '/lgpdfull/chacklist/cookies', name: 'Cookies', element: Cookies },
+  { path: '/lgpdfull/chacklist/politica-de-seguranca-da-informacao', name: 'Política de Segurança da Informação', element: InformationSecurityPolicy },
+  { path: '/lgpdfull/chacklist/conscientizacao-e-treinamento', name: 'Conscientização e Treinamento', element: AwarenessandTraining },
+  { path: '/lgpdfull/chacklist/contratos', name: 'Contratos', element: Contracts },
 
 ]
 
