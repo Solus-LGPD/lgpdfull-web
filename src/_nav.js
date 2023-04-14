@@ -171,7 +171,7 @@ const _nav = [
       },
       {
         component: CNavGroup,
-        name: 'Chacklist de TI',
+        name: 'Checklist de TI',
         icon: <CIcon icon={ cilListNumbered } customClassName="nav-icon" />,
         items: [
           {

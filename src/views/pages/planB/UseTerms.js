@@ -36,7 +36,7 @@ export default () => {
                         <CCardBody>
                           <CForm className='text-black'>
                             <CFormInput label="E-mail para contato" trigger="focus" type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
-                            <CFormInput label="Descriação do seu Serviço" placeholder='Os seus serviços permintem que o usuário faça...' trigger="focus" type='text' required value={description} onChange={(e) => setDescription(e.target.value)}></CFormInput>
+                            <CFormInput label="Descrição do seu Serviço" placeholder='Os seus serviços permintem que o usuário faça...' trigger="focus" type='text' required value={description} onChange={(e) => setDescription(e.target.value)}></CFormInput>
                           </CForm>
                           <br></br>
                           <CButton color='success' onClick={handleUseTermsPdf} disabled={loading}>{loading ? 'Carregando' : 'Gerar'}</CButton>
