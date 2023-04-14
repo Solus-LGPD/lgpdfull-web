@@ -1,8 +1,11 @@
-import React from 'react';
-import {CRow, CCardBody, CCardHeader, CCard, CDropdownMenu, CDropdownItem, CCol, CDropdown, CDropdownToggle, CCardTitle, CCardText,} from '@coreui/react';
+import React, { useState } from 'react';
+import {CRow, CCardBody, CCardHeader, CCard, CDropdownMenu, CDropdownItem, CCol, CDropdown, CDropdownToggle, CCardTitle, CCardText, CFormCheck, CButtonGroup,} from '@coreui/react';
 
 export default () => {
-
+    const [planA, setPlanA] = useState(false);
+    const [planB, setPlanB] = useState(false);
+    const [planC, setPlanC] = useState(false);
+    
     return (
         <>
             <CRow>
@@ -10,17 +13,31 @@ export default () => {
                     <h2 className='text-black'>Ajuda</h2>
 
                     <CCard textColor='dark'>
-                        <CCardHeader>
-                            <CDropdown>
-                                <CDropdownToggle color="secondary">Escolha a seção de ajuda</CDropdownToggle>
-                                <CDropdownMenu>
-                                    <CDropdownItem active>A - FASE DE MAPEAMENTO</CDropdownItem>
-                                    <CDropdownItem disabled>B - FASE DE IMPLEMENTAÇÃO</CDropdownItem>
-                                    <CDropdownItem disabled>C - FASE DE IMPLEMENTAÇÃO AVANÇADA E MANUTENÇÃO</CDropdownItem>
-                                </CDropdownMenu>
-                            </CDropdown>
+                        <CCardHeader >
+                            <CButtonGroup role="group" aria-label="Basic checkbox toggle button group">
+                                <CFormCheck
+                                    button={{ color: 'primary' }}
+                                    id="btncheck1"
+                                    autoComplete="on"
+                                    label="Plano A"
+                                    onClick={() => setPlanA(!planA)}
+                                />
+                                <CFormCheck
+                                    button={{ color: 'primary' }}
+                                    id="btncheck2"
+                                    autoComplete="off"
+                                    label="Plano B"
+                                    onClick={() => setPlanB(!planB)}
+                                />
+                                <CFormCheck
+                                    button={{ color: 'primary' }}
+                                    id="btncheck3"
+                                    autoComplete="off"
+                                    label="Plano C"
+                                />
+                            </CButtonGroup>
                         </CCardHeader>
-                        <CCardBody>
+                        <CCardBody planA={planA}>
                             <CCardTitle>Quiz LGPD</CCardTitle>
                             <CCardText>
                                 O Quiz LGPD serve para medir o nível atual de adequação da empresa com a Lei Geral de Proteção de Dados Pessoais (LPGP), Lei n° 13.709/2018.
