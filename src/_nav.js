@@ -177,61 +177,61 @@ const _nav = [
           {
             component: CNavItem,
             name: 'Controle de Acesso',
-            to: '/lgpdfull/chacklist/controle-de-acesso',
+            to: '/lgpdfull/checklist/controle-de-acesso',
             icon: <CIcon icon={ cilLockLocked } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Dados Armazenados',
-            to: '/lgpdfull/chacklist/dados-armazenados',
+            to: '/lgpdfull/checklist/dados-armazenados',
             icon: <CIcon icon={ cilUserPlus } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Segurança nas Comunicações',
-            to: '/lgpdfull/chacklist/seguranca-nas-comunicacoes',
+            to: '/lgpdfull/checklist/seguranca-nas-comunicacoes',
             icon: <CIcon icon={ cilSpeak } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Gerenciamento de Vulnerabilidade',
-            to: '/lgpdfull/chacklist/gerenciamento-de-vulnerabilidade',
+            to: '/lgpdfull/checklist/gerenciamento-de-vulnerabilidade',
             icon: <CIcon icon={ cilShieldAlt } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Dispositivos Móveis',
-            to: '/lgpdfull/chacklist/dispositivos-moveis',
+            to: '/lgpdfull/checklist/dispositivos-moveis',
             icon: <CIcon icon={ cilMobile } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Serviços em Nuvem',
-            to: '/lgpdfull/chacklist/servicos-em-nuvem',
+            to: '/lgpdfull/checklist/servicos-em-nuvem',
             icon: <CIcon icon={ cilCloud } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Cookies',
-            to: '/lgpdfull/chacklist/cookies',
+            to: '/lgpdfull/checklist/cookies',
             icon: <CIcon icon={ cilOpacity } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Política de Segurança da Informação',
-            to: '/lgpdfull/chacklist/politica-de-seguranca-da-informacao',
+            to: '/lgpdfull/checklist/politica-de-seguranca-da-informacao',
             icon: <CIcon icon={ cilHttps } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Conscientização e Treinamento',
-            to: '/lgpdfull/chacklist/conscientizacao-e-treinamento',
+            to: '/lgpdfull/checklist/conscientizacao-e-treinamento',
             icon: <CIcon icon={ cilPuzzle } customClassName="nav-icon" />
           },
           {
             component: CNavItem,
             name: 'Contratos',
-            to: '/lgpdfull/chacklist/contratos',
+            to: '/lgpdfull/checklist/contratos',
             icon: <CIcon icon={ cilDescription } customClassName="nav-icon" />
           },
         ]
