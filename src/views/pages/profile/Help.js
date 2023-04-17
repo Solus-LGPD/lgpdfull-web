@@ -2,21 +2,25 @@ import React, { useState } from 'react';
 import {CRow, CCardBody, CCardHeader, CCard, CDropdownMenu, CDropdownItem, CCol, CDropdown, CDropdownToggle, CCardTitle, CCardText, CFormCheck, CButtonGroup, CButton,} from '@coreui/react';
 
 export default () => {
-    const [planA, setPlanA] = useState(false);
+    const [planA, setPlanA] = useState(true);
     const [planB, setPlanB] = useState(false);
     const [planC, setPlanC] = useState(false);
 
-    const handleState = () =>{
-        if (setPlanA == true){
-            setPlanB(false)
-            setPlanC(false)
-        }else if(setPlanB == true){
-            setPlanA(false)
-            setPlanC(false)
-        }else if (setPlanC == true){
-            setPlanA(false)
-            setPlanB(false)
-        }
+    const handleStatePlanA = () =>{
+        setPlanA(true);
+        setPlanB(false)
+        setPlanC(false)
+    }
+    const handleStatePlanB = () => {
+        setPlanB(true);
+        setPlanA(false);
+        setPlanC(false);
+    }
+    const handleStatePlanC = () => {
+        setPlanC(true)
+        setPlanA(false)
+        setPlanB(false)
+
     }
     
     return (
@@ -28,9 +32,9 @@ export default () => {
                     <CCard textColor='dark'>
                         <CCardHeader >
                             <CButtonGroup size="sm" role="group" aria-label="Default button group">
-                                <CButton color="primary" onChange={ handleState } onClick={() => setPlanA(!planA)}>Plano A</CButton>
-                                <CButton color="primary" onChange={ handleState } onClick={() => setPlanB(!planB)}>Plano B</CButton>
-                                <CButton color="primary" onChange={ handleState } onClick={() => setPlanC(!planC)}>Plano C</CButton>
+                                <CButton color="primary"  onClick={handleStatePlanA}>Plano A</CButton>
+                                <CButton color="primary"  onClick={handleStatePlanB}>Plano B</CButton>
+                                <CButton color="primary"  onClick={handleStatePlanC}>Plano C</CButton>
                             </CButtonGroup>
                         </CCardHeader>
                         {planA == true &&
