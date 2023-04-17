@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput} from '@coreui/react';
-import {cilCheck,cilX,cilPen} from '@coreui/icons';
+import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader,CModalBody,CModalFooter,CForm,CFormLabel,CFormInput, CPopover} from '@coreui/react';
+import {cilCheck,cilX,cilPen, cilLightbulb} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../../services/api';
 
@@ -100,8 +100,9 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 className='text-black'>Setores</h2>
-
+                    <CPopover title='Setor' trigger="focus" content="área especifica da empresa.(Ex.:Marketing,Vendas, RH, ...)"placement="right">
+                        <CButton color='text-black' style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><h2 className='text-black'>Setores</h2><CIcon icon={cilLightbulb}  height={15}/></CButton>
+                    </CPopover>
                     <CCard>
                         <CCardHeader>
                             <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/lgpdfull/setor/criar')}>
