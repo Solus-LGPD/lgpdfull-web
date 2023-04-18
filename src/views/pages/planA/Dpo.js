@@ -4,6 +4,7 @@ import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader
 import {cilCheck,cilPen} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../../services/api';
+import { PopoverTitleIcon } from 'src/components/popover/PopoverTitleIcon';
 
 export default () => {
 
@@ -16,6 +17,8 @@ export default () => {
     const [ socialName, setSocialName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ showEditModal, setShowEditModal ] = useState(false);
+
+    const popovercontent = 'Responsável por orientar a empresa em relação às melhores práticas para a proteção de dados pessoais'
 
     useEffect(() => {
         getList();
@@ -85,7 +88,7 @@ export default () => {
 
                 if(result[i].actual === true){
                     result[i] = {
-                        "id": result[i].id,
+                        "id": `Dpo ID: ${i}`,
                         naturalPerson,
                         socialName: result[i].socialName,
                         "CBadge": statusComponent,
@@ -93,7 +96,7 @@ export default () => {
                     }
                 }else{
                     result[i] = {
-                        "id": result[i].id,
+                        "id": `Dpo ID: ${i}`,
                         naturalPerson,
                         socialName: result[i].socialName,
                         "CBadge": statusComponent,
@@ -108,6 +111,7 @@ export default () => {
     }
 
     const fields = [
+        {label:'Identificação' , key:'id'},
         {label: 'Nome Social/Nome dos Integrantes do Comitê', key: 'socialName'},
         {label: 'Tipo', key: 'naturalPerson' },
         {label: 'Status', key: 'CBadge' },
@@ -119,9 +123,7 @@ export default () => {
             <CRow>
 
                 <CCol>
-
-                    <h2 className='text-black'>Encarregado dos Dados Pessoais</h2>
-
+                    <PopoverTitleIcon title='DPO' content={popovercontent} label='Encarregado dos Dados Pessoais'/>
                     <CCard>
                         <CCardHeader>
                             <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/lgpdfull/dpo/criar')}>

@@ -4,6 +4,7 @@ import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable} from '@coreui/reac
 import {cilCheck} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../../services/api';
+import {PopoverTitleIcon} from '../../../components/popover/PopoverTitleIcon'
 
 export default () => {
 
@@ -12,6 +13,8 @@ export default () => {
 
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const popovercontent = 'Resultado < 2.99: Iniciante; 3.00 >= Resultado <= 4.99: Básico; 5.00 >= Resultado <= 6.99: Intermediário; 7.00 >= Resultado <= 8.99: Intermediário Superior; Resultado >= 9.00: Avançado';
 
     useEffect(() => {
         getList();
@@ -27,7 +30,7 @@ export default () => {
                 createdAt = createdAt.toLocaleDateString();
 
                 result[i] = {
-                    id: result[i].id,
+                    quizId: `Quiz - ${i+1}`,
                     result: result[i].result,
                     createdAt
                 }
@@ -39,6 +42,7 @@ export default () => {
     }
 
     const fields = [
+        {label: 'Identificação' , key:'quizId'},
         {label: 'Resultado', key: 'result'},
         {label: 'Feito em', key: 'createdAt'}
     ];
@@ -47,7 +51,8 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 className='text-black'>Quiz LGPD</h2>
+                    <PopoverTitleIcon title='Quiz LGPD' content={popovercontent} label='Quiz LGPD'/>
+                    <h2 className='text-black'></h2>
 
                     <CCard>
                         <CCardHeader>

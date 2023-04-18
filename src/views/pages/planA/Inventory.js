@@ -4,6 +4,7 @@ import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader
 import {cilCheck,cilX,cilPen, cilDataTransferDown} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../../services/api';
+import { PopoverTitleIcon } from 'src/components/popover/PopoverTitleIcon';
 
 export default () => {
     const api = useAPI();
@@ -26,6 +27,8 @@ export default () => {
     const [underAgeData, setUnderAgeData] = useState(false);
     const [sensitiveData, setSensitiveData] = useState(false);
     const [controller, setController] = useState('');
+
+    const popovercontent = 'Registro de todas as informações pessoais que uma organização coleta, processa e armazena sobre seus clientes, fornecedores, funcionários e outras partes interessadas.'
 
     useEffect(() => {
         getList();
@@ -179,7 +182,8 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <h2 className='text-black'>Inventário de Dados Pessoais</h2>
+                    <PopoverTitleIcon label='Inventário de Dados Pessoais' title='Inventário de Dados Pessoais' content={popovercontent}/>
+                    <h2 className='text-black'></h2>
 
                     <CCard>
                         <CCardHeader>

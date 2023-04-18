@@ -4,6 +4,7 @@ import {CButton,CCard,CCardBody,CCardHeader,CCol,CRow,CTable,CModal,CModalHeader
 import {cilCheck,cilX,cilPen, cilLightbulb} from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 import useAPI from '../../../services/api';
+import {PopoverTitleIcon} from '../../../components/popover/PopoverTitleIcon'
 
 export default () => {
     const api = useAPI();
@@ -14,6 +15,8 @@ export default () => {
     const [ tagName, setTagName] = useState('');
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    const popovercontent = 'Área especifica da empresa.(Ex.:Marketing,Vendas, RH, ...)' 
 
     useEffect(() => {
         getList();
@@ -100,9 +103,7 @@ export default () => {
         <>
             <CRow>
                 <CCol>
-                    <CPopover title='Setor' trigger="focus" content="área especifica da empresa.(Ex.:Marketing,Vendas, RH, ...)"placement="right">
-                        <CButton color='text-black' style={{alignItems:'baseline',display:'flex'}} className='d-flex align-items-baseliner border border-0 bg-transparent text-red border-none' shape="rounded-0"><h2 className='text-black'>Setores</h2><CIcon icon={cilLightbulb}  height={15}/></CButton>
-                    </CPopover>
+                    <PopoverTitleIcon title='Setor' content={popovercontent} label='Setores'/>
                     <CCard>
                         <CCardHeader>
                             <CButton style={{backgroundColor: "#2085c7"}} className=" border border-0 rounded-pill text-white" onClick={() => navigate('/lgpdfull/setor/criar')}>
