@@ -16,6 +16,21 @@ export default () => {
     const [ naturalPerson, setNaturalPerson ] = useState(true);
     const [visible, setVisible] = useState(false);
     const [ message, setMessage ] = useState('');
+    const [ phone , setPhone ] = useState();
+    const [ textPhone , setTextPhone ] = useState('inválido');
+    const isValidPhoneRegex = '\(([1-9]{2})\)([9]{1})([0-9]{4})\-([0-9]{4})';
+
+    const validatePhone = (e) => {
+        if (isValidPhoneRegex.test(e)) {
+          setPhone(e.target.value);
+          setTextPhone('Válido');
+          console.log('valido')
+        } else {
+          setPhone(0);
+          setTextPhone('Inválido');
+          console.log('invalido')
+        }
+    };
 
     const handlePostDpo = async () => {
         const convertPerson = Boolean(naturalPerson);
@@ -71,6 +86,9 @@ export default () => {
                         <br></br>
                         <br></br>
                         <CFormInput label='E-mail' type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
+                        <br></br>
+                        <CFormInput label='Celular' type='text' required placeholder='Padrão:(xx)9xxxx-xxxx' value={phone} onChange={validatePhone}></CFormInput>
+                        {textPhone}
                         <br></br>
                 </CForm>
             <br></br>

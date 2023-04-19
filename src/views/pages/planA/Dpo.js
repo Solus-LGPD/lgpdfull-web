@@ -17,12 +17,27 @@ export default () => {
     const [ socialName, setSocialName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ showEditModal, setShowEditModal ] = useState(false);
+    const [ phone , setPhone ] = useState();
+    const [ textPhone , setTextPhone ] = useState('inválido');
+    const isValidPhoneRegex = '\(([1-9]{2})\)([9]{1})([0-9]{4})\-([0-9]{4})';
 
     const popovercontent = 'Responsável por orientar a empresa em relação às melhores práticas para a proteção de dados pessoais'
 
     useEffect(() => {
         getList();
     }, []);
+
+    const validatePhone = (e) => {
+        if (isValidPhoneRegex.test(e)) {
+          setPhone(e.target.value);
+          setTextPhone('Válido');
+          console.log('valido')
+        } else {
+          setPhone(0);
+          setTextPhone('Inválido');
+          console.log('invalido')
+        }
+      };
 
     const handleCloseModal = () => {
         setShowEditModal(false);
@@ -148,15 +163,14 @@ export default () => {
                 <CModalHeader closeButton>Editar DPO</CModalHeader>
                 <CModalBody>
                     <CForm>
-                        <CFormLabel>Nome</CFormLabel>
-                        <CFormInput type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
+                        <CFormInput label='Nome' type='text' required value={firstName} onChange={(e) => setFirstName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CFormLabel>Nome Social ou Nome dos Integrantes do Comitê</CFormLabel>
-                        <CFormInput type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
+                        <CFormInput label='Nome Social ou Nome dos Integrantes do Comitê' type='text' required value={socialName} onChange={(e) => setSocialName(e.target.value)}></CFormInput>
                         <br></br>
-                        <CFormLabel>E-mail</CFormLabel>
-                        <CFormInput type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
+                        <CFormInput label='E-mail' type='text' required value={email} onChange={(e) => setEmail(e.target.value)}></CFormInput>
                         <br></br>
+                        <CFormInput label='Celular' type='text' required value={phone} onChange={validatePhone}></CFormInput>
+                        {textPhone}
                     </CForm>
                 </CModalBody>
                 <CModalFooter>
