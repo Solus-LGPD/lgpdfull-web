@@ -1,4 +1,4 @@
-export function politicaDePrivacidade(companyName,companyEmail, dataArray){
+export function politicaDePrivacidade(companyName,dataArray,dataArrayNot, info, companyEmail ){
 
   const privacyPolicy = {
     content: [
@@ -14,12 +14,9 @@ export function politicaDePrivacidade(companyName,companyEmail, dataArray){
       { ul: dataArray},
       { text: '2.2. Informações não pessoais', style: 'paragraph' },
       { text: 'Também coletamos as seguintes informações não pessoais:', style: 'paragraph' },
-      { ul: [
-        'Tipo de navegador',
-        'Tipo de dispositivo',
-        'Endereço IP',
-        'Páginas visitadas'
-      ]},
+      { ul: 
+        dataArrayNot
+      },
       { text: '3. Uso das informações', style: 'subheader' },
       { text: '3.1. Uso das informações pessoais', style: 'paragraph' },
       { text: 'Usamos as informações pessoais para:', style: 'paragraph' },
@@ -39,7 +36,7 @@ export function politicaDePrivacidade(companyName,companyEmail, dataArray){
       { text: '4.1. Informações pessoais', style: 'paragraph' },
       { text: 'Não divulgamos informações pessoais a terceiros, exceto quando exigido por lei.', style: 'paragraph' },
       { text: '4.2. Informações não pessoais', style: 'paragraph' },
-      { text: 'Podemos divulgar informações não pessoais a terceiros para fins de marketing ou publicidade.', style: 'paragraph' },
+      { text: info , style: 'paragraph' },
       { text: '5. Segurança das informações', style: 'subheader' },
       { text: 'Tomamos medidas de segurança para proteger as informações que coletamos.', style: 'paragraph' },
       { text: '6. Cookies', style: 'subheader' },
