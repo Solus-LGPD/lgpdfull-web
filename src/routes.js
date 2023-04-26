@@ -32,6 +32,7 @@ const Cookies = React.lazy(() => import('./views/pages/planB/chacklistTI/Cookies
 const InformationSecurityPolicy = React.lazy(() => import('./views/pages/planB/chacklistTI/InformationSecurityPolicy'));
 const AwarenessandTraining = React.lazy(() => import('./views/pages/planB/chacklistTI/AwarenessTraining'));
 const Contracts = React.lazy(() => import('./views/pages/planB/chacklistTI/Contracts'));
+const LegitimateInterests = React.lazy(() => import('./views/pages/planB/LIA'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -64,6 +65,7 @@ const routes = [
   { path: '/lgpdfull/checklist/politica-de-seguranca-da-informacao', name: 'Política de Segurança da Informação', element: InformationSecurityPolicy },
   { path: '/lgpdfull/checklist/conscientizacao-e-treinamento', name: 'Conscientização e Treinamento', element: AwarenessandTraining },
   { path: '/lgpdfull/checklist/contratos', name: 'Contratos', element: Contracts },
+  { path: '/lgpdfull/lia', name: 'LIA', element: LegitimateInterests }
 
 ]
 

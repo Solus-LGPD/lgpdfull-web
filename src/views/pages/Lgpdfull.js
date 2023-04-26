@@ -32,7 +32,7 @@ const Lgpdfull = () => {
                 <ButtonCheck href="/lgpdfull/checklist" label='Checklist de TI'/>
                 <ButtonCheck href= "/lgpdfull/politica-de-cookies" label='Cookies'/>
                 <ButtonCheck href="#" label='RIPD' disabled/>
-                <ButtonCheck href="#" label='LIA' disabled/>
+                <ButtonCheck href='/lgpdfull/lia' label='LIA'/>
             </CButtonGroup>
 
             <h5 style={{color: "#2085c7", 'fontSize': '180px'}} className='justify-content-start flex-column h1 d-flex'>C</h5>
