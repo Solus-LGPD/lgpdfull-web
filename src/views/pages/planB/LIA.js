@@ -7,7 +7,7 @@ export default () => {
     const [onceTextLabel,setOnceTextLabel] = useState('');
 
     const [checklist, setChecklist] = useState(new Array(13).fill(false));
-
+    
     const handleCheck = (index) => {
       const updatedChecklist = [...checklist];
       updatedChecklist[index] = !updatedChecklist[index];
