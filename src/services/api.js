@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://api.render.com/deploy/srv-ch95v0dgk4qeoo2ilqv0?key=-_p-wXC_31U"
 // const BASE_URL = "http://192.168.200.226"
 // TESTE const BASE_URL = "http://52.67.124.155"
 
