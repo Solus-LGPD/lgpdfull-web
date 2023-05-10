@@ -31,7 +31,7 @@ const Lgpdfull = () => {
                 <ButtonCheck href="/lgpdfull/termos-de-uso" label='Termos de Uso'/>
                 <ButtonCheck href="/lgpdfull/checklist" label='Checklist de TI'/>
                 <ButtonCheck href= "/lgpdfull/politica-de-cookies" label='Cookies'/>
-                <ButtonCheck href="#" label='RIPD' disabled/>
+                <ButtonCheck href="/lgpdfull/ripd" label='RIPD' disabled/>
                 <ButtonCheck href='/lgpdfull/lia' label='LIA'/>
             </CButtonGroup>
 
